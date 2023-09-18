@@ -1,0 +1,336 @@
+2023-08-31 11:27:41,807 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_oiyqiw","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_oiyqiw"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_oiyqiw has the same configuration as kunpeng-920
+2023-08-31 11:42:53,482 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_ifygqu","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_ifygqu"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_ifygqu has the same configuration as kunpeng-920
+2023-08-31 11:45:32,682 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_wvzlhl","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_wvzlhl"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_wvzlhl has the same configuration as kunpeng-920
+2023-08-31 11:47:07,171 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_qqfigr","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_qqfigr"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_qqfigr has the same configuration as spec-test
+2023-08-31 11:48:52,074 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_bvwtti","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_bvwtti"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_bvwtti has the same configuration as spec-test
+2023-08-31 11:50:37,275 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_wtshxu","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_wtshxu"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_wtshxu has the same configuration as kunpeng-920
+2023-08-31 11:53:32,550 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_frhxfa","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_frhxfa"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_frhxfa has the same configuration as spec-test
+2023-08-31 11:54:46,275 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_exlkps","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_exlkps"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_exlkps has the same configuration as spec-test
+2023-08-31 11:56:10,813 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_ftmyai","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_ftmyai"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_ftmyai has the same configuration as spec-test
+2023-08-31 11:57:09,701 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_ipzwri","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_ipzwri"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_ipzwri has the same configuration as spec-test
+2023-08-31 11:59:18,142 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_lzepgn","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_lzepgn"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_lzepgn has the same configuration as kunpeng-920
+2023-08-31 12:00:51,980 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_migyzd","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_migyzd"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_migyzd has the same configuration as spec-test
+2023-08-31 12:04:13,684 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_pyhwdu","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_pyhwdu"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_pyhwdu has the same configuration as kunpeng-920
+2023-08-31 12:04:25,310 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 12:06:15,865 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_sspgol","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_sspgol"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_sspgol has the same configuration as spec-test
+2023-08-31 12:07:28,119 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_bwqqfn","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_bwqqfn"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_bwqqfn has the same configuration as spec-test
+2023-08-31 14:14:24,979 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_juvhaa","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_juvhaa"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_juvhaa has the same configuration as spec-test
+2023-08-31 14:17:40,684 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_ykwtor","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_ykwtor"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_ykwtor has the same configuration as spec-test
+2023-08-31 14:19:40,065 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_nuvxkt","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_nuvxkt"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_nuvxkt has the same configuration as spec-test
+2023-08-31 14:19:52,094 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 14:23:36,360 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_dryikl","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_dryikl"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_dryikl has the same configuration as kunpeng-920
+2023-08-31 14:23:48,365 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 14:25:31,086 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_byvuzl","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_byvuzl"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_byvuzl has the same configuration as spec-test
+2023-08-31 14:25:43,311 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 14:33:51,080 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_tsbslm","CpuArch":"x86_64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_tsbslm"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_tsbslm has the same configuration as spec-test
+2023-08-31 14:34:03,062 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 14:35:21,978 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_aaanyy","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_aaanyy"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_aaanyy has the same configuration as kunpeng-920
+2023-08-31 14:35:33,894 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 14:51:52,246 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_olkznq","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_olkznq"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_olkznq has the same configuration as kunpeng-920
+2023-08-31 14:52:04,445 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 14:52:27,087 - DEBUG - 发现主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/discovery 
+ Request Method: POST
+2023-08-31 14:54:13,234 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_ubyzxz","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_ubyzxz"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_ubyzxz has the same configuration as kunpeng-920
+2023-08-31 14:54:25,185 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 14:54:49,353 - DEBUG - 发现主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/discovery 
+ Request Method: POST
+2023-08-31 14:54:50,657 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"OK","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist"}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 17:42:16,517 - DEBUG - 获取主机监控信息成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/monitor?ip=172.17.0.5 
+ Request Method: GET
+2023-08-31 17:50:35,211 - DEBUG - 删除主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host?ip=172.17.0.5 
+ Request Method: DELETE
+2023-08-31 17:52:41,048 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_tiknip","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_tiknip"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_tiknip has the same configuration as kunpeng-920
+2023-08-31 17:52:53,009 - DEBUG - 创建主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST
+2023-08-31 17:53:00,589 - DEBUG - 删除主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host?ip=172.17.0.5 
+ Request Method: DELETE
+2023-08-31 17:54:03,139 - DEBUG - 发现主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/discovery 
+ Request Method: POST
+2023-08-31 17:54:04,467 - DEBUG - 创建主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST
+2023-08-31 17:54:42,435 - ERROR - 创建主机规格失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST 
+ RequsetParams: {"Name":"selenium_test_aeabhr","CpuArch":"aarch64","CpuModel":"Kunpeng-920","OS":"CentOS Linux 8","DiskType":"SSD","CpuCores":64,"Memory":190,"Storage":7375,"Notes":"selenium_test_note_aeabhr"} 
+ Status Code: 200 
+ Code: CreateSpec error 
+ Message: selenium_test_aeabhr has the same configuration as kunpeng-920
+2023-08-31 17:54:54,353 - ERROR - 创建主机失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST 
+ RequsetParams: [{"IP":"172.17.0.5","UserName":"root","Password":"tem","SSHPort":22,"CpuArch":"aarch64","CpuModel":"Kunpeng-920","CpuCores":64,"OS":"CentOS Linux 8","Memory":190,"Storage":7375,"DiskType":"SSD","State":"","ErrorDescription":"[30118]host already exists in the resource pool\thost 172.17.0.5 is already exist","Tag":"","Location":"","Stat":"","Status":""}] 
+ Status Code: 200 
+ Code: CreateHost error 
+ Message: [30118]host already exists in the resource pool	host 172.17.0.5 is already exist
+2023-08-31 17:55:22,296 - DEBUG - 删除主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host?ip=172.17.0.5 
+ Request Method: DELETE
+2023-08-31 17:56:25,285 - DEBUG - 发现主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/discovery 
+ Request Method: POST
+2023-08-31 17:56:26,667 - DEBUG - 创建主机成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/host 
+ Request Method: POST
+2023-08-31 18:07:38,995 - DEBUG - 获取主机规格列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?page=1&pageSize=10 
+ Request Method: GET
+2023-08-31 18:07:42,535 - DEBUG - 创建主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST
+2023-08-31 18:18:14,008 - DEBUG - 获取主机规格列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?page=1&pageSize=10 
+ Request Method: GET
+2023-08-31 18:21:20,410 - DEBUG - 获取主机规格列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?page=1&pageSize=10 
+ Request Method: GET
+2023-08-31 18:21:48,476 - DEBUG - 获取主机规格列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?page=1&pageSize=10 
+ Request Method: GET
+2023-08-31 18:21:52,525 - DEBUG - 创建主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST
+2023-08-31 18:21:56,812 - DEBUG - 更新主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: PUT
+2023-08-31 18:30:03,619 - DEBUG - 获取主机规格列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?page=1&pageSize=10 
+ Request Method: GET
+2023-08-31 18:30:05,783 - DEBUG - 删除主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?name=selenium_test_uuncvb 
+ Request Method: DELETE
+2023-08-31 18:30:35,316 - DEBUG - 获取主机规格列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?page=1&pageSize=10 
+ Request Method: GET
+2023-08-31 18:30:39,853 - DEBUG - 创建主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST
+2023-08-31 18:30:51,444 - DEBUG - 更新主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: PUT
+2023-08-31 18:30:54,590 - DEBUG - 删除主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?name=selenium_test_lcchoj 
+ Request Method: DELETE
+2023-08-31 18:44:29,889 - DEBUG - 获取主机规格列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?page=1&pageSize=10 
+ Request Method: GET
+2023-08-31 18:44:34,455 - DEBUG - 创建主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: POST
+2023-08-31 18:44:45,916 - DEBUG - 更新主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec 
+ Request Method: PUT
+2023-08-31 18:44:49,070 - DEBUG - 删除主机规格成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/resource/spec?name=selenium_test_uzxqmi 
+ Request Method: DELETE

@@ -1,0 +1,487 @@
+2023-09-04 10:36:05,211 - ERROR - 登录失败: 
+ Request URL: http://localhost:8200/ajax/login 
+ Request Method: POST 
+ RequsetParams: {"userID":"selenium_test1","password":"123456"} 
+ Status Code: 504  
+ Content: b'Error occured while trying to proxy to: localhost:8200/ajax/login'
+2023-09-04 11:01:42,331 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:01:42,340 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:01:42,347 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:02:41,712 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:02:41,717 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:02:41,721 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:02:49,338 - DEBUG - 创建巡检策略成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/create 
+ Request Method: POST
+2023-09-04 11:02:50,418 - DEBUG - 获取巡检策略详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/workday_policy 
+ Request Method: GET
+2023-09-04 11:09:04,288 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:09:04,295 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:09:04,301 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:09:32,064 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:09:32,069 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:09:32,073 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:09:34,200 - DEBUG - 获取巡检策略详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/s0kNCorgTTsZ 
+ Request Method: GET
+2023-09-04 11:14:20,653 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:14:20,662 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:14:20,684 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:14:22,842 - DEBUG - 获取巡检策略详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/RNK7x24ACNbz 
+ Request Method: GET
+2023-09-04 11:15:00,226 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:15:00,233 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:15:00,239 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:15:02,379 - DEBUG - 获取巡检策略详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/workday_policy 
+ Request Method: GET
+2023-09-04 11:15:58,579 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:15:58,586 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:15:58,592 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:25:54,419 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:25:54,425 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:25:54,433 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:26:54,768 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:26:54,774 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:26:54,779 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:27:52,135 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:27:52,141 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:27:52,146 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:28:54,697 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:28:54,703 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:28:54,709 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:34:20,782 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:34:20,792 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:34:20,799 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 11:36:06,139 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 11:36:06,145 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 11:36:06,152 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:09:05,061 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:09:05,069 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:09:05,075 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:09:12,117 - DEBUG - 创建巡检策略成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/create 
+ Request Method: POST
+2023-09-04 14:09:13,180 - DEBUG - 获取巡检策略详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/workday_policy 
+ Request Method: GET
+2023-09-04 14:12:23,309 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:12:23,329 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:12:23,350 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:12:30,506 - DEBUG - 创建巡检策略成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/create 
+ Request Method: POST
+2023-09-04 14:12:31,571 - DEBUG - 获取巡检策略详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/MzNdUodxk 
+ Request Method: GET
+2023-09-04 14:14:32,547 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:14:32,552 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:14:32,559 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:21:30,110 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:21:30,118 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:21:30,123 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:22:42,973 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:22:42,979 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:22:42,983 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:23:08,404 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:23:08,411 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:23:08,417 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:23:41,783 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:23:41,790 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:23:41,796 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:24:47,103 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:24:47,107 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:24:47,113 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:25:09,825 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:25:09,832 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:25:09,839 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:41:15,211 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-04 14:41:15,223 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-04 14:41:15,244 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 14:41:21,602 - DEBUG - 删除巡检成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/ispt-d820ad9cf8085f39 
+ Request Method: DELETE
+2023-09-04 14:41:24,755 - DEBUG - 删除巡检策略成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/MzNdUodxk 
+ Request Method: DELETE
+2023-09-04 15:08:40,672 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:08:40,688 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:08:40,694 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 15:08:44,723 - DEBUG - 创建参数组模板成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup 
+ Request Method: POST
+2023-09-04 15:20:15,170 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:20:15,184 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:20:15,191 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 15:21:34,349 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:21:34,361 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:21:34,366 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 15:21:39,511 - DEBUG - 创建参数组模板成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup 
+ Request Method: POST
+2023-09-04 15:22:54,124 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:22:54,141 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 15:22:54,146 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 15:22:59,331 - ERROR - 创建参数组模板失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/cluster/ 
+ Request Method: POST 
+ RequsetParams: {"paramGroupID":"","Clusters":[]} 
+ Status Code: 200 
+ Code: GetGroupId error 
+ Message: strconv.ParseInt: parsing "cluster": invalid syntax
+2023-09-04 15:23:09,673 - ERROR - 创建参数组模板失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/cluster/ 
+ Request Method: POST 
+ RequsetParams: {"paramGroupID":"","Clusters":[]} 
+ Status Code: 200  
+ Content: b'{"Data":null,"Message":"strconv.ParseInt: parsing \\"cluster\\": invalid syntax","Code":"GetGroupId error","Success":false}'
+2023-09-04 17:28:26,610 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:28:26,623 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:28:26,628 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:31:40,778 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup 
+ Request Method: GET
+2023-09-04 17:31:42,791 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:33:19,378 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:33:19,394 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:33:19,399 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:34:15,974 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup 
+ Request Method: GET
+2023-09-04 17:34:17,997 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:34:46,824 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:34:46,836 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:34:46,841 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:34:52,117 - DEBUG - 创建参数组模板成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup 
+ Request Method: POST
+2023-09-04 17:36:12,841 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:36:12,852 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:36:12,858 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:46:43,910 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:46:43,926 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:46:43,931 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:49:01,533 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:49:01,548 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:49:01,553 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:49:29,430 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:49:29,444 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:49:29,449 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:57:29,636 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:57:29,651 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:57:29,656 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 17:59:20,180 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:59:20,193 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 17:59:20,202 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 18:01:34,786 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 18:01:34,805 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 18:01:34,811 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 18:04:49,068 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 18:04:49,080 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 18:04:49,085 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 18:06:47,240 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup 
+ Request Method: GET
+2023-09-04 18:06:47,258 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 18:06:47,264 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 18:07:49,011 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 18:07:49,023 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 18:07:49,028 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 19:16:34,023 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:16:34,038 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:16:34,043 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 19:18:28,461 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:18:28,477 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:18:28,483 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 19:19:37,057 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:19:37,069 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:19:37,075 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 19:21:06,817 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:21:06,830 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:21:06,835 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 19:21:57,131 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:21:57,146 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:21:57,153 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-04 19:24:11,293 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:24:11,325 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-04 19:24:11,348 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST

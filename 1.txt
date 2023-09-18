@@ -1,0 +1,5 @@
+NAME:
+告警管理:menu.alert
+告警事件:menu.alert.event
+集群管理:menu.cluster
+巡检管理:menu.inspection

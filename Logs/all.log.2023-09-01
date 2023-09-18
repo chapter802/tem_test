@@ -1,0 +1,108 @@
+2023-09-01 10:42:20,604 - DEBUG - 获取审计配置成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs/option 
+ Request Method: GET
+2023-09-01 10:42:22,847 - DEBUG - 获取审计日志成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs?users=&startTime=2023-08-25+10:42:00&endTime=2023-09-01+10:42:00&page=1&pageSize=10 
+ Request Method: GET
+2023-09-01 10:44:30,582 - DEBUG - 获取审计配置成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs/option 
+ Request Method: GET
+2023-09-01 10:44:32,672 - DEBUG - 获取审计日志成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs?users=&startTime=2023-09-01+07:44:00&endTime=2023-09-01+10:44:00&page=1&pageSize=10 
+ Request Method: GET
+2023-09-01 10:56:49,884 - DEBUG - 获取审计配置成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs/option 
+ Request Method: GET
+2023-09-01 10:56:51,618 - DEBUG - 获取审计日志成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs?users=&startTime=2023-08-31+22:56:00&endTime=2023-09-01+10:56:00&page=1&pageSize=10 
+ Request Method: GET
+2023-09-01 10:56:52,746 - DEBUG - 获取任务流列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/page 
+ Request Method: POST
+2023-09-01 10:57:40,316 - DEBUG - 获取审计配置成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs/option 
+ Request Method: GET
+2023-09-01 10:57:42,058 - DEBUG - 获取审计日志成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/audit/logs?users=&startTime=2023-08-31+22:57:00&endTime=2023-09-01+10:57:00&page=1&pageSize=10 
+ Request Method: GET
+2023-09-01 10:57:43,285 - DEBUG - 获取任务流列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/page 
+ Request Method: POST
+2023-09-01 10:58:18,814 - DEBUG - 获取任务流列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/page 
+ Request Method: POST
+2023-09-01 10:58:19,879 - DEBUG - 获取任务流详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/tkf-b2789f04498cee6b 
+ Request Method: GET
+2023-09-01 11:01:26,079 - DEBUG - 获取任务流列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/page 
+ Request Method: POST
+2023-09-01 11:01:27,210 - DEBUG - 获取任务流详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/tkf-7d3a440ddee1b7d6 
+ Request Method: GET
+2023-09-01 11:07:57,683 - DEBUG - 获取任务流列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/page 
+ Request Method: POST
+2023-09-01 11:07:58,782 - DEBUG - 获取任务流详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/tkf-80f14683a7fab5d8 
+ Request Method: GET
+2023-09-01 11:08:26,476 - DEBUG - 获取任务流列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/page 
+ Request Method: POST
+2023-09-01 11:08:28,554 - DEBUG - 获取任务流详情成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/task/flow/tkf-0cd81f6aae635a6c 
+ Request Method: GET
+2023-09-01 14:55:22,350 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-01 14:55:22,358 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-01 14:55:22,363 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-01 15:09:04,632 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-01 15:09:04,641 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-01 15:09:04,649 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-01 15:09:59,753 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-01 15:09:59,759 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-01 15:09:59,765 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-01 15:33:35,001 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-01 15:33:35,009 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-01 15:33:35,014 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-01 15:36:56,540 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-01 15:36:56,547 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-01 15:36:56,553 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-01 15:37:54,137 - DEBUG - 获取巡检策略列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/policys/page 
+ Request Method: POST
+2023-09-01 15:37:54,142 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-01 15:37:54,147 - DEBUG - 获取集群列表成功: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST

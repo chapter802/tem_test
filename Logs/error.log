@@ -1,0 +1,26 @@
+2023-09-06 14:03:43,521 - ERROR - util.py[:180] - 纳管集群失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/takeover 
+ Request Method: POST 
+ RequsetParams: {"User":{"UserID":"root","Password":"tem"},"Alias":"tidb-64b6c94511d6d05d","Model":"share","remote":{"Host":"127.0.0.1","Port":22,"User":"root","Password":"tem","TiUPHome":"/root/.tiup","ClusterName":"tidb-64b6c94511d6d05d"},"Creator":"selenium_test1"} 
+ Status Code: 200 
+ Code: connect tidb failed 
+ Message: please check user config,Error 1045 (28000): Access denied for user 'root'@'172.17.0.1' (using password: YES)
+2023-09-07 14:11:14,880 - ERROR - util.py[:189] - 登录失败: 
+ Request URL: http://localhost:8200/ajax/login 
+ Request Method: POST 
+ RequsetParams: {"userID":"selenium_test1","password":"123456"} 
+ Status Code: 504  
+ Content: b'Error occured while trying to proxy to: localhost:8200/ajax/login'
+2023-09-07 14:21:46,342 - ERROR - util.py[:189] - 获取日志检索任务ID失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT 
+ RequsetParams: {"Targets":[{"Kind":"PD","IP":"172.17.0.3","Port":2379,"DisplayName":"172.17.0.3:2379"},{"Kind":"TiDB","IP":"172.17.0.3","Port":4000,"DisplayName":"172.17.0.3:4000"},{"Kind":"TiDB","IP":"172.17.0.3","Port":4001,"DisplayName":"172.17.0.3:4001"},{"Kind":"TiKV","IP":"172.17.0.3","Port":20160,"DisplayName":"172.17.0.3:20160"}],"Request":{"StartTime":1694066760000,"EndTime":1694067660000,"MinLevel":1,"Patterns":[""]},"ClusterID":"tidb-64b6c94511d6d05d"} 
+ Status Code: 504  
+ Content: b'Error occured while trying to proxy to: localhost:8200/ajax/api/v1/observe/logsearch/taskgroup'
+2023-09-07 16:16:13,316 - ERROR - util.py[:180] - 扩容集群失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-64b6c94511d6d05d/scale 
+ Request Method: POST 
+ RequsetParams: {"Plan":{"topology":[{"Expect":{"Extra":{"DeployDir":"/tidb-deploy/prometheus-8250","DataDir":"/tidb-data/prometheus-8250","LogDir":"/tidb-deploy/prometheus-8250","Port":8250},"Host":"","resource":{"MachineType":"","Cpu":2,"Memory":4},"Version":"v6.5.0"}}]},"Version":"v6.5.0"} 
+ Status Code: 200 
+ Code: paramscheck 
+ Message: param [Component] must not be empty
