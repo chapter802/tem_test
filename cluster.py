@@ -71,6 +71,11 @@ class TestCluster(object):
                     By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-default')
             except:
                 modalCloseBtn = None
+                
+            try:
+                cusModalCloseBtn = self.driver.find_element( By.NAME, 'cancelBtn')
+            except:
+                cusModalCloseBtn = None
 
             if notiCLoseEle != None:
                 notiCLoseEle.click()
@@ -78,6 +83,8 @@ class TestCluster(object):
                 drawerCusCloseBtn.click()
             elif modalCloseBtn != None:
                 modalCloseBtn.click()
+            elif cusModalCloseBtn != None:
+              cusModalCloseBtn.click()
 
         def webWaitEle(self, locator):
             return WebDriverWait(self.driver, 20, 0.5).until(
@@ -217,7 +224,8 @@ class TestCluster(object):
             else:
                 pass
 
-        self.driver.get('http://172.16.6.62:8080/login')
+        # self.driver.get('http://172.16.6.62:8080/login')
+        self.driver.get('http://localhost:8200/login')
 
         mainWindowHanle = self.driver.current_window_handle
 
@@ -537,6 +545,7 @@ class TestCluster(object):
             self, self.driver, apiDict['queryClusterSlowQueryList'], closeModal)
         # 诊断报告
         perfRadioBtns[2].click()
+        sleep(2)
         selectTimePicker(self, 'reportStartTime')
         selectComp(self, 'rangeStep', 'rangeStep_', rangeStepArr, startDiaLog)
         # 日志检索
@@ -734,19 +743,15 @@ class TestCluster(object):
         randomComponentSelectOption = random.choice(componentSelectOptions)
         randomComponentSelectOption.click()
         sleep(1)
-        webWaitEle(self, (By.NAME, 'topoDrawerConfirmBtn')).click()
+        webWaitEle(self, (By.NAME, 'topoAddCompBtn')).click()
         sleep(1)
-        # 打开预览添加节点弹窗
-        scaleClusterBtn.click()
-        sleep(1)
-        webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-            By.CLASS_NAME, 'ant-btn-primary').click()
+        
+        webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
         sleep(3)
         util.getRequsetInfo1(
             self, self.driver, apiDict['scaleCluster'], closeModal)
-        if isElementExist(self, By.CLASS_NAME, 'ant-modal-footer'):
-            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-                By.CLASS_NAME, 'ant-btn-default').click()
+        if isElementExist(self, By.NAME, 'topoCancelBtn'):
+            webWaitEle(self, (By.NAME, 'cancelBtn')).click()
 
         # 单个集群 - sql editor
         webWaitEle(self, (By.NAME, 'menu.cluster.single.sqleditor')).click()
