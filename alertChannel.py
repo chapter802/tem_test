@@ -19,6 +19,7 @@ apiKeyArr = ['queryAlertChannelList', 'createAlertChannel',
 class TestAlertChannel(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
         self.logger = util.get_logger()
 
     def test(self):
@@ -94,6 +95,7 @@ class TestAlertChannel(object):
         # 新增告警通道
         webWaitEle(self, (
             By.NAME, 'alertChannelAddBtn')).click()
+        sleep(1)
         webWaitEle(self, (
             By.NAME, 'ruleIDs')).click()
         relateAlertRuleDropdown = self.driver.find_element(
