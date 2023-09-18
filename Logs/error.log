@@ -1,0 +1,7 @@
+2023-09-18 17:30:22,564 - ERROR - util.py[:180] - 扩容集群失败: 
+ Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/scale 
+ Request Method: POST 
+ RequsetParams: {"Plan":{"topology":[{"component":"tiflash","Expect":{"Extra":{"StatusPort":8236,"DeployDir":"/tidb-deploy/tiflash-9002","DataDir":"/tidb-data/tiflash-9002","LogDir":"","TCPPort":9002},"Host":"","resource":{"MachineType":"","Cpu":32,"Memory":64},"Version":"v6.5.0","Labels":{}}}]},"Version":"v6.5.0"} 
+ Status Code: 200 
+ Code: UnknowError 
+ Message: cluster tidb-c020f15067007531 is maintained,please wait

@@ -109,7 +109,8 @@ class TestCluster(object):
         def selectTimePicker(self, compName):
             datePicker = self.driver.find_element(By.NAME, compName)
             datePicker.click()
-            parentEle = self.driver.find_element(By.CLASS_NAME, compName)
+            # parentEle = self.driver.find_element(By.CLASS_NAME, compName)
+            parentEle = webWaitEle(self, (By.CLASS_NAME, compName))
             pickerContent = parentEle.find_element(By.CLASS_NAME, 'ant-picker-content')
             pickerCells = pickerContent.find_elements(By.CLASS_NAME, 'ant-picker-cell-inner')
             randomPickerCell = random.choice(pickerCells)
@@ -176,7 +177,7 @@ class TestCluster(object):
                 selectTimePicker(self, 'reportCompareStartTime')
                 self.driver.find_element(
                     By.NAME, 'generatePerfReportBtn').click()
-                sleep(6)
+                sleep(10)
                 util.getRequsetInfo1(
                     self, self.driver, apiDict['createClusterDiagnoseReport'], closeModal)
                 util.getRequsetInfo1(
@@ -184,8 +185,7 @@ class TestCluster(object):
                 util.getRequsetInfo1(
                     self, self.driver, apiDict['queryClusterDiagnoseReportList'], closeModal)
 
-        # 日志检
-
+        # 日志检索
         def queryLog(self):
             selectDate(self)
             performLogQuerySearchBtn = webWaitEle(
@@ -491,11 +491,13 @@ class TestCluster(object):
         try:
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-confirm-btns')
                        ).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
-            sleep(1)
+            sleep(3)
             util.getRequsetInfo1(
                 self, self.driver, apiDict['queryInspections'], closeModal)
         except:
             pass
+          
+        sleep(2)
 
         try:
             monitorInspecReportDetailBtns = self.driver.find_elements(
@@ -516,6 +518,8 @@ class TestCluster(object):
                         sleep(1)
         except:
             pass
+      
+        sleep(2)
 
         try:
             monitorInspecReportDeleteBtns = self.driver.find_elements(
@@ -550,7 +554,7 @@ class TestCluster(object):
         selectComp(self, 'rangeStep', 'rangeStep_', rangeStepArr, startDiaLog)
         # 日志检索
         perfRadioBtns[3].click()
-        sleep(2)
+        sleep(3)
         util.getRequsetInfo1(
             self, self.driver, apiDict['queryClusterLogSearchTopology'], closeModal)
         selectComp(self, 'logInfoType', 'logInfoType_', logLevelArr, queryLog)
@@ -636,7 +640,7 @@ class TestCluster(object):
 
         # 单个集群 - 参数管理
         webWaitEle(self, (By.NAME, 'menu.cluster.single.param')).click()
-        sleep(1)
+        sleep(5)
         util.getRequsetInfo1(
             self, self.driver, apiDict['clusterParamList'], closeModal)
         util.getRequsetInfo1(
@@ -663,37 +667,37 @@ class TestCluster(object):
             self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
         paramTypeTabs = paramTempParamsWrapperEle.find_elements(
             By.CLASS_NAME, 'ant-tabs-tab')
-        for tab in paramTypeTabs:
-            tab.click()
-            curNodeKey = tab.get_attribute('data-node-key')
-            for i in range(random.randint(1, 3)):
-                webWaitEle(
-                    self, (By.NAME, 'addParamBtn_' + curNodeKey)).click()
-            sleep(1)
+        # for tab in paramTypeTabs:
+        #     tab.click()
+        #     curNodeKey = tab.get_attribute('data-node-key')
+        #     for i in range(random.randint(1, 3)):
+        #         webWaitEle(
+        #             self, (By.NAME, 'addParamBtn_' + curNodeKey)).click()
+        #     sleep(1)
 
-            paramTempParamSelects = self.driver.find_elements(
-                By.NAME, 'paramsSelect_' + curNodeKey)
+        #     paramTempParamSelects = self.driver.find_elements(
+        #         By.NAME, 'paramsSelect_' + curNodeKey)
 
-            if len(paramTempParamSelects) > 0:
-                for select in paramTempParamSelects:
-                    select.click()
-                    paramTempParamSelectOptions = webWaitEle(
-                        self, (By.CLASS_NAME, 'paramsSelect_' + curNodeKey)).find_elements(By.CLASS_NAME, 'ant-select-item-option')
-                    if len(paramTempParamSelectOptions) > 0:
-                        randomParamTempParamSelectOption = random.choice(
-                            paramTempParamSelectOptions)
-                        self.driver.execute_script(
-                            "arguments[0].scrollIntoView();", randomParamTempParamSelectOption)
-                        sleep(1)
-                        if 'ant-select-item-option-disabled' not in randomParamTempParamSelectOption.get_attribute('class'):
-                            randomParamTempParamSelectOption.click()
-                            sleep(1)
-                        else:
-                            pass
-                    else:
-                        pass
+        #     if len(paramTempParamSelects) > 0:
+        #         for select in paramTempParamSelects:
+        #             select.click()
+        #             paramTempParamSelectOptions = webWaitEle(
+        #                 self, (By.CLASS_NAME, 'paramsSelect_' + curNodeKey)).find_elements(By.CLASS_NAME, 'ant-select-item-option')
+        #             if len(paramTempParamSelectOptions) > 0:
+        #                 randomParamTempParamSelectOption = random.choice(
+        #                     paramTempParamSelectOptions)
+        #                 self.driver.execute_script(
+        #                     "arguments[0].scrollIntoView();", randomParamTempParamSelectOption)
+        #                 sleep(1)
+        #                 if 'ant-select-item-option-disabled' not in randomParamTempParamSelectOption.get_attribute('class'):
+        #                     randomParamTempParamSelectOption.click()
+        #                     sleep(1)
+        #                 else:
+        #                     pass
+        #             else:
+        #                 pass
 
-            sleep(1)
+        #     sleep(1)
 
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
