@@ -23,7 +23,7 @@ class TestAudit(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):

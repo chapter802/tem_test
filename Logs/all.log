@@ -1,192 +1,609 @@
-2023-09-18 10:43:33,489 - DEBUG - 获取集群列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+2023-09-18 10:27:03,933 - DEBUG - 获取告警通道列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/channels 
  Request Method: POST
-2023-09-18 10:43:33,505 - DEBUG - 获取集群 top 信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tops 
- Request Method: GET
-2023-09-18 10:43:33,516 - DEBUG - 获取集群 top 告警信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/top/3/cluster 
- Request Method: GET
-2023-09-18 10:43:33,529 - DEBUG - 获取集群性能概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/tidbs/tidb-f91e1f860d360502/query/load 
- Request Method: GET
-2023-09-18 10:43:33,542 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
+2023-09-18 10:27:06,096 - DEBUG - 获取告警通道列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/channels 
  Request Method: POST
-2023-09-18 10:43:33,555 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
+2023-09-18 10:33:07,639 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
  Request Method: POST
-2023-09-18 10:43:35,783 - DEBUG - 获取集群信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
+2023-09-18 10:33:07,646 - DEBUG - 获取集群 top 信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tops 
  Request Method: GET
-2023-09-18 10:43:35,796 - DEBUG - 获取集群实例信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
+2023-09-18 10:33:07,652 - DEBUG - 获取集群 top 告警信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/top/3/cluster 
  Request Method: GET
-2023-09-18 10:43:35,807 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
+2023-09-18 10:33:07,658 - DEBUG - 获取集群性能概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/tidbs/tidb-80cd41af4613f925/query/load 
+ Request Method: GET
+2023-09-18 10:33:07,663 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
  Request Method: POST
-2023-09-18 10:43:35,819 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
+2023-09-18 10:33:07,667 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
  Request Method: POST
-2023-09-18 10:43:38,098 - DEBUG - 获取备份任务列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/br/tasks?ClusterID=tidb-c020f15067007531&CurrentPage=1&PageSize=10&Type=4 
+2023-09-18 10:33:09,825 - DEBUG - 获取集群信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
  Request Method: GET
-2023-09-18 10:43:38,107 - DEBUG - 获取备份策略详情成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/br/policy?ClusterID=tidb-c020f15067007531 
+2023-09-18 10:33:09,833 - DEBUG - 获取集群实例信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
  Request Method: GET
-2023-09-18 10:43:38,117 - DEBUG - 获取集群列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+2023-09-18 10:33:09,841 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
  Request Method: POST
-2023-09-18 10:54:54,225 - DEBUG - 获取集群列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+2023-09-18 10:33:09,847 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
  Request Method: POST
-2023-09-18 10:54:54,235 - DEBUG - 获取集群 top 信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tops 
- Request Method: GET
-2023-09-18 10:54:54,242 - DEBUG - 获取集群 top 告警信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/top/3/cluster 
- Request Method: GET
-2023-09-18 10:54:54,255 - DEBUG - 获取集群性能概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/tidbs/tidb-f91e1f860d360502/query/load 
- Request Method: GET
-2023-09-18 10:54:54,262 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
+2023-09-18 10:33:10,941 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
  Request Method: POST
-2023-09-18 10:54:54,271 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
+2023-09-18 10:33:13,018 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
  Request Method: POST
-2023-09-18 10:54:56,473 - DEBUG - 获取集群信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
- Request Method: GET
-2023-09-18 10:54:56,487 - DEBUG - 获取集群实例信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
- Request Method: GET
-2023-09-18 10:54:56,501 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
+2023-09-18 10:33:15,087 - DEBUG - 获取巡检报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/page 
  Request Method: POST
-2023-09-18 10:54:56,512 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
+2023-09-18 10:33:18,221 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/inspections/page 
  Request Method: POST
-2023-09-18 10:54:58,689 - DEBUG - 获取备份任务列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/br/tasks?ClusterID=tidb-c020f15067007531&CurrentPage=1&PageSize=10&Type=4 
+2023-09-18 10:33:20,298 - DEBUG - 获取集群巡检报告详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1694973605 
  Request Method: GET
-2023-09-18 10:54:58,701 - DEBUG - 获取备份策略详情成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/br/policy?ClusterID=tidb-c020f15067007531 
- Request Method: GET
-2023-09-18 10:54:58,709 - DEBUG - 获取集群列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
+2023-09-18 10:33:28,531 - DEBUG - 删除巡检报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1695004397 
+ Request Method: DELETE
+2023-09-18 10:33:29,646 - DEBUG - 获取集群 top sql 列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/topsql/list 
  Request Method: POST
-2023-09-18 10:55:16,141 - DEBUG - 集群恢复-测试成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/undefined/detect 
+2023-09-18 10:33:31,730 - DEBUG - 获取集群慢查询列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/slowquery/lists 
  Request Method: POST
-2023-09-18 10:55:18,274 - DEBUG - 恢复集群成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/br/restore 
- Request Method: POST
-2023-09-18 10:55:23,643 - DEBUG - 获取集群信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
- Request Method: GET
-2023-09-18 10:55:23,669 - DEBUG - 获取集群实例信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
- Request Method: GET
-2023-09-18 10:55:23,695 - DEBUG - 获取主机配置成功: 
- Request URL: http://localhost:8200/ajax/api/v1/resource/option?ClusterID=tidb-c020f15067007531 
- Request Method: GET
-2023-09-18 10:55:23,725 - DEBUG - 获取主机列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/resource/host?Status=Online&Stat=LoadLess&Arch=aarch64 
- Request Method: GET
-2023-09-18 10:55:30,069 - DEBUG - 获取元数据成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/sqleditor/clusters/tidb-c020f15067007531/meta 
- Request Method: GET
-2023-09-18 10:55:30,100 - DEBUG - 获取SQL语句历史成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/sqleditor/statements?clusterID=tidb-c020f15067007531&userID=selenium_test1 
- Request Method: GET
-2023-09-18 10:55:50,124 - DEBUG - 获取集群列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
- Request Method: POST
-2023-09-18 10:55:50,134 - DEBUG - 获取集群 top 信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tops 
- Request Method: GET
-2023-09-18 10:55:50,142 - DEBUG - 获取集群 top 告警信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/top/3/cluster 
- Request Method: GET
-2023-09-18 10:55:50,155 - DEBUG - 获取集群性能概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/tidbs/tidb-80cd41af4613f925/query/load 
- Request Method: GET
-2023-09-18 10:55:50,165 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
- Request Method: POST
-2023-09-18 10:55:50,172 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
- Request Method: POST
-2023-09-18 10:55:52,385 - DEBUG - 获取集群信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
- Request Method: GET
-2023-09-18 10:55:52,395 - DEBUG - 获取集群实例信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
- Request Method: GET
-2023-09-18 10:55:52,406 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
- Request Method: POST
-2023-09-18 10:55:52,420 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
- Request Method: POST
-2023-09-18 10:55:53,608 - DEBUG - 获取集群 top sql 列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/topsql/list 
- Request Method: POST
-2023-09-18 10:55:55,702 - DEBUG - 获取集群慢查询列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/slowquery/lists 
- Request Method: POST
-2023-09-18 10:56:15,122 - DEBUG - 创建集群诊断报告成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/diagnose/reports 
+2023-09-18 10:33:50,897 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
  Request Method: PUT
-2023-09-18 10:56:17,178 - DEBUG - 获取集群诊断报告列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/diagnose/reports/40eb1113-d422-46df-80c4-28f1de8f249c/status 
+2023-09-18 10:33:52,943 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/fdec6000-7762-4261-b3ea-06f80d6dd3ad/status 
  Request Method: POST
-2023-09-18 11:03:33,993 - DEBUG - 获取集群列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/page 
- Request Method: POST
-2023-09-18 11:03:34,000 - DEBUG - 获取集群 top 信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tops 
- Request Method: GET
-2023-09-18 11:03:34,006 - DEBUG - 获取集群 top 告警信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/top/3/cluster 
- Request Method: GET
-2023-09-18 11:03:34,014 - DEBUG - 获取集群性能概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/dms/tidbs/tidb-80cd41af4613f925/query/load 
- Request Method: GET
-2023-09-18 11:03:34,019 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
- Request Method: POST
-2023-09-18 11:03:34,028 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
- Request Method: POST
-2023-09-18 11:03:36,240 - DEBUG - 获取集群信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
- Request Method: GET
-2023-09-18 11:03:36,253 - DEBUG - 获取集群实例信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
- Request Method: GET
-2023-09-18 11:03:36,267 - DEBUG - 获取集群告警概览成功: 
- Request URL: http://localhost:8200/ajax/api/v1/observe/alert/event/cluster/summary 
- Request Method: POST
-2023-09-18 11:03:36,280 - DEBUG - 获取集群监控指标信息成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/metrics/query 
- Request Method: POST
-2023-09-18 11:03:37,468 - DEBUG - 获取集群 top sql 列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/topsql/list 
- Request Method: POST
-2023-09-18 11:03:39,570 - DEBUG - 获取集群慢查询列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/slowquery/lists 
- Request Method: POST
-2023-09-18 11:03:59,527 - DEBUG - 创建集群诊断报告成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/diagnose/reports 
+2023-09-18 10:34:24,921 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
  Request Method: PUT
-2023-09-18 11:04:01,585 - DEBUG - 获取集群诊断报告列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/diagnose/reports/6a98f428-fcc7-4dbd-902f-d5ebc865c364/status 
+2023-09-18 10:34:26,967 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/c94f75fc-73f7-4c3d-95d6-257c726a8f60/status 
  Request Method: POST
-2023-09-18 11:04:34,330 - DEBUG - 创建集群诊断报告成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/diagnose/reports 
+2023-09-18 10:36:12,119 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 10:36:12,125 - DEBUG - 获取集群 top 信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tops 
+ Request Method: GET
+2023-09-18 10:36:12,132 - DEBUG - 获取集群 top 告警信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/top/3/cluster 
+ Request Method: GET
+2023-09-18 10:36:12,137 - DEBUG - 获取集群性能概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/tidbs/tidb-3d98cef6b3a00b6f/query/load 
+ Request Method: GET
+2023-09-18 10:36:12,142 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:36:12,148 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:36:14,285 - DEBUG - 获取集群信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
+ Request Method: GET
+2023-09-18 10:36:14,291 - DEBUG - 获取集群实例信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
+ Request Method: GET
+2023-09-18 10:36:14,296 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:36:14,301 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:36:15,392 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:36:17,481 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:36:19,564 - DEBUG - 获取巡检报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/page 
+ Request Method: POST
+2023-09-18 10:36:22,708 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-18 10:36:24,783 - DEBUG - 获取集群巡检报告详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1694973605 
+ Request Method: GET
+2023-09-18 10:36:33,016 - DEBUG - 删除巡检报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1695004581 
+ Request Method: DELETE
+2023-09-18 10:36:34,132 - DEBUG - 获取集群 top sql 列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/topsql/list 
+ Request Method: POST
+2023-09-18 10:36:36,223 - DEBUG - 获取集群慢查询列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/slowquery/lists 
+ Request Method: POST
+2023-09-18 10:36:55,430 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
  Request Method: PUT
-2023-09-18 11:04:36,419 - DEBUG - 获取集群诊断报告列表成功: 
- Request URL: http://localhost:8200/ajax/api/v1/cluster/diagnose/reports/3e6032d6-bcee-4fd7-9940-455b3f87e659/status 
+2023-09-18 10:36:57,472 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/b91f18f5-6b7d-48a4-b78b-9a37a683ce37/status 
  Request Method: POST
+2023-09-18 10:37:29,403 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
+ Request Method: PUT
+2023-09-18 10:37:31,456 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/4a386343-c08d-4b1e-9d35-5c7321cdba44/status 
+ Request Method: POST
+2023-09-18 10:38:03,388 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
+ Request Method: PUT
+2023-09-18 10:38:05,440 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/39facc1d-a71b-4b40-a1ba-765fafc5b9f5/status 
+ Request Method: POST
+2023-09-18 10:38:37,427 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
+ Request Method: PUT
+2023-09-18 10:38:39,484 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/a10cdd9c-d594-4020-aa3d-9bcbe7ab56a3/status 
+ Request Method: POST
+2023-09-18 10:38:41,606 - DEBUG - 获取日志检索拓扑成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/topology 
+ Request Method: POST
+2023-09-18 10:38:49,572 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 10:38:49,586 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/1 
+ Request Method: POST
+2023-09-18 10:38:49,615 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/1/preview 
+ Request Method: POST
+2023-09-18 10:38:53,269 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/1/retry 
+ Request Method: POST
+2023-09-18 10:39:20,881 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 10:39:20,897 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/2/preview 
+ Request Method: POST
+2023-09-18 10:39:20,911 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/2/preview 
+ Request Method: POST
+2023-09-18 10:39:24,578 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/2/retry 
+ Request Method: POST
+2023-09-18 10:39:52,119 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 10:39:52,134 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/3/preview 
+ Request Method: POST
+2023-09-18 10:39:52,150 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/3/preview 
+ Request Method: POST
+2023-09-18 10:39:55,866 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/3/retry 
+ Request Method: POST
+2023-09-18 10:40:23,402 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 10:40:23,418 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/4/preview 
+ Request Method: POST
+2023-09-18 10:40:23,434 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/4/preview 
+ Request Method: POST
+2023-09-18 10:40:27,086 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/4/retry 
+ Request Method: POST
+2023-09-18 10:40:54,655 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 10:40:54,671 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/5/preview 
+ Request Method: POST
+2023-09-18 10:40:54,687 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/5/preview 
+ Request Method: POST
+2023-09-18 10:40:58,402 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/5/retry 
+ Request Method: POST
+2023-09-18 10:41:00,718 - DEBUG - 获取备份任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/br/tasks?ClusterID=tidb-c020f15067007531&CurrentPage=1&PageSize=10&Type=4 
+ Request Method: GET
+2023-09-18 10:41:00,742 - DEBUG - 获取备份策略详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/br/policy?ClusterID=tidb-c020f15067007531 
+ Request Method: GET
+2023-09-18 10:41:00,761 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 10:41:03,150 - DEBUG - 备份集群成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/br/backup 
+ Request Method: POST
+2023-09-18 10:46:25,786 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 10:46:25,791 - DEBUG - 获取集群 top 信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tops 
+ Request Method: GET
+2023-09-18 10:46:25,795 - DEBUG - 获取集群 top 告警信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/top/3/cluster 
+ Request Method: GET
+2023-09-18 10:46:27,820 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:46:27,829 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:46:29,977 - DEBUG - 获取集群信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
+ Request Method: GET
+2023-09-18 10:46:29,984 - DEBUG - 获取集群实例信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
+ Request Method: GET
+2023-09-18 10:46:29,989 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:46:29,994 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:46:31,086 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:46:33,165 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:46:35,251 - DEBUG - 获取巡检报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/page 
+ Request Method: POST
+2023-09-18 10:46:38,397 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-18 10:46:40,483 - DEBUG - 获取集群巡检报告详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1694973605 
+ Request Method: GET
+2023-09-18 10:46:48,726 - DEBUG - 删除巡检报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1695005197 
+ Request Method: DELETE
+2023-09-18 10:46:49,833 - DEBUG - 获取集群 top sql 列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/topsql/list 
+ Request Method: POST
+2023-09-18 10:46:51,924 - DEBUG - 获取集群慢查询列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/slowquery/lists 
+ Request Method: POST
+2023-09-18 10:47:36,972 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 10:47:36,977 - DEBUG - 获取集群 top 信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tops 
+ Request Method: GET
+2023-09-18 10:47:36,982 - DEBUG - 获取集群 top 告警信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/top/3/cluster 
+ Request Method: GET
+2023-09-18 10:47:36,986 - DEBUG - 获取集群性能概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/tidbs/tidb-f91e1f860d360502/query/load 
+ Request Method: GET
+2023-09-18 10:47:36,991 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:47:36,995 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:47:39,151 - DEBUG - 获取集群信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
+ Request Method: GET
+2023-09-18 10:47:39,156 - DEBUG - 获取集群实例信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
+ Request Method: GET
+2023-09-18 10:47:39,161 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:47:39,166 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:47:40,262 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:47:42,348 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:47:44,431 - DEBUG - 获取巡检报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/page 
+ Request Method: POST
+2023-09-18 10:47:47,574 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-18 10:47:49,657 - DEBUG - 获取集群巡检报告详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1694973605 
+ Request Method: GET
+2023-09-18 10:47:57,888 - DEBUG - 删除巡检报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1695005266 
+ Request Method: DELETE
+2023-09-18 10:47:59,004 - DEBUG - 获取集群 top sql 列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/topsql/list 
+ Request Method: POST
+2023-09-18 10:48:01,085 - DEBUG - 获取集群慢查询列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/slowquery/lists 
+ Request Method: POST
+2023-09-18 10:48:53,283 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 10:48:53,288 - DEBUG - 获取集群 top 信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tops 
+ Request Method: GET
+2023-09-18 10:48:53,292 - DEBUG - 获取集群 top 告警信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/top/3/cluster 
+ Request Method: GET
+2023-09-18 10:48:53,296 - DEBUG - 获取集群性能概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/tidbs/tidb-3d98cef6b3a00b6f/query/load 
+ Request Method: GET
+2023-09-18 10:48:53,301 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:48:53,305 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:48:55,456 - DEBUG - 获取集群信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
+ Request Method: GET
+2023-09-18 10:48:55,462 - DEBUG - 获取集群实例信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
+ Request Method: GET
+2023-09-18 10:48:55,468 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:48:55,474 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:48:56,567 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:48:58,661 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:49:00,749 - DEBUG - 获取巡检报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/page 
+ Request Method: POST
+2023-09-18 10:49:03,881 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-18 10:49:05,945 - DEBUG - 获取集群巡检报告详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1694973605 
+ Request Method: GET
+2023-09-18 10:49:14,184 - DEBUG - 删除巡检报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1695005343 
+ Request Method: DELETE
+2023-09-18 10:49:15,294 - DEBUG - 获取集群 top sql 列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/topsql/list 
+ Request Method: POST
+2023-09-18 10:49:17,396 - DEBUG - 获取集群慢查询列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/slowquery/lists 
+ Request Method: POST
+2023-09-18 10:56:36,544 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 10:56:36,551 - DEBUG - 获取集群 top 信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tops 
+ Request Method: GET
+2023-09-18 10:56:36,556 - DEBUG - 获取集群 top 告警信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/top/3/cluster 
+ Request Method: GET
+2023-09-18 10:56:36,561 - DEBUG - 获取集群性能概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/tidbs/tidb-f91e1f860d360502/query/load 
+ Request Method: GET
+2023-09-18 10:56:36,566 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:56:36,571 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:56:38,726 - DEBUG - 获取集群信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
+ Request Method: GET
+2023-09-18 10:56:38,732 - DEBUG - 获取集群实例信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
+ Request Method: GET
+2023-09-18 10:56:38,737 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 10:56:38,743 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:56:39,833 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:56:41,923 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 10:56:44,004 - DEBUG - 获取巡检报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/page 
+ Request Method: POST
+2023-09-18 10:56:47,148 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-18 10:56:49,219 - DEBUG - 获取集群巡检报告详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1694973605 
+ Request Method: GET
+2023-09-18 10:56:57,429 - DEBUG - 删除巡检报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1695005806 
+ Request Method: DELETE
+2023-09-18 10:56:58,548 - DEBUG - 获取集群 top sql 列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/topsql/list 
+ Request Method: POST
+2023-09-18 10:57:00,640 - DEBUG - 获取集群慢查询列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/slowquery/lists 
+ Request Method: POST
+2023-09-18 11:10:13,283 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 11:10:13,288 - DEBUG - 获取集群 top 信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tops 
+ Request Method: GET
+2023-09-18 11:10:13,292 - DEBUG - 获取集群 top 告警信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/top/3/cluster 
+ Request Method: GET
+2023-09-18 11:10:13,296 - DEBUG - 获取集群性能概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/tidbs/tidb-8d0ad5d27fa9b9b5/query/load 
+ Request Method: GET
+2023-09-18 11:10:13,301 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 11:10:13,305 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 11:10:15,457 - DEBUG - 获取集群信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/detail 
+ Request Method: GET
+2023-09-18 11:10:15,464 - DEBUG - 获取集群实例信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/instances 
+ Request Method: GET
+2023-09-18 11:10:15,470 - DEBUG - 获取集群告警概览成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/alert/event/cluster/summary 
+ Request Method: POST
+2023-09-18 11:10:15,476 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 11:10:16,568 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 11:10:18,641 - DEBUG - 获取集群监控指标信息成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/metrics/query 
+ Request Method: POST
+2023-09-18 11:10:20,708 - DEBUG - 获取巡检报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/page 
+ Request Method: POST
+2023-09-18 11:10:23,823 - DEBUG - 获取巡检列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/inspections/page 
+ Request Method: POST
+2023-09-18 11:10:25,910 - DEBUG - 获取集群巡检报告详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1694973605 
+ Request Method: GET
+2023-09-18 11:10:34,158 - DEBUG - 删除巡检报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/inspect/reports/rpt-ispt-60ed9e0e6f15c058-1695006622 
+ Request Method: DELETE
+2023-09-18 11:10:35,281 - DEBUG - 获取集群 top sql 列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/topsql/list 
+ Request Method: POST
+2023-09-18 11:10:37,374 - DEBUG - 获取集群慢查询列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/slowquery/lists 
+ Request Method: POST
+2023-09-18 11:10:56,643 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
+ Request Method: PUT
+2023-09-18 11:10:58,683 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/e3add58c-91a5-4339-be7d-2e132d5a5817/status 
+ Request Method: POST
+2023-09-18 11:11:30,680 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
+ Request Method: PUT
+2023-09-18 11:11:32,734 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/c14573c7-051e-40b7-9bd5-94903810beda/status 
+ Request Method: POST
+2023-09-18 11:12:04,752 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
+ Request Method: PUT
+2023-09-18 11:12:06,809 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/94f269d4-bd51-4317-afcf-18b6b521411c/status 
+ Request Method: POST
+2023-09-18 11:12:38,929 - DEBUG - 创建集群诊断报告成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports 
+ Request Method: PUT
+2023-09-18 11:12:40,985 - DEBUG - 获取集群诊断报告列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/diagnose/reports/4f0377c6-71af-4e7d-8ada-7957a92f0416/status 
+ Request Method: POST
+2023-09-18 11:12:43,122 - DEBUG - 获取日志检索拓扑成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/topology 
+ Request Method: POST
+2023-09-18 11:12:51,095 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 11:12:51,108 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/6 
+ Request Method: POST
+2023-09-18 11:12:51,123 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/6/preview 
+ Request Method: POST
+2023-09-18 11:12:54,812 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/6/retry 
+ Request Method: POST
+2023-09-18 11:13:22,356 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 11:13:22,371 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/7/preview 
+ Request Method: POST
+2023-09-18 11:13:22,385 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/7/preview 
+ Request Method: POST
+2023-09-18 11:13:26,178 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/7/retry 
+ Request Method: POST
+2023-09-18 11:13:53,737 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 11:13:53,752 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/8/preview 
+ Request Method: POST
+2023-09-18 11:13:53,768 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/8/preview 
+ Request Method: POST
+2023-09-18 11:13:57,303 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/8/retry 
+ Request Method: POST
+2023-09-18 11:14:24,889 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 11:14:24,906 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/9/preview 
+ Request Method: POST
+2023-09-18 11:14:24,924 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/9/preview 
+ Request Method: POST
+2023-09-18 11:14:28,462 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/9/retry 
+ Request Method: POST
+2023-09-18 11:14:56,003 - DEBUG - 获取日志检索任务ID成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroup 
+ Request Method: PUT
+2023-09-18 11:14:56,019 - DEBUG - 获取日志检索任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/10/preview 
+ Request Method: POST
+2023-09-18 11:14:56,035 - DEBUG - 获取日志检索列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/10/preview 
+ Request Method: POST
+2023-09-18 11:14:59,789 - DEBUG - 重试日志检索任务成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/observe/logsearch/taskgroups/10/retry 
+ Request Method: POST
+2023-09-18 11:15:02,118 - DEBUG - 获取备份任务列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/br/tasks?ClusterID=tidb-c020f15067007531&CurrentPage=1&PageSize=10&Type=4 
+ Request Method: GET
+2023-09-18 11:15:02,142 - DEBUG - 获取备份策略详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/br/policy?ClusterID=tidb-c020f15067007531 
+ Request Method: GET
+2023-09-18 11:15:02,160 - DEBUG - 获取集群列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/page 
+ Request Method: POST
+2023-09-18 11:15:04,533 - DEBUG - 备份集群成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/br/backup 
+ Request Method: POST
+2023-09-18 11:15:22,352 - DEBUG - 集群恢复-测试成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/undefined/detect 
+ Request Method: POST
+2023-09-18 11:15:24,452 - DEBUG - 恢复集群成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/dms/br/restore 
+ Request Method: POST
+2023-09-18 11:15:26,551 - DEBUG - 获取集群参数列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/tidbs/tidb-c020f15067007531/config 
+ Request Method: GET
+2023-09-18 11:15:26,572 - DEBUG - 获取参数组模板详情成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-18 11:15:26,594 - DEBUG - 获取参数组模板参数成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/paramgroup/params 
+ Request Method: GET
+2023-09-18 11:15:28,923 - DEBUG - 获取参数组模板列表成功: 
+ Request URL: http://172.16.6.62:8080/ajax/api/v1/cluster/paramgroup 
+ Request Method: GET

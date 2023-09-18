@@ -103,14 +103,12 @@ class TestCluster(object):
             datePicker = self.driver.find_element(By.NAME, compName)
             datePicker.click()
             parentEle = self.driver.find_element(By.CLASS_NAME, compName)
-            pickerContent = parentEle.find_element(
-                By.CLASS_NAME, 'ant-picker-content')
-            pickerCells = pickerContent.find_elements(
-                By.CLASS_NAME, 'ant-picker-cell-inner')
-            randomCell = random.choice(pickerCells)
+            pickerContent = parentEle.find_element(By.CLASS_NAME, 'ant-picker-content')
+            pickerCells = pickerContent.find_elements(By.CLASS_NAME, 'ant-picker-cell-inner')
+            randomPickerCell = random.choice(pickerCells)
             self.driver.execute_script(
-                "arguments[0].scrollIntoView();", randomCell)
-            randomCell.click()
+                "arguments[0].scrollIntoView();", randomPickerCell)
+            randomPickerCell.click()
 
             timePanel = parentEle.find_element(
                 By.CLASS_NAME, 'ant-picker-time-panel')
@@ -464,66 +462,66 @@ class TestCluster(object):
         for api in clusterOverviewApiKeyArr:
             util.getRequsetInfo1(self, self.driver, apiDict[api], closeModal)
 
-        # # 单个集群 - 监控指标
-        # webWaitEle(self, (By.NAME, 'menu.cluster.single.monitor')).click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['queryClusterMonitorInfo'], closeModal)
-        # monitorBtnWrappers = self.driver.find_elements(
-        #     By.CLASS_NAME, 'ant-radio-button-wrapper')
-        # monitorBtnWrappers[1].click()
-        # sleep(2)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['queryClusterMonitorInfo'], closeModal)
-        # monitorBtnWrappers[2].click()
-        # sleep(2)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['queryInpecReportList'], closeModal)
-        # webWaitEle(self, (By.NAME, 'execInspecBtn')).click()
-        # sleep(2)
-        # # 如果当前集群有应用巡检策略,发起巡检
-        # try:
-        #     webWaitEle(self, (By.CLASS_NAME, 'ant-modal-confirm-btns')
-        #                ).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
-        #     sleep(1)
-        #     util.getRequsetInfo1(
-        #         self, self.driver, apiDict['queryInspections'], closeModal)
-        # except:
-        #     pass
+        # 单个集群 - 监控指标
+        webWaitEle(self, (By.NAME, 'menu.cluster.single.monitor')).click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryClusterMonitorInfo'], closeModal)
+        monitorBtnWrappers = self.driver.find_elements(
+            By.CLASS_NAME, 'ant-radio-button-wrapper')
+        monitorBtnWrappers[1].click()
+        sleep(2)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryClusterMonitorInfo'], closeModal)
+        monitorBtnWrappers[2].click()
+        sleep(2)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryInpecReportList'], closeModal)
+        webWaitEle(self, (By.NAME, 'execInspecBtn')).click()
+        sleep(2)
+        # 如果当前集群有应用巡检策略,发起巡检
+        try:
+            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-confirm-btns')
+                       ).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
+            sleep(1)
+            util.getRequsetInfo1(
+                self, self.driver, apiDict['queryInspections'], closeModal)
+        except:
+            pass
 
-        # try:
-        #     monitorInspecReportDetailBtns = self.driver.find_elements(
-        #         By.NAME, 'monitorInspecReportDetailBtn')
-        #     if len(monitorInspecReportDetailBtns) > 0:
-        #         monitorInspecReportDetailBtns[0].click()
-        #         sleep(2)
-        #         util.getRequsetInfo1(
-        #             self, self.driver, apiDict['queryClusterInspecReportDetail'], closeModal)
-        #         allWIndowsHandles = self.driver.window_handles
-        #         for windowHandle in allWIndowsHandles:
-        #             if windowHandle != mainWindowHanle:
-        #                 self.driver.switch_to.window(windowHandle)
-        #                 sleep(1)
-        #                 self.driver.close()
-        #                 sleep(1)
-        #                 self.driver.switch_to.window(mainWindowHanle)
-        #                 sleep(1)
-        # except:
-        #     pass
+        try:
+            monitorInspecReportDetailBtns = self.driver.find_elements(
+                By.NAME, 'monitorInspecReportDetailBtn')
+            if len(monitorInspecReportDetailBtns) > 0:
+                monitorInspecReportDetailBtns[0].click()
+                sleep(2)
+                util.getRequsetInfo1(
+                    self, self.driver, apiDict['queryClusterInspecReportDetail'], closeModal)
+                allWIndowsHandles = self.driver.window_handles
+                for windowHandle in allWIndowsHandles:
+                    if windowHandle != mainWindowHanle:
+                        self.driver.switch_to.window(windowHandle)
+                        sleep(1)
+                        self.driver.close()
+                        sleep(1)
+                        self.driver.switch_to.window(mainWindowHanle)
+                        sleep(1)
+        except:
+            pass
 
-        # try:
-        #     monitorInspecReportDeleteBtns = self.driver.find_elements(
-        #         By.NAME, 'monitorInspecReportDeleteBtn')
-        #     if len(monitorInspecReportDeleteBtns) > 0:
-        #         monitorInspecReportDeleteBtns[0].click()
-        #         sleep(2)
-        #         webWaitEle(
-        #             self, (By.CSS_SELECTOR, 'div.monitorInspecpopconfirm button:nth-child(2)')).click()
-        #         sleep(3)
-        #         util.getRequsetInfo1(
-        #             self, self.driver, apiDict['deleteClusterInspecReport'], closeModal)
-        # except:
-        #     pass
+        try:
+            monitorInspecReportDeleteBtns = self.driver.find_elements(
+                By.NAME, 'monitorInspecReportDeleteBtn')
+            if len(monitorInspecReportDeleteBtns) > 0:
+                monitorInspecReportDeleteBtns[0].click()
+                sleep(2)
+                webWaitEle(
+                    self, (By.CSS_SELECTOR, 'div.monitorInspecpopconfirm button:nth-child(2)')).click()
+                sleep(3)
+                util.getRequsetInfo1(
+                    self, self.driver, apiDict['deleteClusterInspecReport'], closeModal)
+        except:
+            pass
 
         # 单个集群 - 性能诊断
         webWaitEle(self, (By.NAME, 'menu.cluster.single.performance')).click()
@@ -558,19 +556,19 @@ class TestCluster(object):
         util.getRequsetInfo1(
             self, self.driver, apiDict['clusterList'], closeModal)
 
-        # # 手动备份
-        # webWaitEle(self, (By.NAME, 'manualBackupBtn')).click()
-        # webWaitEle(self, (By.ID, 'Name')).send_keys(
-        #     'selenium_test_' + randomStr)
-        # webWaitEle(self, (By.ID, 'Destination')).send_keys(backupDestination.format(
-        #     randomStr))
-        # webWaitEle(self, (By.ID, 'AccessKeyID')).send_keys(backupAK)
-        # webWaitEle(self, (By.ID, 'SecretAccessKey')).send_keys(backupSK)
-        # webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-        #     By.CLASS_NAME, 'ant-btn-primary').click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['backupCluster'], closeModal)
+        # 手动备份
+        webWaitEle(self, (By.NAME, 'manualBackupBtn')).click()
+        webWaitEle(self, (By.ID, 'Name')).send_keys(
+            'selenium_test_' + randomStr)
+        webWaitEle(self, (By.ID, 'Destination')).send_keys(backupDestination.format(
+            randomStr))
+        webWaitEle(self, (By.ID, 'AccessKeyID')).send_keys(backupAK)
+        webWaitEle(self, (By.ID, 'SecretAccessKey')).send_keys(backupSK)
+        webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+            By.CLASS_NAME, 'ant-btn-primary').click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['backupCluster'], closeModal)
 
         # 备份设置
         webWaitEle(self, (By.NAME, 'backupConfigBtn')).click()
@@ -627,72 +625,72 @@ class TestCluster(object):
                 By.CLASS_NAME, 'ant-btn-default').click()
         sleep(1)
 
-        # # 单个集群 - 参数管理
-        # webWaitEle(self, (By.NAME, 'menu.cluster.single.param')).click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['clusterParamList'], closeModal)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['queryParamTemplateDetail'], closeModal)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['queryParamTemplateParams'], closeModal)
-        # webWaitEle(self, (By.NAME, 'createParamTemBtn')).click()
-        # sleep(1)
-        # webWaitEle(self, (By.NAME, 'paramTempBtn')).click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['queryParamTemplateList'], closeModal)
+        # 单个集群 - 参数管理
+        webWaitEle(self, (By.NAME, 'menu.cluster.single.param')).click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['clusterParamList'], closeModal)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryParamTemplateDetail'], closeModal)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryParamTemplateParams'], closeModal)
+        webWaitEle(self, (By.NAME, 'createParamTemBtn')).click()
+        sleep(1)
+        webWaitEle(self, (By.NAME, 'paramTempBtn')).click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryParamTemplateList'], closeModal)
 
-        # webWaitEle(self, (By.CLASS_NAME, 'paramTempDrawer')).find_element(
-        #     By.CLASS_NAME, 'ant-drawer-close').click()
-        # sleep(1)
+        webWaitEle(self, (By.CLASS_NAME, 'paramTempDrawer')).find_element(
+            By.CLASS_NAME, 'ant-drawer-close').click()
+        sleep(1)
 
-        # webWaitEle(self, (By.ID, 'Name')).send_keys(
-        #     'selenium_test_' + randomStr)
-        # webWaitEle(self, (By.ID, 'Note')).send_keys(
-        #     'selenium_Note_' + randomStr)
+        webWaitEle(self, (By.ID, 'Name')).send_keys(
+            'selenium_test_' + randomStr)
+        webWaitEle(self, (By.ID, 'Note')).send_keys(
+            'selenium_Note_' + randomStr)
 
-        # paramTempParamsWrapperEle = webWaitEle(
-        #     self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
-        # paramTypeTabs = paramTempParamsWrapperEle.find_elements(
-        #     By.CLASS_NAME, 'ant-tabs-tab')
-        # for tab in paramTypeTabs:
-        #     tab.click()
-        #     curNodeKey = tab.get_attribute('data-node-key')
-        #     for i in range(random.randint(1, 3)):
-        #         webWaitEle(
-        #             self, (By.NAME, 'addParamBtn_' + curNodeKey)).click()
-        #     sleep(1)
+        paramTempParamsWrapperEle = webWaitEle(
+            self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
+        paramTypeTabs = paramTempParamsWrapperEle.find_elements(
+            By.CLASS_NAME, 'ant-tabs-tab')
+        for tab in paramTypeTabs:
+            tab.click()
+            curNodeKey = tab.get_attribute('data-node-key')
+            for i in range(random.randint(1, 3)):
+                webWaitEle(
+                    self, (By.NAME, 'addParamBtn_' + curNodeKey)).click()
+            sleep(1)
 
-        #     paramTempParamSelects = self.driver.find_elements(
-        #         By.NAME, 'paramsSelect_' + curNodeKey)
+            paramTempParamSelects = self.driver.find_elements(
+                By.NAME, 'paramsSelect_' + curNodeKey)
 
-        #     if len(paramTempParamSelects) > 0:
-        #         for select in paramTempParamSelects:
-        #             select.click()
-        #             paramTempParamSelectOptions = webWaitEle(
-        #                 self, (By.CLASS_NAME, 'paramsSelect_' + curNodeKey)).find_elements(By.CLASS_NAME, 'ant-select-item-option')
-        #             if len(paramTempParamSelectOptions) > 0:
-        #                 randomParamTempParamSelectOption = random.choice(
-        #                     paramTempParamSelectOptions)
-        #                 self.driver.execute_script(
-        #                     "arguments[0].scrollIntoView();", randomParamTempParamSelectOption)
-        #                 sleep(1)
-        #                 if 'ant-select-item-option-disabled' not in randomParamTempParamSelectOption.get_attribute('class'):
-        #                     randomParamTempParamSelectOption.click()
-        #                     sleep(1)
-        #                 else:
-        #                     pass
-        #             else:
-        #                 pass
+            if len(paramTempParamSelects) > 0:
+                for select in paramTempParamSelects:
+                    select.click()
+                    paramTempParamSelectOptions = webWaitEle(
+                        self, (By.CLASS_NAME, 'paramsSelect_' + curNodeKey)).find_elements(By.CLASS_NAME, 'ant-select-item-option')
+                    if len(paramTempParamSelectOptions) > 0:
+                        randomParamTempParamSelectOption = random.choice(
+                            paramTempParamSelectOptions)
+                        self.driver.execute_script(
+                            "arguments[0].scrollIntoView();", randomParamTempParamSelectOption)
+                        sleep(1)
+                        if 'ant-select-item-option-disabled' not in randomParamTempParamSelectOption.get_attribute('class'):
+                            randomParamTempParamSelectOption.click()
+                            sleep(1)
+                        else:
+                            pass
+                    else:
+                        pass
 
-        #     sleep(1)
+            sleep(1)
 
-        # webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-        #     By.CLASS_NAME, 'ant-btn-primary').click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['createParamTemplate'], closeModal)
+        webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+            By.CLASS_NAME, 'ant-btn-primary').click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['createParamTemplate'], closeModal)
 
         # 单个集群 - 集群拓扑
         webWaitEle(self, (By.NAME, 'menu.cluster.single.topology')).click()
@@ -718,37 +716,37 @@ class TestCluster(object):
             else:
                 pass
 
-        # # 停止节点
-        # operateClusterTopo(self, 'stopTopoNodeBtn',
-        #                    'stopTopoNodePop', 'stopCluster')
-        # # 启动节点
-        # operateClusterTopo(self, 'startTopoNodeBtn',
-        #                    'startTopoNodePop', 'startCluster')
-        # # 重启节点
-        # operateClusterTopo(self, 'restartTopoNodeBtn',
-        #                    'restartTopoNodePop', 'restartCluster')
-        # scaleClusterBtn = webWaitEle(self, (By.NAME, 'scaleClusterBtn'))
-        # scaleClusterBtn.click()
-        # webWaitEle(self, (By.NAME, 'componentSelect')).click()
-        # sleep(1)
-        # componentSelectOptions = webWaitEle(self, (By.CLASS_NAME, 'componentSelect')).find_elements(
-        #     By.CLASS_NAME, 'ant-select-item-option')
-        # randomComponentSelectOption = random.choice(componentSelectOptions)
-        # randomComponentSelectOption.click()
-        # sleep(1)
-        # webWaitEle(self, (By.NAME, 'topoDrawerConfirmBtn')).click()
-        # sleep(1)
-        # # 打开预览添加节点弹窗
-        # scaleClusterBtn.click()
-        # sleep(1)
-        # webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-        #     By.CLASS_NAME, 'ant-btn-primary').click()
-        # sleep(3)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['scaleCluster'], closeModal)
-        # if isElementExist(self, By.CLASS_NAME, 'ant-modal-footer'):
-        #     webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-        #         By.CLASS_NAME, 'ant-btn-default').click()
+        # 停止节点
+        operateClusterTopo(self, 'stopTopoNodeBtn',
+                           'stopTopoNodePop', 'stopCluster')
+        # 启动节点
+        operateClusterTopo(self, 'startTopoNodeBtn',
+                           'startTopoNodePop', 'startCluster')
+        # 重启节点
+        operateClusterTopo(self, 'restartTopoNodeBtn',
+                           'restartTopoNodePop', 'restartCluster')
+        scaleClusterBtn = webWaitEle(self, (By.NAME, 'scaleClusterBtn'))
+        scaleClusterBtn.click()
+        webWaitEle(self, (By.NAME, 'componentSelect')).click()
+        sleep(1)
+        componentSelectOptions = webWaitEle(self, (By.CLASS_NAME, 'componentSelect')).find_elements(
+            By.CLASS_NAME, 'ant-select-item-option')
+        randomComponentSelectOption = random.choice(componentSelectOptions)
+        randomComponentSelectOption.click()
+        sleep(1)
+        webWaitEle(self, (By.NAME, 'topoDrawerConfirmBtn')).click()
+        sleep(1)
+        # 打开预览添加节点弹窗
+        scaleClusterBtn.click()
+        sleep(1)
+        webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+            By.CLASS_NAME, 'ant-btn-primary').click()
+        sleep(3)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['scaleCluster'], closeModal)
+        if isElementExist(self, By.CLASS_NAME, 'ant-modal-footer'):
+            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+                By.CLASS_NAME, 'ant-btn-default').click()
 
         # 单个集群 - sql editor
         webWaitEle(self, (By.NAME, 'menu.cluster.single.sqleditor')).click()
