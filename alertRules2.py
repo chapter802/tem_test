@@ -75,6 +75,7 @@ class TestAlertRules(object):
             webWaitEle(self, (By.NAME, x)).click()
             webWaitEle(self, (
                 By.NAME, 'alertRulesSearchBtn')).click()
+            sleep(2)
             util.getRequsetInfo1(
                 self, self.driver, apiDict['queryAlertRuleList'], closeModal)
 
@@ -85,15 +86,18 @@ class TestAlertRules(object):
                 webWaitEle(self, (By.NAME, y)).click()
                 webWaitEle(self, (
                     By.NAME, 'alertRulesSearchBtn')).click()
+                sleep(2)
                 util.getRequsetInfo1(
                     self, self.driver, apiDict['queryAlertRuleList'], closeModal)
 
         # 新增告警规则
         webWaitEle(self, (
             By.NAME, 'alertRulesAddBtn')).click()
+        sleep(1)
         randomStr = util.get_random_string(6)
         webWaitEle(self, (
-            By.ID, 'Name')).send_keys('selenium_test_' + randomStr)
+            By.NAME, 'ruleModalName')).send_keys('selenium_test_' + randomStr)
+        sleep(1)
         webWaitEle(self, (
             By.NAME, 'alertRulesApplyType')).click()
         applyTypes = self.driver.find_elements(
@@ -101,6 +105,7 @@ class TestAlertRules(object):
         randomApplyType = random.choice(applyTypes)
         self.driver.execute_script(
             "arguments[0].scrollIntoView();", randomApplyType)
+        sleep(1)
         randomApplyType.click()
         webWaitEle(self, (
             By.ID, 'ApplyInstance')).send_keys(util.generateIpAddress())
@@ -131,6 +136,7 @@ class TestAlertRules(object):
         randomUnit = random.choice(alertFrequencyUnits)
         webWaitEle(self, (
             By.NAME, randomUnit)).click()
+        sleep(1)
         webWaitEle(self, (
             By.NAME, 'alertRulesTimesThreshold')).send_keys(random.randint(1, 100))
         webWaitEle(self, (
@@ -160,7 +166,7 @@ class TestAlertRules(object):
             firstUpdateBtn.click()
 
             randomStr = util.get_random_string(4)
-            nameInput = webWaitEle(self, (By.NAME, 'modalAlertRuleName'))
+            nameInput = webWaitEle(self, (By.NAME, 'ruleModalName'))
             util.clearInput(nameInput)
             nameInput.send_keys('selenium_test_' + randomStr)
             webWaitEle(self, (
@@ -170,6 +176,7 @@ class TestAlertRules(object):
             randomApplyType = random.choice(applyTypes)
             self.driver.execute_script(
                 "arguments[0].scrollIntoView();", randomApplyType)
+            sleep(1)
             randomApplyType.click()
             applyInstanceInput = webWaitEle(self, (
                 By.ID, 'ApplyInstance'))

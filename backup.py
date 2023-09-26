@@ -120,7 +120,10 @@ class TestBackup(object):
         sleep(1)
         util.getRequsetInfo1(
             self, self.driver, apiDict['backupCluster'], closeModal)
+        # 等待十秒备份
         sleep(10)
+
+        # 删除备份任务
         backupDeleteBtns = self.driver.find_elements(
             By.NAME, 'backupDeleteBtn')
         if len(backupDeleteBtns) > 0:
@@ -130,7 +133,7 @@ class TestBackup(object):
             confirmTagetVal = webWaitEle(
                 self, (By.ID, 'TaskID')).get_attribute('data-tval')
             webWaitEle(self, (By.ID, 'TaskID')).send_keys(confirmTagetVal)
-            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+            webWaitEle(self, (By.CLASS_NAME, 'confirmDeleteModal')).find_element(
                 By.CLASS_NAME, 'ant-btn-danger').click()
             util.getRequsetInfo1(
                 self, self.driver, apiDict['deleteBackupTask'], closeModal)
@@ -272,7 +275,7 @@ class TestBackup(object):
             util.getRequsetInfo1(
                 self, self.driver, apiDict['deleteBackupPolicy'], closeModal)
 
-        sleep(3)
+        sleep(5)
 
         self.driver.quit()
 

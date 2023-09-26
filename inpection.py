@@ -23,7 +23,7 @@ class TestInspection(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):
@@ -132,92 +132,89 @@ class TestInspection(object):
         self.driver.find_element(By.TAG_NAME, 'body').click()
         sleep(1)
 
-        # # 创建巡检策略
-        # webWaitEle(self, (By.NAME, 'addInspectionPolicyBtn')).click()
-        # webWaitEle(self, (By.ID, 'Alias')).send_keys(
-        #     'selenium_test_' + randomStr)
-        # webWaitEle(self, (By.NAME, 'inspecPolicySwitch')).click()
-        # webWaitEle(self, (By.ID, 'Description')).send_keys(
-        #     'selenium_Description_' + randomStr)
+        # 创建巡检策略
+        webWaitEle(self, (By.NAME, 'addInspectionPolicyBtn')).click()
+        webWaitEle(self, (By.ID, 'Alias')).send_keys(
+            'selenium_test_' + randomStr)
+        webWaitEle(self, (By.NAME, 'inspecPolicySwitch')).click()
+        webWaitEle(self, (By.ID, 'Description')).send_keys(
+            'selenium_Description_' + randomStr)
 
-        # inpecPolicyWeekEle = webWaitEle(self, (By.ID, 'FrequencyWeek'))
-        # if inpecPolicyWeekEle:
-        #     randomDays = random.sample(range(1, 8), random.randint(1, 7))
-        #     weekdayEles = inpecPolicyWeekEle.find_elements(
-        #         By.CLASS_NAME, 'ant-checkbox-wrapper')
-        #     for day in randomDays:
-        #         weekdayEles[day-1].click()
-        # else:
-        #     pass
+        inpecPolicyWeekEle = webWaitEle(self, (By.ID, 'FrequencyWeek'))
+        if inpecPolicyWeekEle:
+            randomDays = random.sample(range(1, 8), random.randint(1, 7))
+            weekdayEles = inpecPolicyWeekEle.find_elements(
+                By.CLASS_NAME, 'ant-checkbox-wrapper')
+            for day in randomDays:
+                weekdayEles[day-1].click()
+        else:
+            pass
 
-        # selectTimePicker(self, 'inspecPolicyModalTimepicker')
+        selectTimePicker(self, 'inspecPolicyModalTimepicker')
 
-        # webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-        #     By.CLASS_NAME, 'ant-btn-primary').click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['createInspecPolicy'], closeModal)
+        webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+            By.CLASS_NAME, 'ant-btn-primary').click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['createInspecPolicy'], closeModal)
 
-        # #  巡检策略详情
-        # inspecPolicyAliasBtns = self.driver.find_elements(
-        #     By.NAME, 'inspecPolicyAliasBtn')
-        # randomPolicyAliasBtn = random.choice(inspecPolicyAliasBtns)
-        # self.driver.execute_script(
-        #     "arguments[0].scrollIntoView();", randomPolicyAliasBtn)
-        # randomPolicyAliasBtn.click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['queryInspecPolicyDetail'], closeModal)
-        # webWaitEle(self, (By.CLASS_NAME, 'ant-drawer-close')).click()
+        #  巡检策略详情
+        inspecPolicyAliasBtns = self.driver.find_elements(
+            By.NAME, 'inspecPolicyAliasBtn')
+        randomPolicyAliasBtn = random.choice(inspecPolicyAliasBtns)
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView();", randomPolicyAliasBtn)
+        randomPolicyAliasBtn.click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryInspecPolicyDetail'], closeModal)
+        webWaitEle(self, (By.CLASS_NAME, 'ant-drawer-close')).click()
 
-        # # 编辑巡检策略
-        # updateInspectionPolicyBtns = self.driver.find_elements(
-        #     By.NAME, 'updateInspectionPolicyBtn')
-        # lastUpdateInspectionPolicyBtn = updateInspectionPolicyBtns[-1]
-        # self.driver.execute_script(
-        #     "arguments[0].scrollIntoView();", lastUpdateInspectionPolicyBtn)
-        # sleep(1)
-        # lastUpdateInspectionPolicyBtn.click()
-        # sleep(1)
-        # inpspecModalAlias = webWaitEle(self, (By.ID, 'Alias'))
-        # util.clearInput(inpspecModalAlias)
-        # inpspecModalAlias.send_keys('selenium_test_' + randomStr)
-        # webWaitEle(self, (By.NAME, 'inspecPolicySwitch')).click()
-        # inpspecModalDesc = webWaitEle(self, (By.ID, 'Description'))
-        # util.clearInput(inpspecModalDesc)
-        # inpspecModalDesc.send_keys('selenium_Description_' + randomStr)
+        # 编辑巡检策略
+        updateInspectionPolicyBtns = self.driver.find_elements(
+            By.NAME, 'updateInspectionPolicyBtn')
+        lastUpdateInspectionPolicyBtn = updateInspectionPolicyBtns[-1]
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView();", lastUpdateInspectionPolicyBtn)
+        sleep(1)
+        lastUpdateInspectionPolicyBtn.click()
+        sleep(1)
+        inpspecModalAlias = webWaitEle(self, (By.ID, 'Alias'))
+        util.clearInput(inpspecModalAlias)
+        inpspecModalAlias.send_keys('selenium_test_' + randomStr)
+        webWaitEle(self, (By.NAME, 'inspecPolicySwitch')).click()
+        inpspecModalDesc = webWaitEle(self, (By.ID, 'Description'))
+        util.clearInput(inpspecModalDesc)
+        inpspecModalDesc.send_keys('selenium_Description_' + randomStr)
 
-        # inpecPolicyWeekEle = webWaitEle(self, (By.ID, 'FrequencyWeek'))
-        # if inpecPolicyWeekEle:
-        #     randomDays = random.sample(range(1, 8), random.randint(1, 7))
-        #     weekdayEles = inpecPolicyWeekEle.find_elements(
-        #         By.CLASS_NAME, 'ant-checkbox-wrapper')
-        #     for day in randomDays:
-        #         weekdayEles[day-1].click()
-        # else:
-        #     pass
+        inpecPolicyWeekEle = webWaitEle(self, (By.ID, 'FrequencyWeek'))
+        if inpecPolicyWeekEle:
+            randomDays = random.sample(range(1, 8), random.randint(1, 7))
+            weekdayEles = inpecPolicyWeekEle.find_elements(
+                By.CLASS_NAME, 'ant-checkbox-wrapper')
+            for day in randomDays:
+                weekdayEles[day-1].click()
+        else:
+            pass
 
-        # selectTimePicker(self, 'inspecPolicyModalTimepicker')
+        selectTimePicker(self, 'inspecPolicyModalTimepicker')
 
-        # webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-        #     By.CLASS_NAME, 'ant-btn-primary').click()
-        # sleep(1)
-        # util.getRequsetInfo1(
-        #     self, self.driver, apiDict['updateInspecPolicy'], closeModal)
+        webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+            By.CLASS_NAME, 'ant-btn-primary').click()
+        sleep(1)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['updateInspecPolicy'], closeModal)
 
         # 应用集群
         applyClusterBtns = self.driver.find_elements(
             By.NAME, 'applyClusterBtn')
-        # lastApplyClusterBtn = applyClusterBtns[-1]
-        # self.driver.execute_script(
-        #     "arguments[0].scrollIntoView();", lastApplyClusterBtn)
-        # sleep(1)
-        # lastApplyClusterBtn.click()
-        firstApplyClusterBtn = applyClusterBtns[0]
+
+        lastApplyClusterBtn = applyClusterBtns[-1]
         self.driver.execute_script(
-            "arguments[0].scrollIntoView();", firstApplyClusterBtn)
+            "arguments[0].scrollIntoView();", lastApplyClusterBtn)
         sleep(1)
-        firstApplyClusterBtn.click()
+        lastApplyClusterBtn.click()
+        
         webWaitEle(self, (By.NAME, 'inspecApplyClusterSelect')).click()
         inspecApplyClusterSelectOptions = webWaitEle(
             self, (By.CLASS_NAME, 'inspecApplyClusterSelect')).find_elements(By.NAME, 'inspecApplyClusterSelectOption')
@@ -237,25 +234,26 @@ class TestInspection(object):
         # 删除巡检策略
         deleteInspectionPolicyBtns = self.driver.find_elements(
             By.NAME, 'deleteInspectionPolicyBtn')
-        lastDeleteInspectionPolicyBtn = deleteInspectionPolicyBtns[-1]
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView();", lastDeleteInspectionPolicyBtn)
-        sleep(1)
-        if lastDeleteInspectionPolicyBtn:
-            lastDeleteInspectionPolicyBtn.click()
+        if len(deleteInspectionPolicyBtns) > 0:
+            lastDeleteInspectionPolicyBtn = deleteInspectionPolicyBtns[-1]
+            self.driver.execute_script(
+                "arguments[0].scrollIntoView();", lastDeleteInspectionPolicyBtn)
             sleep(1)
-        inpecApplyClustersEles = self.driver.find_elements(
-            By.NAME, 'inpecApplyClusters')
-        lastInpecApplyClustersEle = inpecApplyClustersEles[-1]
-        lastInpecApplyClustersEleText = util.getElementText(
-            self, lastInpecApplyClustersEle)
+            if lastDeleteInspectionPolicyBtn:
+                lastDeleteInspectionPolicyBtn.click()
+                sleep(1)
+            inpecApplyClustersEles = self.driver.find_elements(
+                By.NAME, 'inpecApplyClusters')
+            lastInpecApplyClustersEle = inpecApplyClustersEles[-1]
+            lastInpecApplyClustersEleText = util.getElementText(
+                self, lastInpecApplyClustersEle)
 
-        if lastInpecApplyClustersEleText == '':
-            webWaitEle(self, (
-                By.CSS_SELECTOR, 'div.inspectionDeletePopconfirm  button:nth-child(2)')).click()
-            sleep(1)
-            util.getRequsetInfo1(
-                self, self.driver, apiDict['deleteInspecPolicy'], closeModal)
+            if lastInpecApplyClustersEleText == '':
+                webWaitEle(self, (
+                    By.CSS_SELECTOR, 'div.inspectionDeletePopconfirm  button:nth-child(2)')).click()
+                sleep(1)
+                util.getRequsetInfo1(
+                    self, self.driver, apiDict['deleteInspecPolicy'], closeModal)
 
         sleep(5)
 

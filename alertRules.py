@@ -17,6 +17,7 @@ apiKeyArr = ['queryAlertRuleList', 'createAlertRule',
 class TestAlertRules(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
         self.logger = util.get_logger()
 
     def test(self):

@@ -15,15 +15,13 @@ from configParams import shortCutDateIDs, shortCutName, apiDict
 randomStr = util.get_random_string(6)
 
 # 测试用例中的接口
-apiKeyArr = ['userList', 'queryAuditList',
-             'enableAudit', 'disableAudit', 'updateAuditConfig']
-
+apiKeyArr = ['userList', 'queryAuditList', 'enableAudit', 'disableAudit', 'updateAuditConfig', 'queryAuditLog', 'queryAuditLogOption']
 
 class TestAudit(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):
@@ -174,6 +172,26 @@ class TestAudit(object):
         changeAuditStatus(self, setSeleniumAudit)
         changeAuditStatus(self, setSeleniumAudit)
 
+        sleep(3)
+        
+        # 审计日志
+        webWaitEle(self, (By.NAME, 'menu.audit.log')).click()
+        sleep(2)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryAuditLogOption'], closeModal)
+        util.getRequsetInfo1(
+            self, self.driver, apiDict['queryAuditLog'], closeModal)
+        
+        for d in shortCutDateIDs:
+            webWaitEle(self, (By.NAME, 'rangePickerShortcut')).click()
+            sleep(2)
+            webWaitEle(self, (
+                By.NAME, shortCutName.format(id=d))).click()
+            sleep(2)
+            webWaitEle(self, (By.NAME, 'auditLogSearchBtn')).click()
+            sleep(3)
+            util.getRequsetInfo1(
+                self, self.driver, apiDict['queryAuditLog'], closeModal)
         sleep(5)
 
         self.driver.quit()

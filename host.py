@@ -25,6 +25,7 @@ class TestHost(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):
@@ -112,7 +113,7 @@ class TestHost(object):
                 webWaitEle(self, (By.ID, 'Notes')).send_keys(
                     'selenium_test_note_' + randomStr)
                 webWaitEle(self, (By.NAME, 'hostrDawerSaveSpecBtn')).click()
-                sleep(1)
+                sleep(2)
                 util.getRequsetInfo1(
                     self, self.driver, apiDict['createSpec'], closeModal)
 
@@ -122,7 +123,7 @@ class TestHost(object):
             return
         else:
             saveHostBtn.click()
-            sleep(1)
+            sleep(2)
             util.getRequsetInfo1(
                 self, self.driver, apiDict['createHost'], closeModal)
         sleep(1)
@@ -130,6 +131,9 @@ class TestHost(object):
         # 编辑主机
         testHostEle = webWaitEle(
             self, (By.XPATH, "//*[contains(text(), '172.17.0.5')]"))
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView();",  testHostEle)
+        sleep(1)
         parentEle = testHostEle.find_element(By.XPATH, '..')
         grandParentEle = parentEle.find_element(By.XPATH, '..')
         grandParentEle.find_element(By.NAME, 'updateHostBtn').click()
@@ -143,6 +147,7 @@ class TestHost(object):
         passwordEle.send_keys('tem')
         sshPortEle.send_keys('22')
         webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
+        sleep(5)
         util.getRequsetInfo1(
             self, self.driver, apiDict['discoverHost'], closeModal)
         saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
@@ -151,9 +156,9 @@ class TestHost(object):
             return
         else:
             saveHostBtn.click()
-            sleep(1)
+            sleep(2)
             util.getRequsetInfo1(
-                self, self.driver, apiDict['createHost'], closeModal)
+                self, self.driver, apiDict['updateHost'], closeModal)
         sleep(1)
 
         # 主机详情
@@ -169,17 +174,24 @@ class TestHost(object):
         parentEle = testHostEle.find_element(By.XPATH, '..')
         grandParentEle = parentEle.find_element(By.XPATH, '..')
         grandParentEle.find_element(By.NAME, 'hostOfflineBtn').click()
-        confirmHostTagetVal = webWaitEle(
-            self, (By.ID, 'IP')).get_attribute('data-tval')
-        webWaitEle(self, (By.ID, 'IP')).send_keys(confirmHostTagetVal)
-
-        webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-            By.CLASS_NAME, 'ant-btn-danger').click()
         sleep(1)
-        util.getRequsetInfo1(
-            self, self.driver, apiDict['deleteHost'], closeModal)
-        # 下线主机等待60s
-        sleep(60)
+        # 确认下线主机 - 空闲主机
+        try:
+          webWaitEle(self, (By.CLASS_NAME, 'confirmOfflineInUsedHostModal')).find_element(
+            By.CLASS_NAME, 'ant-btn-default').click()
+          sleep(1)
+        except:
+          confirmHostTagetVal = webWaitEle(
+              self, (By.ID, 'IP')).get_attribute('data-tval')
+          webWaitEle(self, (By.ID, 'IP')).send_keys(confirmHostTagetVal)
+
+          webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+              By.CLASS_NAME, 'ant-btn-danger').click()
+          sleep(1)
+          util.getRequsetInfo1(
+              self, self.driver, apiDict['deleteHost'], closeModal)
+          # 下线主机等待60s
+          sleep(60)
 
         # 批量添加主机
         webWaitEle(self, (By.NAME, 'batchAddHostBtn')).click()
@@ -192,8 +204,8 @@ class TestHost(object):
         util.getRequsetInfo1(
             self, self.driver, apiDict['discoverHost'], closeModal)
 
-        batchSaveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
-                                      ).find_element(By.CLASS_NAME, 'ant-btn-primary')
+        batchSaveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'batchAddHostModal')).find_element(
+          By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-primary')
         if batchSaveHostBtn.get_attribute('disabled'):
             return
         else:
@@ -315,8 +327,6 @@ class TestHost(object):
         # 滚动到页面顶部
         self.driver.find_element(By.TAG_NAME, 'body').send_keys(
             Keys.CONTROL + Keys.HOME)
-
-        webWaitEle(self, (By.NAME, 'headSettingIcon')).click()
 
         sleep(5)
 

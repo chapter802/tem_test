@@ -1,0 +1,7 @@
+.idea
+bin
+build
+test.xml
+.DS_Store
+.vscode
+Logs
