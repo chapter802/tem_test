@@ -78,6 +78,8 @@ class TestHost(object):
         self.driver.get('http://172.16.6.62:8080/login')
         webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test1')
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
+        # webWaitEle(self, (By.ID, 'userID')).send_keys('zhangxinyi')
+        # webWaitEle(self, (By.ID, 'password')).send_keys('runnergo')
         webWaitEle(self, (By.ID, 'login')).click()
         webWaitEle(self, (By.NAME, 'menu.host')).click()
         sleep(1)
@@ -113,7 +115,7 @@ class TestHost(object):
                 webWaitEle(self, (By.ID, 'Notes')).send_keys(
                     'selenium_test_note_' + randomStr)
                 webWaitEle(self, (By.NAME, 'hostrDawerSaveSpecBtn')).click()
-                sleep(1)
+                sleep(2)
                 util.getRequsetInfo1(
                     self, self.driver, apiDict['createSpec'], closeModal)
 
@@ -123,7 +125,7 @@ class TestHost(object):
             return
         else:
             saveHostBtn.click()
-            sleep(1)
+            sleep(2)
             util.getRequsetInfo1(
                 self, self.driver, apiDict['createHost'], closeModal)
         sleep(1)
@@ -144,6 +146,7 @@ class TestHost(object):
         passwordEle.send_keys('tem')
         sshPortEle.send_keys('22')
         webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
+        sleep(5)
         util.getRequsetInfo1(
             self, self.driver, apiDict['discoverHost'], closeModal)
         saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
@@ -152,9 +155,9 @@ class TestHost(object):
             return
         else:
             saveHostBtn.click()
-            sleep(1)
+            sleep(2)
             util.getRequsetInfo1(
-                self, self.driver, apiDict['createHost'], closeModal)
+                self, self.driver, apiDict['updateHost'], closeModal)
         sleep(1)
 
         # 主机详情
