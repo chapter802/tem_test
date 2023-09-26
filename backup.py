@@ -120,7 +120,9 @@ class TestBackup(object):
         sleep(1)
         util.getRequsetInfo1(
             self, self.driver, apiDict['backupCluster'], closeModal)
-        sleep(10)
+        sleep(5)
+
+        # 删除备份任务
         backupDeleteBtns = self.driver.find_elements(
             By.NAME, 'backupDeleteBtn')
         if len(backupDeleteBtns) > 0:
