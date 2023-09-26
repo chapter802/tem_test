@@ -214,12 +214,7 @@ class TestInspection(object):
             "arguments[0].scrollIntoView();", lastApplyClusterBtn)
         sleep(1)
         lastApplyClusterBtn.click()
-
-        firstApplyClusterBtn = applyClusterBtns[0]
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView();", firstApplyClusterBtn)
-        sleep(1)
-        firstApplyClusterBtn.click()
+        
         webWaitEle(self, (By.NAME, 'inspecApplyClusterSelect')).click()
         inspecApplyClusterSelectOptions = webWaitEle(
             self, (By.CLASS_NAME, 'inspecApplyClusterSelect')).find_elements(By.NAME, 'inspecApplyClusterSelectOption')
