@@ -67,30 +67,30 @@ class TestAlertChannel(object):
         util.getRequsetInfo1(
             self, self.driver, apiDict['queryAlertChannelList'], closeModal)
 
-        # # 查询告警通道
-        # for x in alertChannelTypes:
-        #     webWaitEle(self, (
-        #         By.NAME, 'alertChannelTypeSelect')).click()
-        #     sleep(1)
-        #     typeDropdown = self.driver.find_element(
-        #         By.CLASS_NAME, 'alertChannelTypeDropdown')
-        #     typeDropdown.find_element(By.NAME, x).click()
-        #     webWaitEle(self, (By.NAME, 'alertChannelSearchBtn')).click()
-        #     util.getRequsetInfo1(
-        #         self, self.driver, apiDict['queryAlertChannelList'], closeModal)
-        #     sleep(1)
+        # 查询告警通道
+        for x in alertChannelTypes:
+            webWaitEle(self, (
+                By.NAME, 'alertChannelTypeSelect')).click()
+            sleep(1)
+            typeDropdown = self.driver.find_element(
+                By.CLASS_NAME, 'alertChannelTypeDropdown')
+            typeDropdown.find_element(By.NAME, x).click()
+            webWaitEle(self, (By.NAME, 'alertChannelSearchBtn')).click()
+            util.getRequsetInfo1(
+                self, self.driver, apiDict['queryAlertChannelList'], closeModal)
+            sleep(1)
 
-        #     for y in alertChannelEnabled:
-        #         webWaitEle(self, (
-        #             By.NAME, 'alertChannelEnabledSelect')).click()
-        #         sleep(1)
-        #         enabledDropdown = self.driver.find_element(
-        #             By.CLASS_NAME, 'alertChannelEnabledDropdown')
-        #         enabledDropdown.find_element(By.NAME, y).click()
-        #         webWaitEle(self, (By.NAME, 'alertChannelSearchBtn')).click()
-        #         util.getRequsetInfo1(
-        #             self, self.driver, apiDict['queryAlertChannelList'], closeModal)
-        #         sleep(1)
+            for y in alertChannelEnabled:
+                webWaitEle(self, (
+                    By.NAME, 'alertChannelEnabledSelect')).click()
+                sleep(1)
+                enabledDropdown = self.driver.find_element(
+                    By.CLASS_NAME, 'alertChannelEnabledDropdown')
+                enabledDropdown.find_element(By.NAME, y).click()
+                webWaitEle(self, (By.NAME, 'alertChannelSearchBtn')).click()
+                util.getRequsetInfo1(
+                    self, self.driver, apiDict['queryAlertChannelList'], closeModal)
+                sleep(1)
 
         # 新增告警通道
         webWaitEle(self, (
