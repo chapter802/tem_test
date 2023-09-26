@@ -62,7 +62,7 @@ class Test(object):
         def webWaitEle(self, locator):
             return WebDriverWait(self.driver, 20, 0.5).until(
                 EC.visibility_of_element_located(locator))
-    
+
         self.driver.get(testServer)
 
         webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test1')
@@ -71,14 +71,14 @@ class Test(object):
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
-        
+
         #  告警管理
         webWaitEle(self, (By.NAME, 'menu.alert')).click()
         webWaitEle(self, (By.NAME, 'menu.alert.rules')).click()
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal)
-          
+
         # 查询告警规则
         for x in alertLevels:
             webWaitEle(self, (
@@ -100,24 +100,28 @@ class Test(object):
                 sleep(2)
                 util.getRequsetInfo(
                     self, self.driver, apiDict['queryAlertRuleList'], closeModal)
-        
+
         sleep(2)
-        
-        # 选中 TiDB_monitor_keep_alive_copy 规则修改频率 
+
+        # 选中 TiDB_monitor_keep_alive_copy 规则修改频率
         webWaitEle(self, (
-                    By.NAME, 'alertRulesLevelSelect')).click()
+            By.NAME, 'alertRulesLevelSelect')).click()
         sleep(1)
-        dropdownLevelEle = webWaitEle(self, (By.CLASS_NAME, 'alertRulesLevelSelect'))
-        dropdownLevelEle.find_elements(By.CLASS_NAME, 'ant-select-item-option')[0].click()
+        dropdownLevelEle = webWaitEle(
+            self, (By.CLASS_NAME, 'alertRulesLevelSelect'))
+        dropdownLevelEle.find_elements(
+            By.CLASS_NAME, 'ant-select-item-option')[0].click()
         sleep(1)
-        
+
         webWaitEle(self, (
-                    By.NAME, 'alertRulesTypeSelect')).click()
+            By.NAME, 'alertRulesTypeSelect')).click()
         sleep(1)
-        dropdownTypeEle = webWaitEle(self, (By.CLASS_NAME, 'alertRulesTypeSelect'))
-        dropdownTypeEle.find_elements(By.CLASS_NAME, 'ant-select-item-option')[0].click()
+        dropdownTypeEle = webWaitEle(
+            self, (By.CLASS_NAME, 'alertRulesTypeSelect'))
+        dropdownTypeEle.find_elements(
+            By.CLASS_NAME, 'ant-select-item-option')[0].click()
         sleep(1)
-        
+
         webWaitEle(self, (By.ID, 'Name')).send_keys(testAlertRuleTempName)
         webWaitEle(self, (
             By.NAME, 'alertRulesSearchBtn')).click()
@@ -125,13 +129,13 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertRuleList'], closeModal)
         sleep(2)
-        
-        #找到 TiDB_monitor_keep_alive_copy 规则
+
+        # 找到 TiDB_monitor_keep_alive_copy 规则
         testRuleEle = webWaitEle(
-                self, (By.XPATH, "//*[contains(text(), '%s')]" % testAlertRuleTempName))
+            self, (By.XPATH, "//*[contains(text(), '%s')]" % testAlertRuleTempName))
         parentEle = testRuleEle.find_element(By.XPATH, '../../../..')
         parentEle.find_element(By.NAME, 'alertRulesUpdateBtn').click()
-        
+
         # 修改告警频率
         tempRulesFrequencyUnitEle = webWaitEle(self, (
             By.NAME, 'alertRulesFrequencyNum'))
@@ -147,7 +151,7 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['createAlertRule'], closeModal)
         sleep(2)
-        
+
         # 新增告警规则
         webWaitEle(self, (
             By.NAME, 'alertRulesAddBtn')).click()
@@ -293,7 +297,7 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict['updateAlertRule'], closeModal)
             sleep(2)
-            
+
         # 启用停用告警规则
         self.driver.find_element(By.TAG_NAME, 'body').send_keys(
             Keys.CONTROL + Keys.HOME)
@@ -314,7 +318,7 @@ class Test(object):
                 By.CSS_SELECTOR, 'div.ant-popover-buttons > button:nth-child(2)')).click()
             util.getRequsetInfo(
                 self, self.driver, apiDict['switchAlertRuleStatus'], closeModal)
-            
+
         sleep(2)
         # 创建告警通道
         webWaitEle(self, (
@@ -322,8 +326,8 @@ class Test(object):
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertChannelList'], closeModal)
-        
-         # 查询告警通道
+
+        # 查询告警通道
         for x in alertChannelTypes:
             webWaitEle(self, (
                 By.NAME, 'alertChannelTypeSelect')).click()
@@ -359,18 +363,20 @@ class Test(object):
             By.CLASS_NAME, 'relateAlertRuleDropdown')
         relateARItems = relateAlertRuleDropdown.find_elements(
             By.CLASS_NAME, 'ant-select-item-option')
-        
+
         addRuleNum = 0
-        
+
         if len(relateARItems) > 0:
-            js = "var q=document.getElementsByClassName('relateAlertRuleDropdown')[0].getElementsByClassName('rc-virtual-list-holder-inner')[0].scrollTop=10000"  # 滑动到底部
+            # 滑动到底部
+            js = "var q=document.getElementsByClassName('relateAlertRuleDropdown')[0].getElementsByClassName('rc-virtual-list-holder-inner')[0].scrollTop=10000"
             self.driver.execute_script(js)
             for option in relateARItems:
                 if testAlertRuleName in option.get_attribute('title') or testAlertRuleTempName in option.get_attribute('title') and addRuleNum < 2:
-                    self.driver.execute_script("arguments[0].scrollIntoView();", option)
+                    self.driver.execute_script(
+                        "arguments[0].scrollIntoView();", option)
                     sleep(1)
                     option.click()
-                    addRuleNum += 1  
+                    addRuleNum += 1
                 else:
                     pass
 
@@ -434,9 +440,10 @@ class Test(object):
                 util.getRequsetInfo(
                     self, self.driver, apiDict['updateAlertChannel'], closeModal)
                 sleep(1)
-         
+
         # 退出登录
-        webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
+        webWaitEle(self, (By.CLASS_NAME,
+                   'antd-pro-components-global-header-index-account')).click()
         sleep(1)
         webWaitEle(self, (By.CLASS_NAME, 'anticon-logout')).click()
 
@@ -448,4 +455,3 @@ class Test(object):
 if __name__ == '__main__':
     case = Test()
     case.test()
-
