@@ -71,9 +71,10 @@ class TestCluster(object):
                     By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-default')
             except:
                 modalCloseBtn = None
-                
+
             try:
-                cusModalCloseBtn = self.driver.find_element( By.NAME, 'cancelBtn')
+                cusModalCloseBtn = self.driver.find_element(
+                    By.NAME, 'cancelBtn')
             except:
                 cusModalCloseBtn = None
 
@@ -84,7 +85,7 @@ class TestCluster(object):
             elif modalCloseBtn != None:
                 modalCloseBtn.click()
             elif cusModalCloseBtn != None:
-              cusModalCloseBtn.click()
+                cusModalCloseBtn.click()
 
         def webWaitEle(self, locator):
             return WebDriverWait(self.driver, 20, 0.5).until(
@@ -111,8 +112,10 @@ class TestCluster(object):
             datePicker.click()
             # parentEle = self.driver.find_element(By.CLASS_NAME, compName)
             parentEle = webWaitEle(self, (By.CLASS_NAME, compName))
-            pickerContent = parentEle.find_element(By.CLASS_NAME, 'ant-picker-content')
-            pickerCells = pickerContent.find_elements(By.CLASS_NAME, 'ant-picker-cell-inner')
+            pickerContent = parentEle.find_element(
+                By.CLASS_NAME, 'ant-picker-content')
+            pickerCells = pickerContent.find_elements(
+                By.CLASS_NAME, 'ant-picker-cell-inner')
             randomPickerCell = random.choice(pickerCells)
             self.driver.execute_script(
                 "arguments[0].scrollIntoView();", randomPickerCell)
@@ -224,8 +227,8 @@ class TestCluster(object):
             else:
                 pass
 
-        # self.driver.get('http://172.16.6.62:8080/login')
-        self.driver.get('http://localhost:8200/login')
+        self.driver.get('http://172.16.6.62:8080/login')
+        # self.driver.get('http://localhost:8200/login')
 
         mainWindowHanle = self.driver.current_window_handle
 
@@ -496,7 +499,7 @@ class TestCluster(object):
                 self, self.driver, apiDict['queryInspections'], closeModal)
         except:
             pass
-          
+
         sleep(2)
 
         try:
@@ -518,7 +521,7 @@ class TestCluster(object):
                         sleep(1)
         except:
             pass
-      
+
         sleep(2)
 
         try:
@@ -749,7 +752,7 @@ class TestCluster(object):
         sleep(1)
         webWaitEle(self, (By.NAME, 'topoAddCompBtn')).click()
         sleep(1)
-        
+
         webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
         sleep(3)
         util.getRequsetInfo1(
