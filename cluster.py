@@ -110,7 +110,6 @@ class TestCluster(object):
         def selectTimePicker(self, compName):
             datePicker = self.driver.find_element(By.NAME, compName)
             datePicker.click()
-            # parentEle = self.driver.find_element(By.CLASS_NAME, compName)
             parentEle = webWaitEle(self, (By.CLASS_NAME, compName))
             pickerContent = parentEle.find_element(
                 By.CLASS_NAME, 'ant-picker-content')
@@ -227,8 +226,8 @@ class TestCluster(object):
             else:
                 pass
 
-        self.driver.get('http://172.16.6.62:8080/login')
-        # self.driver.get('http://localhost:8200/login')
+        # self.driver.get('http://172.16.6.62:8080/login')
+        self.driver.get('http://localhost:8050/login')
 
         mainWindowHanle = self.driver.current_window_handle
 
@@ -340,34 +339,36 @@ class TestCluster(object):
         # js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
         # self.driver.execute_script(js)
         # sleep(3)
-        # paramTempParamsWrapperEle = webWaitEle(
-        #     self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
-        # paramTypeTabs = paramTempParamsWrapperEle.find_elements(
-        #     By.CLASS_NAME, 'ant-tabs-tab')
-        # for index, tab in enumerate(paramTypeTabs):
-        #     tabContents = self.driver.find_elements(
-        #         By.CLASS_NAME, 'ant-tabs-tabpane')
-        #     scrollTargetEle = self.driver.find_element(
-        #         By.CLASS_NAME, 'antd-pro-pages-cluster-index-paramConfigHeaderRight')
-        #     self.driver.execute_script(
-        #         "arguments[0].scrollIntoView();",  scrollTargetEle)
-        #     sleep(3)
-        #     tab.click()
-        #     tabContentBox = tabContents[index]
-        #     curDeleteBtns = tabContentBox.find_elements(
-        #         By.NAME, 'deleteParamBtn')
-        #     randomDeleteBtn = random.choice(curDeleteBtns)
-        #     self.driver.execute_script(
-        #         "arguments[0].scrollIntoView();", randomDeleteBtn)
-        #     sleep(1)
-        #     if randomDeleteBtn:
-        #         randomDeleteBtn.click()
-        #     else:
-        #         pass
+        # # paramTempParamsWrapperEle = webWaitEle(
+        # #     self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
+        # # paramTypeTabs = paramTempParamsWrapperEle.find_elements(
+        # #     By.CLASS_NAME, 'ant-tabs-tab')
+        # # for index, tab in enumerate(paramTypeTabs):
+        # #     tabContents = self.driver.find_elements(
+        # #         By.CLASS_NAME, 'ant-tabs-tabpane')
+        # #     scrollTargetEle = self.driver.find_element(
+        # #         By.CLASS_NAME, 'antd-pro-pages-cluster-index-paramConfigHeaderRight')
+        # #     self.driver.execute_script(
+        # #         "arguments[0].scrollIntoView();",  scrollTargetEle)
+        # #     sleep(3)
+        # #     tab.click()
+        # #     tabContentBox = tabContents[index]
+        # #     curDeleteBtns = tabContentBox.find_elements(
+        # #         By.NAME, 'deleteParamBtn')
+        # #     randomDeleteBtn = random.choice(curDeleteBtns)
+        # #     self.driver.execute_script(
+        # #         "arguments[0].scrollIntoView();", randomDeleteBtn)
+        # #     sleep(1)
+        # #     if randomDeleteBtn:
+        # #         randomDeleteBtn.click()
+        # #     else:
+        # #         pass
 
         # sleep(1)
 
         # webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
+        
+      
 
         # tableHeaderEle = webWaitEle(
         #     self, (By.CLASS_NAME, 'ant-table-thead'))
@@ -379,6 +380,12 @@ class TestCluster(object):
         #     util.getRequsetInfo1(
         #         self, self.driver, apiDict['clusterAdd'], closeModal)
         #     sleep(5)
+            
+        # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+        # sleep(2)
+        # js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+        # self.driver.execute_script(js)
+        # sleep(2)
 
         # # 纳管集群
         # webWaitEle(self, (By.NAME, 'takeoverClusterBtn')).click()
@@ -449,14 +456,19 @@ class TestCluster(object):
 
         #             webWaitEle(self, (By.CLASS_NAME, 'takeoverInputPwdModal')).find_element(
         #                 By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
-        #             sleep(20)
+        #             sleep(10)
         #             util.getRequsetInfo1(
         #                 self, self.driver, apiDict['takeoverCluster'], closeModal)
-        #             webWaitEle(self, (By.NAME, 'takeoverClusterBtn'))
+                    
+        #             # webWaitEle(self, (By.NAME, 'takeoverClusterBtn'))
         #         else:
         #             cancelTakeoverBtn = webWaitEle(
         #                 self, (By.NAME, 'cancelTakeoverBtn'))
         #             cancelTakeoverBtn.click()
+        
+        # sleep(1)
+        # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+        # sleep(1)
 
         # 单个集群 - 概览
         webWaitEle(self, (By.NAME, 'takeoverClusterBtn'))
@@ -554,6 +566,7 @@ class TestCluster(object):
         perfRadioBtns[2].click()
         sleep(2)
         selectTimePicker(self, 'reportStartTime')
+        sleep(1)
         selectComp(self, 'rangeStep', 'rangeStep_', rangeStepArr, startDiaLog)
         # 日志检索
         perfRadioBtns[3].click()
@@ -732,15 +745,15 @@ class TestCluster(object):
             else:
                 pass
 
-        # 停止节点
-        operateClusterTopo(self, 'stopTopoNodeBtn',
-                           'stopTopoNodePop', 'stopCluster')
-        # 启动节点
-        operateClusterTopo(self, 'startTopoNodeBtn',
-                           'startTopoNodePop', 'startCluster')
-        # 重启节点
-        operateClusterTopo(self, 'restartTopoNodeBtn',
-                           'restartTopoNodePop', 'restartCluster')
+        # # 停止节点
+        # operateClusterTopo(self, 'stopTopoNodeBtn',
+        #                    'stopTopoNodePop', 'stopCluster')
+        # # 启动节点
+        # operateClusterTopo(self, 'startTopoNodeBtn',
+        #                    'startTopoNodePop', 'startCluster')
+        # # 重启节点
+        # operateClusterTopo(self, 'restartTopoNodeBtn',
+        #                    'restartTopoNodePop', 'restartCluster')
         scaleClusterBtn = webWaitEle(self, (By.NAME, 'scaleClusterBtn'))
         scaleClusterBtn.click()
         webWaitEle(self, (By.NAME, 'componentSelect')).click()
