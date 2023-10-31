@@ -111,7 +111,7 @@ class TestInspection(object):
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
 
         # 滚动到页面顶部
@@ -123,11 +123,11 @@ class TestInspection(object):
         webWaitEle(
             self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, 'menu.inspection').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryInspecPolicyList'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryInspections'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['clusterList'], closeModal)
         self.driver.find_element(By.TAG_NAME, 'body').click()
         sleep(1)
@@ -155,7 +155,7 @@ class TestInspection(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createInspecPolicy'], closeModal)
 
         #  巡检策略详情
@@ -166,7 +166,7 @@ class TestInspection(object):
             "arguments[0].scrollIntoView();", randomPolicyAliasBtn)
         randomPolicyAliasBtn.click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryInspecPolicyDetail'], closeModal)
         webWaitEle(self, (By.CLASS_NAME, 'ant-drawer-close')).click()
 
@@ -202,7 +202,7 @@ class TestInspection(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['updateInspecPolicy'], closeModal)
 
         # 应用集群
@@ -226,9 +226,9 @@ class TestInspection(object):
         webWaitEle(self, (
             By.CLASS_NAME, 'ant-modal-footer')).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createInspection'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['deleteInspection'], closeModal)
 
         # 删除巡检策略
@@ -252,7 +252,7 @@ class TestInspection(object):
                 webWaitEle(self, (
                     By.CSS_SELECTOR, 'div.inspectionDeletePopconfirm  button:nth-child(2)')).click()
                 sleep(1)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['deleteInspecPolicy'], closeModal)
 
         sleep(5)

@@ -134,7 +134,7 @@ def getRequsetInfo(self, requests, curUrl, actionText, reqMethod='POST', exclude
                         return _content
 
 
-def getRequsetInfo1(self, driver, apiConfig, errCb=None):
+def getRequsetInfo(self, driver, apiConfig, errCb=None):
     requests = driver.requests
     upCaseMethod = apiConfig['method']
     actionText = apiConfig['remark']

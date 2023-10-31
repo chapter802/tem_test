@@ -111,7 +111,7 @@ class TestUserManage(object):
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
 
         # 滚动到页面顶部
@@ -123,9 +123,9 @@ class TestUserManage(object):
         webWaitEle(
             self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, 'menu.usermanage').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['userList'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['roleList'], closeModal)
         self.driver.find_element(By.TAG_NAME, 'body').click()
         sleep(1)
@@ -151,7 +151,7 @@ class TestUserManage(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['userAdd'], closeModal)
 
         autoPage(self)
@@ -181,7 +181,7 @@ class TestUserManage(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['userEdit'], closeModal)
 
         # 修改密码
@@ -197,7 +197,7 @@ class TestUserManage(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(2)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['changeUserPwd'], closeModal)
 
         # 删除用户
@@ -214,7 +214,7 @@ class TestUserManage(object):
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.ant-modal-confirm-btns  button:nth-child(2)')).click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['deleteUser'], closeModal)
 
         sleep(5)

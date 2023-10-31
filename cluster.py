@@ -180,11 +180,11 @@ class TestCluster(object):
                 self.driver.find_element(
                     By.NAME, 'generatePerfReportBtn').click()
                 sleep(10)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['createClusterDiagnoseReport'], closeModal)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['queryClusterDiagnoseReportStatus'], closeModal)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['queryClusterDiagnoseReportList'], closeModal)
 
         # 日志检索
@@ -194,11 +194,11 @@ class TestCluster(object):
                 self, (By.NAME, 'performLogQuerySearchBtn'))
             performLogQuerySearchBtn.click()
             sleep(3)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryClusterLogSearchTaskID'], closeModal)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryClusterLogSearchTaskList'], closeModal)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryClusterLogSearchList'], closeModal)
             if isElementExist(self, By.NAME, 'logDownloadShowBtn'):
                 logDownloadShowBtn = webWaitEle(
@@ -215,7 +215,7 @@ class TestCluster(object):
                         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-confirm-btns')).find_element(
                             By.CLASS_NAME, 'ant-btn-primary').click()
                         sleep(1)
-                        util.getRequsetInfo1(
+                        util.getRequsetInfo(
                             self, self.driver, apiDict['retryClusterLogSearchTask'], closeModal)
                     else:
                         pass
@@ -235,13 +235,13 @@ class TestCluster(object):
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
 
         webWaitEle(self, (By.NAME, 'menu.cluster')).click()
         sleep(2)
         for api in mainPageApiArr:
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict[api], closeModal)
         sleep(1)
 
@@ -251,7 +251,7 @@ class TestCluster(object):
         # if clusterAliasEle:
         #     sleep(2)
         #     for api in addClusterApiArr:
-        #         util.getRequsetInfo1(
+        #         util.getRequsetInfo(
         #             self, self.driver, apiDict[api], closeModal)
         # clusterAliasEle.send_keys(
         #     'selenium_test_' + randomStr)
@@ -377,7 +377,7 @@ class TestCluster(object):
         #     self.driver.execute_script(js)
         #     sleep(3)
         #     webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
-        #     util.getRequsetInfo1(
+        #     util.getRequsetInfo(
         #         self, self.driver, apiDict['clusterAdd'], closeModal)
         #     sleep(5)
             
@@ -396,7 +396,7 @@ class TestCluster(object):
         # webWaitEle(self, (By.ID, 'TiUPHome')).send_keys(tiupPath)
         # webWaitEle(self, (By.NAME, 'getTakeOverClusterListBtn')).click()
         # sleep(10)
-        # util.getRequsetInfo1(
+        # util.getRequsetInfo(
         #     self, self.driver, apiDict['takeoverRemoteClusterList'], closeModal)
 
         # webWaitEle(self, (By.NAME, 'confirmTakeoverBtn'))
@@ -417,7 +417,7 @@ class TestCluster(object):
         #             if tableExpandEle.get_attribute('aria-expanded') == 'false':
         #                 tableExpandEle.click()
         #                 sleep(10)
-        #                 util.getRequsetInfo1(
+        #                 util.getRequsetInfo(
         #                     self, self.driver, apiDict['takeoverRemoteDetail'], closeModal)
         #                 sleep(1)
         #         except:
@@ -457,7 +457,7 @@ class TestCluster(object):
         #             webWaitEle(self, (By.CLASS_NAME, 'takeoverInputPwdModal')).find_element(
         #                 By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
         #             sleep(10)
-        #             util.getRequsetInfo1(
+        #             util.getRequsetInfo(
         #                 self, self.driver, apiDict['takeoverCluster'], closeModal)
                     
         #             # webWaitEle(self, (By.NAME, 'takeoverClusterBtn'))
@@ -483,22 +483,22 @@ class TestCluster(object):
         webWaitEle(self, (By.NAME, 'clusterOverviewConnectBtn'))
         sleep(1)
         for api in clusterOverviewApiKeyArr:
-            util.getRequsetInfo1(self, self.driver, apiDict[api], closeModal)
+            util.getRequsetInfo(self, self.driver, apiDict[api], closeModal)
 
         # 单个集群 - 监控指标
         webWaitEle(self, (By.NAME, 'menu.cluster.single.monitor')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryClusterMonitorInfo'], closeModal)
         monitorBtnWrappers = self.driver.find_elements(
             By.CLASS_NAME, 'ant-radio-button-wrapper')
         monitorBtnWrappers[1].click()
         sleep(2)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryClusterMonitorInfo'], closeModal)
         monitorBtnWrappers[2].click()
         sleep(2)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryInpecReportList'], closeModal)
         webWaitEle(self, (By.NAME, 'execInspecBtn')).click()
         sleep(2)
@@ -507,7 +507,7 @@ class TestCluster(object):
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-confirm-btns')
                        ).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(3)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryInspections'], closeModal)
         except:
             pass
@@ -520,7 +520,7 @@ class TestCluster(object):
             if len(monitorInspecReportDetailBtns) > 0:
                 monitorInspecReportDetailBtns[0].click()
                 sleep(2)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['queryClusterInspecReportDetail'], closeModal)
                 allWIndowsHandles = self.driver.window_handles
                 for windowHandle in allWIndowsHandles:
@@ -545,7 +545,7 @@ class TestCluster(object):
                 webWaitEle(
                     self, (By.CSS_SELECTOR, 'div.monitorInspecpopconfirm button:nth-child(2)')).click()
                 sleep(3)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['deleteClusterInspecReport'], closeModal)
         except:
             pass
@@ -553,14 +553,14 @@ class TestCluster(object):
         # 单个集群 - 性能诊断
         webWaitEle(self, (By.NAME, 'menu.cluster.single.performance')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryClusterTopSqlList'], closeModal)
         perfRadioBtns = self.driver.find_elements(
             By.CLASS_NAME, 'ant-radio-button-wrapper')
         # 慢查询
         perfRadioBtns[1].click()
         sleep(2)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryClusterSlowQueryList'], closeModal)
         # 诊断报告
         perfRadioBtns[2].click()
@@ -571,18 +571,18 @@ class TestCluster(object):
         # 日志检索
         perfRadioBtns[3].click()
         sleep(3)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryClusterLogSearchTopology'], closeModal)
         selectComp(self, 'logInfoType', 'logInfoType_', logLevelArr, queryLog)
 
         # 单个集群 - 备份恢复
         webWaitEle(self, (By.NAME, 'menu.cluster.single.backup')).click()
         sleep(2)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryBackupTaskList'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryBackupPolicy'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['clusterList'], closeModal)
 
         # 手动备份
@@ -596,7 +596,7 @@ class TestCluster(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['backupCluster'], closeModal)
 
         # 备份设置
@@ -611,7 +611,7 @@ class TestCluster(object):
             sleep(1)
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-primary').click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['updateBackupPolicy'], closeModal)
         else:
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
@@ -640,13 +640,13 @@ class TestCluster(object):
 
             webWaitEle(self, (By.NAME, 'brTestClusterBtn')).click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['detectRestoreCluster'], closeModal)
             sleep(1)
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['restoreCluster'], closeModal)
 
         else:
@@ -657,17 +657,17 @@ class TestCluster(object):
         # 单个集群 - 参数管理
         webWaitEle(self, (By.NAME, 'menu.cluster.single.param')).click()
         sleep(5)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['clusterParamList'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryParamTemplateDetail'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryParamTemplateParams'], closeModal)
         webWaitEle(self, (By.NAME, 'createParamTemBtn')).click()
         sleep(1)
         webWaitEle(self, (By.NAME, 'paramTempBtn')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryParamTemplateList'], closeModal)
 
         webWaitEle(self, (By.CLASS_NAME, 'paramTempDrawer')).find_element(
@@ -718,14 +718,14 @@ class TestCluster(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createParamTemplate'], closeModal)
 
         # 单个集群 - 集群拓扑
         webWaitEle(self, (By.NAME, 'menu.cluster.single.topology')).click()
         sleep(4)
         for api in clusterTopologyApiKeyArr:
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict[api], closeModal)
 
         def operateClusterTopo(self, eleName, confirmPopName, api):
@@ -739,7 +739,7 @@ class TestCluster(object):
                 webWaitEle(self, (By.CLASS_NAME, confirmPopName)).find_element(
                     By.CLASS_NAME, 'ant-btn-primary').click()
                 sleep(5)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict[api], closeModal)
                 sleep(30)
             else:
@@ -768,7 +768,7 @@ class TestCluster(object):
 
         webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
         sleep(3)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['scaleCluster'], closeModal)
         if isElementExist(self, By.NAME, 'topoCancelBtn'):
             webWaitEle(self, (By.NAME, 'cancelBtn')).click()
@@ -776,9 +776,9 @@ class TestCluster(object):
         # 单个集群 - sql editor
         webWaitEle(self, (By.NAME, 'menu.cluster.single.sqleditor')).click()
         sleep(6)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['querySQLEditorMeta'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['querySQLEditorStatementHistory'], closeModal)
 
         sleep(5)

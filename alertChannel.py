@@ -64,7 +64,7 @@ class TestAlertChannel(object):
         webWaitEle(self, (
             By.NAME, 'menu.alert.channel')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertChannelList'], closeModal)
 
         # 查询告警通道
@@ -76,7 +76,7 @@ class TestAlertChannel(object):
                 By.CLASS_NAME, 'alertChannelTypeDropdown')
             typeDropdown.find_element(By.NAME, x).click()
             webWaitEle(self, (By.NAME, 'alertChannelSearchBtn')).click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryAlertChannelList'], closeModal)
             sleep(1)
 
@@ -88,7 +88,7 @@ class TestAlertChannel(object):
                     By.CLASS_NAME, 'alertChannelEnabledDropdown')
                 enabledDropdown.find_element(By.NAME, y).click()
                 webWaitEle(self, (By.NAME, 'alertChannelSearchBtn')).click()
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['queryAlertChannelList'], closeModal)
                 sleep(1)
 
@@ -138,13 +138,13 @@ class TestAlertChannel(object):
 
         webWaitEle(self, (
             By.NAME, 'testEmailBtn')).click()
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['testAlertChannelEmail'], closeModal)
         sleep(1)
 
         webWaitEle(self, (
             By.CLASS_NAME, 'ant-modal-footer')).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createAlertChannel'], closeModal)
         sleep(2)
 
@@ -165,7 +165,7 @@ class TestAlertChannel(object):
                 webWaitEle(self, (
                     By.CSS_SELECTOR, 'div.alertChannelStatusPopconfirm  button:nth-child(2)')).click()
                 sleep(1)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['updateAlertChannel'], closeModal)
                 sleep(1)
                 statusBtn.click()
@@ -173,7 +173,7 @@ class TestAlertChannel(object):
                 webWaitEle(self, (
                     By.CSS_SELECTOR, 'div.alertChannelStatusPopconfirm  button:nth-child(2)')).click()
                 sleep(1)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['updateAlertChannel'], closeModal)
                 sleep(1)
             deleteBtn = curOpBox.find_element(
@@ -184,7 +184,7 @@ class TestAlertChannel(object):
                 webWaitEle(self, (
                     By.CSS_SELECTOR, 'div.alertChannelDeletePopconfirm  button:nth-child(2)')).click()
                 sleep(1)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['deleteAlertChannel'], closeModal)
 
         sleep(3)

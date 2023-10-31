@@ -111,7 +111,7 @@ class TestParamsTemp(object):
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
 
         # 滚动到页面顶部
@@ -123,11 +123,11 @@ class TestParamsTemp(object):
         webWaitEle(
             self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, 'menu.paramstemplate').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryParamTemplateList'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryParamTemplateParams'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['clusterList'], closeModal)
         self.driver.find_element(By.TAG_NAME, 'body').click()
         sleep(1)
@@ -194,7 +194,7 @@ class TestParamsTemp(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createParamTemplate'], closeModal)
 
         #  参数组模板详情
@@ -205,7 +205,7 @@ class TestParamsTemp(object):
             "arguments[0].scrollIntoView();", randomparamTempNamBtn)
         randomparamTempNamBtn.click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryParamTemplateDetail'], closeModal)
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-close-x')).click()
         sleep(1)
@@ -231,7 +231,7 @@ class TestParamsTemp(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-confirm-btns')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['updateParamTemplate'], closeModal)
 
         # 删除参数组模板
@@ -247,7 +247,7 @@ class TestParamsTemp(object):
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.ant-modal-confirm-btns  button:nth-child(2)')).click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['deleteParamTemplate'], closeModal)
 
         sleep(5)

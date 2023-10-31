@@ -97,9 +97,9 @@ class TestBackup(object):
         webWaitEle(self, (By.ID, 'login')).click()
         webWaitEle(self, (By.NAME, 'menu.backup')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryBackupTaskList'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryBackupTopSummary'], closeModal)
 
        # 手动备份
@@ -118,7 +118,7 @@ class TestBackup(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['backupCluster'], closeModal)
         # 等待十秒备份
         sleep(10)
@@ -135,7 +135,7 @@ class TestBackup(object):
             webWaitEle(self, (By.ID, 'TaskID')).send_keys(confirmTagetVal)
             webWaitEle(self, (By.CLASS_NAME, 'confirmDeleteModal')).find_element(
                 By.CLASS_NAME, 'ant-btn-danger').click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['deleteBackupTask'], closeModal)
         else:
             pass
@@ -170,11 +170,11 @@ class TestBackup(object):
         if len(tagetClusterEles) > 0:
             random.choice(tagetClusterEles).click()
             webWaitEle(self, (By.NAME, 'backupModalTestBtn')).click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['detectRestoreCluster'], closeModal)
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-primary').click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['restoreCluster'], closeModal)
         else:
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
@@ -183,7 +183,7 @@ class TestBackup(object):
         # 管理备份策略
         webWaitEle(self, (By.NAME, 'policyBtn')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryBackupPoliciesList'], closeModal)
         # 新建备份策略
         webWaitEle(self, (By.NAME, 'createBackupPolicyBtn')).click()
@@ -218,7 +218,7 @@ class TestBackup(object):
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createBackupPolicy'], closeModal)
 
         # 编辑备份策略
@@ -251,7 +251,7 @@ class TestBackup(object):
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['updateBackupPolicy'], closeModal)
 
         else:
@@ -274,7 +274,7 @@ class TestBackup(object):
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-danger').click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['deleteBackupPolicy'], closeModal)
 
         sleep(5)

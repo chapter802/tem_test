@@ -61,7 +61,7 @@ class TestAlertRules(object):
         sleep(1)
         self.driver.find_element(By.NAME, 'menu.alert.rules').click()
         sleep(3)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal)
 
         # 查询告警规则
@@ -72,7 +72,7 @@ class TestAlertRules(object):
             self.driver.find_element(By.NAME, x).click()
             self.driver.find_element(
                 By.NAME, 'alertRulesSearchBtn').click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryAlertRuleList'], closeModal)
             sleep(2)
 
@@ -84,7 +84,7 @@ class TestAlertRules(object):
                 sleep(1)
                 self.driver.find_element(
                     By.NAME, 'alertRulesSearchBtn').click()
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['queryAlertRuleList'], closeModal)
                 sleep(2)
 
@@ -165,7 +165,7 @@ class TestAlertRules(object):
         self.driver.find_element(
             By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createAlertRule'], closeModal)
         sleep(2)
 
@@ -252,7 +252,7 @@ class TestAlertRules(object):
                 By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
 
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['updateAlertRule'], closeModal)
 
         # 启用停用告警规则
@@ -267,7 +267,7 @@ class TestAlertRules(object):
             self.driver.find_element(
                 By.CLASS_NAME, 'ant-popover-buttons').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver,  apiDict['switchAlertRuleStatus'], closeModal)
             sleep(3)
             statusBtns[0].click()
@@ -275,7 +275,7 @@ class TestAlertRules(object):
             self.driver.find_element(
                 By.CLASS_NAME, 'ant-popover-buttons').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['switchAlertRuleStatus'], closeModal)
             sleep(3)
         # 删除告警规则
@@ -291,7 +291,7 @@ class TestAlertRules(object):
             self.driver.find_elements(
                 By.CLASS_NAME, 'ant-popover-buttons')[1].find_element(By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['deleteAlertRule'], closeModal)
         sleep(5)
         self.driver.quit()

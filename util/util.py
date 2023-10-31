@@ -113,7 +113,7 @@ def getElementText(self, element):
         """, element)
 
 
-def getRequsetInfo(self, requests, curUrl, actionText, reqMethod='POST', excludeStr='', errCb=None):
+def getRequsetInfo1(self, requests, curUrl, actionText, reqMethod='POST', excludeStr='', errCb=None):
     upCaseMethod = reqMethod.upper()
     reverseRequests = requests[::-1]
     for request in reverseRequests:
@@ -148,7 +148,7 @@ def getRequsetInfo(self, requests, curUrl, actionText, reqMethod='POST', exclude
                         return _content
 
 
-def getRequsetInfo1(self, driver, apiConfig, errCb=None):
+def getRequsetInfo(self, driver, apiConfig, errCb=None):
     requests = driver.requests
     upCaseMethod = apiConfig['method']
     actionText = apiConfig['remark']

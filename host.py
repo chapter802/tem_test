@@ -81,7 +81,7 @@ class TestHost(object):
         webWaitEle(self, (By.ID, 'login')).click()
         webWaitEle(self, (By.NAME, 'menu.host')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryHostList'], closeModal)
 
         # 创建主机和主机规格
@@ -91,7 +91,7 @@ class TestHost(object):
         webWaitEle(self, (By.ID, 'Password')).send_keys('tem')
         webWaitEle(self, (By.ID, 'SSHPort')).send_keys('22')
         webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['discoverHost'], closeModal)
 
         hostModalSaveSpecBtn = webWaitEle(self, (
@@ -114,7 +114,7 @@ class TestHost(object):
                     'selenium_test_note_' + randomStr)
                 webWaitEle(self, (By.NAME, 'hostrDawerSaveSpecBtn')).click()
                 sleep(2)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['createSpec'], closeModal)
 
         saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
@@ -124,7 +124,7 @@ class TestHost(object):
         else:
             saveHostBtn.click()
             sleep(2)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['createHost'], closeModal)
         sleep(1)
 
@@ -148,7 +148,7 @@ class TestHost(object):
         sshPortEle.send_keys('22')
         webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
         sleep(5)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['discoverHost'], closeModal)
         saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
                                  ).find_element(By.CLASS_NAME, 'ant-btn-primary')
@@ -157,13 +157,13 @@ class TestHost(object):
         else:
             saveHostBtn.click()
             sleep(2)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['updateHost'], closeModal)
         sleep(1)
 
         # 主机详情
         testHostEle.click()
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryHostMonitor'], closeModal)
         sleep(1)
         hostDetailCloseBtn = webWaitEle(self, (
@@ -188,7 +188,7 @@ class TestHost(object):
           webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
               By.CLASS_NAME, 'ant-btn-danger').click()
           sleep(1)
-          util.getRequsetInfo1(
+          util.getRequsetInfo(
               self, self.driver, apiDict['deleteHost'], closeModal)
           # 下线主机等待60s
           sleep(60)
@@ -201,7 +201,7 @@ class TestHost(object):
         webWaitEle(self, (By.ID, 'HostList')).send_keys('172.17.0.5')
         webWaitEle(self, (By.NAME, 'batchAddHostTestBtn')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['discoverHost'], closeModal)
 
         batchSaveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'batchAddHostModal')).find_element(
@@ -211,14 +211,14 @@ class TestHost(object):
         else:
             batchSaveHostBtn.click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['createHost'], closeModal)
         sleep(1)
 
         # 主机规格管理
         self.driver.find_element(By.NAME, 'hostSpecManageBtn').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['querySpecList'], closeModal)
 
         def updateSpecInfo(self, isCreate=False):
@@ -255,10 +255,10 @@ class TestHost(object):
                        ).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
             if isCreate:
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['createSpec'], closeModal)
             else:
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['updateSpec'], closeModal)
 
         # 创建主机规格
@@ -287,25 +287,25 @@ class TestHost(object):
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.hostSpecDeletePopconfirm  button:nth-child(2)')).click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['deleteSpec'], closeModal)
 
         # 审计日志
         webWaitEle(self, (By.NAME, 'menu.audit.log')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAuditLogOption'], closeModal)
 
         selectDate(self)
         webWaitEle(self, (By.NAME, 'auditLogSearchBtn')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAuditLog'], closeModal)
 
         # 任务流
         webWaitEle(self, (By.NAME, 'menu.taskflow')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryTaskFlowList'], closeModal)
         taskflowDetailBtns = self.driver.find_elements(
             By.NAME, 'taskflowDetailBtn')
@@ -316,7 +316,7 @@ class TestHost(object):
             sleep(1)
             randomTaskflowDetailBtn.click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryTaskFlowDetail'], closeModal)
             sleep(1)
             taskflowDetailCloseBtn = webWaitEle(self, (

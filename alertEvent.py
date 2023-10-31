@@ -68,7 +68,7 @@ class TestAlert(object):
         webWaitEle(self, (By.NAME, 'menu.alert')).click()
         webWaitEle(self, (By.NAME, 'menu.alert.event')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertEventList'], closeModal)
 
         for x in alertLevels:
@@ -78,7 +78,7 @@ class TestAlert(object):
             webWaitEle(self, (By.NAME, x)).click()
             webWaitEle(self, (
                 By.NAME, 'alertEventSearchBtn')).click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryAlertEventList'], closeModal)
             sleep(1)
 
@@ -89,7 +89,7 @@ class TestAlert(object):
                 __selectDate(self)
                 webWaitEle(self, (
                     By.NAME, 'alertEventSearchBtn')).click()
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['queryAlertEventList'], closeModal)
                 sleep(1)
                 for z in alertEventStatus:
@@ -97,11 +97,12 @@ class TestAlert(object):
                         By.NAME, 'alertEventStatusSelect')).click()
 
                     webWaitEle(self, (By.NAME, z)).click()
+                    sleep(3)
                     webWaitEle(self, (
                         By.NAME, 'alertEventSearchBtn')).click()
-                    util.getRequsetInfo1(
+                    util.getRequsetInfo(
                         self, self.driver, apiDict['queryAlertEventList'], closeModal)
-                    sleep(1)
+                    
 
         sleep(2)
         self.driver.quit()

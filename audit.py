@@ -109,7 +109,7 @@ class TestAudit(object):
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
 
         # 滚动到页面顶部
@@ -121,9 +121,9 @@ class TestAudit(object):
         webWaitEle(
             self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, 'menu.audit').click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['userList'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAuditList'], closeModal)
         self.driver.find_element(By.TAG_NAME, 'body').click()
         sleep(1)
@@ -142,7 +142,7 @@ class TestAudit(object):
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.ant-modal-confirm-btns  button:nth-child(2)')).click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict[auditSwitchStatusApi], closeModal)
 
         def setSeleniumAudit(self):
@@ -166,7 +166,7 @@ class TestAudit(object):
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.ant-modal-confirm-btns  button:nth-child(2)')).click()
             sleep(1)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['updateAuditConfig'], closeModal)
 
         changeAuditStatus(self, setSeleniumAudit)
@@ -177,9 +177,9 @@ class TestAudit(object):
         # 审计日志
         webWaitEle(self, (By.NAME, 'menu.audit.log')).click()
         sleep(2)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAuditLogOption'], closeModal)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAuditLog'], closeModal)
         
         for d in shortCutDateIDs:
@@ -190,7 +190,7 @@ class TestAudit(object):
             sleep(2)
             webWaitEle(self, (By.NAME, 'auditLogSearchBtn')).click()
             sleep(3)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryAuditLog'], closeModal)
         sleep(5)
 

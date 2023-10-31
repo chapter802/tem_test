@@ -65,7 +65,7 @@ class TestAlertRules(object):
         webWaitEle(self, (By.NAME, 'menu.alert')).click()
         webWaitEle(self, (By.NAME, 'menu.alert.rules')).click()
         sleep(1)
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal)
 
         # 查询告警规则
@@ -76,7 +76,7 @@ class TestAlertRules(object):
             webWaitEle(self, (
                 By.NAME, 'alertRulesSearchBtn')).click()
             sleep(2)
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['queryAlertRuleList'], closeModal)
 
             for y in alertTypes:
@@ -87,7 +87,7 @@ class TestAlertRules(object):
                 webWaitEle(self, (
                     By.NAME, 'alertRulesSearchBtn')).click()
                 sleep(2)
-                util.getRequsetInfo1(
+                util.getRequsetInfo(
                     self, self.driver, apiDict['queryAlertRuleList'], closeModal)
 
         # 新增告警规则
@@ -149,7 +149,7 @@ class TestAlertRules(object):
 
         webWaitEle(self, (
             By.CLASS_NAME, 'ant-modal-footer')).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['createAlertRule'], closeModal)
         sleep(2)
         # 修改告警规则
@@ -231,7 +231,7 @@ class TestAlertRules(object):
 
             webWaitEle(self, (
                 By.CLASS_NAME, 'ant-modal-footer')).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['updateAlertRule'], closeModal)
             sleep(2)
         # 启用停用告警规则
@@ -247,14 +247,14 @@ class TestAlertRules(object):
             # sleep(2)
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.ant-popover-buttons > button:nth-child(2)')).click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver,  apiDict['switchAlertRuleStatus'], closeModal)
             sleep(2)
             statusBtn.click()
             # sleep(2)
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.ant-popover-buttons > button:nth-child(2)')).click()
-            util.getRequsetInfo1(
+            util.getRequsetInfo(
                 self, self.driver, apiDict['switchAlertRuleStatus'], closeModal)
 
         # 删除告警规则
@@ -269,7 +269,7 @@ class TestAlertRules(object):
         sleep(1)
         webWaitEle(self, (
             By.CSS_SELECTOR, 'div.alertRuleDeletePopconfirm button:nth-child(2)')).click()
-        util.getRequsetInfo1(
+        util.getRequsetInfo(
             self, self.driver, apiDict['deleteAlertRule'], closeModal)
         sleep(5)
         self.driver.quit()
