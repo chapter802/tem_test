@@ -257,6 +257,8 @@ class TestBackup(object):
         else:
             pass
 
+        sleep(3)
+
         # 删除备份策略
         webWaitEle(self, (By.NAME, 'backupPolicyDeleteBtn'))
         deleteBtns = self.driver.find_elements(
