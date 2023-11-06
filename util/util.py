@@ -28,8 +28,7 @@ def get_logger():
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
-    cwd = os.getcwd()
-    temTestPath = cwd + '/tem_test'
+    temTestPath = '/Users/andy/Desktop/tem_test/tem_test'
 
     if contains_folder(temTestPath, "Logs") == False:
         create_folder(temTestPath, "Logs")

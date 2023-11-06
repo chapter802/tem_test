@@ -75,7 +75,9 @@ class TestHost(object):
             if cb:
                 cb(self)
 
-        self.driver.get('http://172.16.6.62:8080/login')
+        # self.driver.get('http://172.16.6.62:8080/login')
+        self.driver.get('http://localhost:8050/login')
+        
         webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test1')
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
@@ -86,10 +88,13 @@ class TestHost(object):
 
         # 创建主机和主机规格
         webWaitEle(self, (By.NAME, 'createHostBtn')).click()
-        webWaitEle(self, (By.ID, 'IP')).send_keys('172.17.0.5')
-        webWaitEle(self, (By.ID, 'UserName')).send_keys('root')
-        webWaitEle(self, (By.ID, 'Password')).send_keys('tem')
-        webWaitEle(self, (By.ID, 'SSHPort')).send_keys('22')
+        updateHostModalEle = webWaitEle(self, (
+            By.CLASS_NAME, 'updateHostModal'))
+        updateHostModalEle.find_element(By.ID, 'IP').send_keys('172.17.0.17')
+        updateHostModalEle.find_element(By.ID, 'UserName').send_keys('root')
+        updateHostModalEle.find_element(By.ID, 'Password').send_keys('tem')
+        updateHostModalEle.find_element(By.ID, 'SSHPort').send_keys('22')
+        
         webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
         util.getRequsetInfo(
             self, self.driver, apiDict['discoverHost'], closeModal)
@@ -195,6 +200,7 @@ class TestHost(object):
 
         # 批量添加主机
         webWaitEle(self, (By.NAME, 'batchAddHostBtn')).click()
+        sleep(1)
         webWaitEle(self, (By.ID, 'UserName')).send_keys('root')
         webWaitEle(self, (By.ID, 'Password')).send_keys('tem')
         webWaitEle(self, (By.ID, 'SSHPort')).send_keys('22')

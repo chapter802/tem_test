@@ -1,0 +1,1 @@
+*/1 * * * *  bash  /Users/andy/Desktop/tem_test/test.sh  >> /Users/andy/Desktop/tem_test/logfile.log 2>&1
