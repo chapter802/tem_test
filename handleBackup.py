@@ -158,6 +158,15 @@ class Test(object):
                 By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
 
+        # 返回集群列表
+        def backToClusterList():
+          sleep(2)
+          webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+          sleep(2)
+          js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+          self.driver.execute_script(js)
+          sleep(2)
+        
         # self.driver.get('http://172.16.6.62:8080/login')
         self.driver.get('http://localhost:8050/login')
 
@@ -259,54 +268,62 @@ class Test(object):
          # 选定指定IP
         clusterIPSelectEles = clusterSizeEle.find_elements(
             By.NAME, 'clusterIPSelect')
-        for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):
+        isTargetIP = True
+        for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):  
             clusterIPSelectEle.click()
             sleep(1)
             clusterIPSelectDropdownEles = self.driver.find_elements(
                 By.CLASS_NAME, 'clusterIPSelect')
             curOptions = clusterIPSelectDropdownEles[index].find_elements(
-                By.CLASS_NAME, 'ant-select-item-option')
-
+                By.CLASS_NAME, 'ant-select-item-option')            
             for curOption in curOptions:
                 contentEle = curOption.find_element(
                     By.CLASS_NAME, 'ant-select-item-option-content')
                 curText = util.getElementText(self, contentEle)
                 if curText.find(hostIP) != -1:
+                    print('clusterIPSelectEle---->',curOption)
                     curOption.click()
                     sleep(1)
                     break
-
+                else:
+                  clusterIPSelectEle.click()
+                  isTargetIP = False
+                  break
+                 
             sleep(1)
+        if isTargetIP:
+          js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+          self.driver.execute_script(js)
+          sleep(3)
 
-        js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-        self.driver.execute_script(js)
-        sleep(3)
+          webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
 
-        webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
-
-        tableHeaderEle = webWaitEle(
-            self, (By.CLASS_NAME, 'ant-table-thead'))
-        if isElementWaitExist(self, (By.CLASS_NAME, 'ant-table-thead')):
-            js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-            self.driver.execute_script(js)
-            sleep(3)
-            webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
-            sleep(30)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['clusterAdd'], closeModal)
-            sleep(5)
-            
-            # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-            # sleep(2)
-            # js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-            # self.driver.execute_script(js)
-            # sleep(2)
-        else: 
-            webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-            sleep(2)
-            js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-            self.driver.execute_script(js)
-            sleep(2)
+          tableHeaderEle = webWaitEle(
+              self, (By.CLASS_NAME, 'ant-table-thead'))
+          
+        
+          
+          if isElementWaitExist(self, (By.CLASS_NAME, 'ant-table-thead')):
+              js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+              self.driver.execute_script(js)
+              sleep(3)
+              webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
+              sleep(30)
+              util.getRequsetInfo(
+                  self, self.driver, apiDict['clusterAdd'], closeModal)
+              sleep(5)
+              
+              # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+              # sleep(2)
+              # js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+              # self.driver.execute_script(js)
+              # sleep(2)
+          else: 
+             backToClusterList()
+        else:
+          backToClusterList()
+          pass
+              
             
         # 手动恢复集群
         # 跳转到备份恢复页面
@@ -376,7 +393,7 @@ class Test(object):
 
         backupPolicyWeekEle = webWaitEle(self, (By.ID, 'week'))
         if backupPolicyWeekEle:
-            randomDays = random.sample(range(1, 8), random.randint(1, 7))
+            randomDays = random.sample(range(0, 7), random.randint(1, 7))
             weekdayEles = backupPolicyWeekEle.find_elements(
                 By.CLASS_NAME, 'ant-checkbox-wrapper')
             for day in randomDays:
@@ -410,7 +427,7 @@ class Test(object):
 
             backupPolicyWeekEle = webWaitEle(self, (By.ID, 'week'))
             if backupPolicyWeekEle:
-                randomDays = random.sample(range(1, 8), random.randint(1, 7))
+                randomDays = random.sample(range(0, 7), random.randint(1, 7))
                 weekdayEles = backupPolicyWeekEle.find_elements(
                     By.CLASS_NAME, 'ant-checkbox-wrapper')
                 for day in randomDays:

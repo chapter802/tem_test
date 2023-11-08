@@ -142,7 +142,7 @@ class TestInspection(object):
 
         inpecPolicyWeekEle = webWaitEle(self, (By.ID, 'FrequencyWeek'))
         if inpecPolicyWeekEle:
-            randomDays = random.sample(range(1, 8), random.randint(1, 7))
+            randomDays = random.sample(range(0, 7), random.randint(1, 7))
             weekdayEles = inpecPolicyWeekEle.find_elements(
                 By.CLASS_NAME, 'ant-checkbox-wrapper')
             for day in randomDays:
@@ -189,7 +189,7 @@ class TestInspection(object):
 
         inpecPolicyWeekEle = webWaitEle(self, (By.ID, 'FrequencyWeek'))
         if inpecPolicyWeekEle:
-            randomDays = random.sample(range(1, 8), random.randint(1, 7))
+            randomDays = random.sample(range(0, 7), random.randint(1, 7))
             weekdayEles = inpecPolicyWeekEle.find_elements(
                 By.CLASS_NAME, 'ant-checkbox-wrapper')
             for day in randomDays:

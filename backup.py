@@ -203,7 +203,7 @@ class TestBackup(object):
 
         backupPolicyWeekEle = webWaitEle(self, (By.ID, 'week'))
         if backupPolicyWeekEle:
-            randomDays = random.sample(range(1, 8), random.randint(1, 7))
+            randomDays = random.sample(range(0, 7), random.randint(1, 7))
             weekdayEles = backupPolicyWeekEle.find_elements(
                 By.CLASS_NAME, 'ant-checkbox-wrapper')
             for day in randomDays:
@@ -237,7 +237,7 @@ class TestBackup(object):
 
             backupPolicyWeekEle = webWaitEle(self, (By.ID, 'week'))
             if backupPolicyWeekEle:
-                randomDays = random.sample(range(1, 8), random.randint(1, 7))
+                randomDays = random.sample(range(0, 7), random.randint(1, 7))
                 weekdayEles = backupPolicyWeekEle.find_elements(
                     By.CLASS_NAME, 'ant-checkbox-wrapper')
                 for day in randomDays:
