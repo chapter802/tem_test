@@ -470,19 +470,22 @@ class Test(object):
         webWaitEle(self, (By.NAME, 'menu.cluster')).click()
         sleep(2)
         
-        testClusterEle = webWaitEle(
-           self, (By.XPATH, "//*[contains(text(), '%s')]" % testClusterName))
-        parentEle = testClusterEle.find_element(By.XPATH, '../../../..')
-        parentEle.find_element(By.CLASS_NAME, 'destroyBtn').click()
-        
-        confirmTagetVal = webWaitEle(
-                self, (By.ID, 'Alias')).get_attribute('data-tval')
-        webWaitEle(self, (By.ID, 'Alias')).send_keys(confirmTagetVal)
-        webWaitEle(self, (By.CLASS_NAME, 'confirmDeleteClusterModal')).find_element(
-            By.CLASS_NAME, 'ant-btn-danger').click()
-        util.getRequsetInfo(
-            self, self.driver, apiDict['destroyCluster'], closeModal)
-        sleep(1)
+        try:
+          testClusterEle = webWaitEle(
+            self, (By.XPATH, "//*[contains(text(), '%s')]" % testClusterName))
+          parentEle = testClusterEle.find_element(By.XPATH, '../../../..')
+          parentEle.find_element(By.CLASS_NAME, 'destroyBtn').click()
+          
+          confirmTagetVal = webWaitEle(
+                  self, (By.ID, 'Alias')).get_attribute('data-tval')
+          webWaitEle(self, (By.ID, 'Alias')).send_keys(confirmTagetVal)
+          webWaitEle(self, (By.CLASS_NAME, 'confirmDeleteClusterModal')).find_element(
+              By.CLASS_NAME, 'ant-btn-danger').click()
+          util.getRequsetInfo(
+              self, self.driver, apiDict['destroyCluster'], closeModal)
+          sleep(1)
+        except:
+          pass
         
         # 退出登录
         webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
