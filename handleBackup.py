@@ -28,6 +28,7 @@ clusterOverviewApiKeyArr = ['clusterDetail', 'clusterInstance',
 clusterTopologyApiKeyArr = ['clusterDetail',
                             'clusterInstance', 'queryHostOption', 'queryHostList']
 
+
 class Test(object):
 
     def __init__(self):
@@ -388,7 +389,7 @@ class Test(object):
             self, self.driver, apiDict['createBackupPolicy'], closeModal)
 
         sleep(10)
-        
+
         # 编辑备份策略
         webWaitEle(self, (By.NAME, 'backupPolicyEditBtn'))
         editBtns = self.driver.find_elements(
