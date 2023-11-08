@@ -1,4 +1,4 @@
-# 部署全新集群
+# 纳管已有集群
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -92,13 +92,13 @@ class Test(object):
             return WebDriverWait(self.driver, 20, 0.5).until(
                 EC.visibility_of_element_located(locator))
 
-        # def isElementWaitExist(self, locator):
-        #     try:
-        #         WebDriverWait(self.driver, 20, 0.5).until(
-        #             EC.visibility_of_element_located(locator))
-        #         return True
-        #     except:
-        #         return False
+        def isElementWaitExist(self, locator):
+            try:
+                WebDriverWait(self.driver, 20, 0.5).until(
+                    EC.visibility_of_element_located(locator))
+                return True
+            except:
+                return False
 
         # def selectDate(self, cb=None):
         #     randomDate = random.choice(shortCutDateIDs)
@@ -153,105 +153,6 @@ class Test(object):
                 By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
 
-        # def isElementExist(self, by, value):
-        #     try:
-        #         self.driver.find_element(by=by, value=value)
-        #     except NoSuchElementException as e:
-        #         return False
-        #     return True
-
-        # def selectComp(self, compName, optionPrefix, valueArr, callback=None):
-        #     for item in valueArr:
-        #         webWaitEle(self, (By.NAME, compName)).click()
-        #         sleep(1)
-        #         try:
-        #             target = webWaitEle(self, (By.NAME, optionPrefix + item))
-        #             self.driver.execute_script(
-        #                 "arguments[0].scrollIntoView();", target)
-        #             sleep(1)
-        #             target.click()
-        #         except:
-        #             pass
-        #         sleep(2)
-        #         callback and callback(self)
-
-        # # 开始诊断报告
-        # def startDiaLog(self):
-        #     self.driver.find_element(
-        #         By.NAME, 'isBaseSwitch').click()
-        #     sleep(2)
-        #     if isElementExist(self, By.NAME, 'reportCompareStartTime'):
-        #         selectTimePicker(self, 'reportCompareStartTime')
-        #         self.driver.find_element(
-        #             By.NAME, 'generatePerfReportBtn').click()
-        #         sleep(10)
-        #         util.getRequsetInfo(
-        #             self, self.driver, apiDict['createClusterDiagnoseReport'], closeModal)
-        #         util.getRequsetInfo(
-        #             self, self.driver, apiDict['queryClusterDiagnoseReportStatus'], closeModal)
-        #         util.getRequsetInfo(
-        #             self, self.driver, apiDict['queryClusterDiagnoseReportList'], closeModal)
-
-        # # 日志检索
-        # def queryLog(self):
-        #     selectDate(self)
-        #     performLogQuerySearchBtn = webWaitEle(
-        #         self, (By.NAME, 'performLogQuerySearchBtn'))
-        #     performLogQuerySearchBtn.click()
-        #     sleep(3)
-        #     util.getRequsetInfo(
-        #         self, self.driver, apiDict['queryClusterLogSearchTaskID'], closeModal)
-        #     util.getRequsetInfo(
-        #         self, self.driver, apiDict['queryClusterLogSearchTaskList'], closeModal)
-        #     util.getRequsetInfo(
-        #         self, self.driver, apiDict['queryClusterLogSearchList'], closeModal)
-        #     if isElementExist(self, By.NAME, 'logDownloadShowBtn'):
-        #         logDownloadShowBtn = webWaitEle(
-        #             self, (By.NAME, 'logDownloadShowBtn'))
-        #         logDownloadShowBtn.click()
-        #         sleep(1)
-        #         webWaitEle(self, (By.NAME, 'downloadLogBtn'))
-        #         try:
-        #             errorIconEles = self.driver.find_elements(
-        #                 By.CLASS_NAME, 'anticon-close-circle')
-        #             if len(errorIconEles) > 0:
-        #                 webWaitEle(self, (By.NAME, 'retryLogBtn')).click()
-        #                 sleep(1)
-        #                 webWaitEle(self, (By.CLASS_NAME, 'ant-modal-confirm-btns')).find_element(
-        #                     By.CLASS_NAME, 'ant-btn-primary').click()
-        #                 sleep(1)
-        #                 util.getRequsetInfo(
-        #                     self, self.driver, apiDict['retryClusterLogSearchTask'], closeModal)
-        #             else:
-        #                 pass
-        #         except:
-        #             pass
-        #         webWaitEle(self, (By.CLASS_NAME, 'perLogQueryDrawer')).find_element(
-        #             By.CLASS_NAME, 'ant-drawer-close').click()
-        #     else:
-        #         pass
-              
-        # # 表格目标元素操作 confirmType 1: Confirm 2: popconfirm 3: direct
-        # def handleTableOperation(self, targetEle, opBtnName, confirmType=3):
-        #     parentEle = targetEle.find_element(By.XPATH, '..')
-        #     grandParentEle = parentEle.find_element(By.XPATH, '..')
-        #     targetOpBtnEle = grandParentEle.find_element(
-        #         By.NAME, opBtnName)
-        #     grandParentEle.find_element(By.NAME, opBtnName).click()
-        #     sleep(1)
-            
-        #     if confirmType == 1:
-        #       confirmModalEle = webWaitEle(self, (
-        #         By.CLASS_NAME, 'ant-modal-confirm-body'))
-        #       confirmModalEle.find_element(
-        #         By.CLASS_NAME, 'ant-modal-confirm-btns').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
-        #     elif confirmType == 2:
-        #         webWaitEle(self, (
-        #         By.CSS_SELECTOR, 'div.ant-popover-buttons > button:nth-child(2)')).click()
-        #         sleep(1)
-        #     elif confirmType == 3:
-        #         pass
-
         # self.driver.get('http://172.16.6.62:8080/login')
         self.driver.get('http://localhost:8050/login')
 
@@ -264,106 +165,7 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
         
-        webWaitEle(self, (By.NAME, 'menu.host')).click()
-        sleep(1)
-        util.getRequsetInfo(
-            self, self.driver, apiDict['queryHostList'], closeModal)
-        
-        randomStr = util.get_random_string(6)
-        createClusterName = 'selenium_test_' + randomStr
-        
-         # 创建主机和主机规格
-        webWaitEle(self, (By.NAME, 'createHostBtn')).click()
-        updateHostModalEle = webWaitEle(self, (
-            By.CLASS_NAME, 'updateHostModal'))
-        updateHostModalEle.find_element(By.ID, 'IP').send_keys(hostIP)
-        updateHostModalEle.find_element(By.ID, 'UserName').send_keys('root')
-        updateHostModalEle.find_element(By.ID, 'Password').send_keys('tem')
-        updateHostModalEle.find_element(By.ID, 'SSHPort').send_keys('22')
-        
-        webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
-        util.getRequsetInfo(
-            self, self.driver, apiDict['discoverHost'], closeModal)
-
-        hostModalSaveSpecBtn = webWaitEle(self, (
-            By.NAME, 'hostModalSaveSpecBtn'))
-
-        if hostModalSaveSpecBtn:
-            hostModalSaveSpecBtn.click()
-            hostSpecDrawerEle = webWaitEle(self, (
-                By.CLASS_NAME, 'ant-drawer-content-wrapper'))
-            if hostSpecDrawerEle:
-                webWaitEle(self, (By.ID, 'Name')).send_keys(
-                    'selenium_test_' + randomStr)
-                webWaitEle(self, (By.NAME, 'hostDawerCpuArchSelect')).click()
-                cpuArchs = self.driver.find_elements(
-                    By.CLASS_NAME, 'ant-select-item-option')
-                random.choice(cpuArchs).click()
-                # webWaitEle(self, (By.ID, 'CpuModel')).send_keys('Kunpeng-920')
-                # webWaitEle(self, (By.ID, 'CpuCoreNum')).send_keys('CentOS Linux 8')
-                webWaitEle(self, (By.ID, 'Notes')).send_keys(
-                    'selenium_test_note_' + randomStr)
-                webWaitEle(self, (By.NAME, 'hostrDawerSaveSpecBtn')).click()
-                sleep(2)
-                util.getRequsetInfo(
-                    self, self.driver, apiDict['createSpec'], closeModal)
-
-        saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
-                                 ).find_element(By.CLASS_NAME, 'ant-btn-primary')
-        if saveHostBtn.get_attribute('disabled'):
-            return
-        else:
-            saveHostBtn.click()
-            sleep(2)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['createHost'], closeModal)
-        sleep(1)
-
-        # 编辑主机
-        testHostEle = webWaitEle(
-            self, (By.XPATH, "//*[contains(text(), '172.17.0.17')]"))
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView();",  testHostEle)
-        sleep(1)
-        parentEle = testHostEle.find_element(By.XPATH, '..')
-        grandParentEle = parentEle.find_element(By.XPATH, '..')
-        grandParentEle.find_element(By.NAME, 'updateHostBtn').click()
-        userNameEle = webWaitEle(self, (By.ID, 'UserName'))
-        passwordEle = webWaitEle(self, (By.ID, 'Password'))
-        sshPortEle = webWaitEle(self, (By.ID, 'SSHPort'))
-        util.clearInput(userNameEle)
-        util.clearInput(passwordEle)
-        util.clearInput(sshPortEle)
-        userNameEle.send_keys('root')
-        passwordEle.send_keys('tem')
-        sshPortEle.send_keys('22')
-        webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
-        sleep(5)
-        util.getRequsetInfo(
-            self, self.driver, apiDict['discoverHost'], closeModal)
-        saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
-                                 ).find_element(By.CLASS_NAME, 'ant-btn-primary')
-        if saveHostBtn.get_attribute('disabled'):
-            return
-        else:
-            saveHostBtn.click()
-            sleep(2)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['updateHost'], closeModal)
-        sleep(1)
-
-        # 主机详情
-        sleep(2)
-        testHostEle.click()
-        util.getRequsetInfo(
-            self, self.driver, apiDict['queryHostMonitor'], closeModal)
-        sleep(1)
-        hostDetailCloseBtn = webWaitEle(self, (
-            By.CLASS_NAME, 'ant-modal-content')).find_element(By.CLASS_NAME, 'ant-modal-close')
-        hostDetailCloseBtn.click()
-        sleep(1)
-        
-        # 集群管理
+        #集群列表
         webWaitEle(self, (By.NAME, 'menu.cluster')).click()
         sleep(2)
         for api in mainPageApiArr:
@@ -371,231 +173,121 @@ class Test(object):
                 self, self.driver, apiDict[api], closeModal)
         sleep(1)
         
-         # 创建集群
-        webWaitEle(self, (By.NAME, 'addClusterBtn')).click()
-        clusterAliasEle = webWaitEle(self, (By.ID, 'Alias'))
+         # 纳管集群
+        webWaitEle(self, (By.NAME, 'takeoverClusterBtn')).click()
+        webWaitEle(self, (By.ID, 'Host')).send_keys(takeoverClusterHost)
+        webWaitEle(self, (By.ID, 'Port')).send_keys(takeoverClusterPort)
+        webWaitEle(self, (By.ID, 'User')).send_keys(hostUserName)
+        webWaitEle(self, (By.ID, 'Password')).send_keys(hostPwd)
+        webWaitEle(self, (By.ID, 'TiUPHome')).send_keys(tiupPath)
+        webWaitEle(self, (By.NAME, 'getTakeOverClusterListBtn')).click()
+        sleep(10)
+        util.getRequsetInfo(
+            self, self.driver, apiDict['takeoverRemoteClusterList'], closeModal)
         
-        # 创建集群的名称
-      
-        
-        if clusterAliasEle:
-            sleep(2)
-            for api in addClusterApiArr:
-                util.getRequsetInfo(
-                    self, self.driver, apiDict[api], closeModal)
-        clusterAliasEle.send_keys(createClusterName)
-        webWaitEle(self, (By.ID, 'Password')).send_keys('tem')
-        webWaitEle(self, (By.NAME, 'clusterVersionSelect')).click()
-        sleep(1)
-        clusterVersionOptions = webWaitEle(self, (By.CLASS_NAME, 'clusterVersionSelect')).find_elements(
-            By.CLASS_NAME, 'ant-select-item-option')
-        randomClusterVersionOption = random.choice(clusterVersionOptions)
-        randomClusterVersionOption.click()
-        sleep(1)
-        webWaitEle(self, (By.NAME, 'clusterArchSelect')).click()
-        sleep(1)
-        clusterArchOptions = webWaitEle(self, (By.CLASS_NAME, 'clusterArchSelect')).find_elements(
-            By.CLASS_NAME, 'ant-select-item-option')
-        randomClusterArchOption = random.choice(clusterArchOptions)
-        randomClusterArchOption.click()
-        sleep(1)
+        webWaitEle(self, (By.NAME, 'confirmTakeoverBtn'))
 
-        clusterModelEle = webWaitEle(self, (By.ID, 'Model'))
-        shareClusterModelEle = clusterModelEle.find_element(
-            By.CSS_SELECTOR, 'label.ant-radio-button-wrapper:nth-child(2)')
-        shareClusterModelEle.click()
-        clusterCollapseHeaders = self.driver.find_elements(
-            By.CLASS_NAME, 'ant-collapse-header')
-        for clusterCollapseHeader in clusterCollapseHeaders:
-            if clusterCollapseHeader.get_attribute('aria-expanded') == 'false':
-                clusterCollapseHeader.click()
-                sleep(1)
-
-        js = "var q=document.documentElement.scrollTop=0"
-        self.driver.execute_script(js)
-        sleep(3)
-        # 选择规模信息
-        clusterSizeEle = webWaitEle(self, (By.ID, 'clusterSizeInfo'))
-        deleteSizeInfoBtns = clusterSizeEle.find_elements(
-            By.NAME, 'deleteSizeInfoBtn')
-        for deleteSizeInfoBtn in deleteSizeInfoBtns:
-            deleteSizeInfoBtn.click()
-            sleep(1)
-
-        sleep(1)
-
-        # 选定指定IP
-        clusterIPSelectEles = clusterSizeEle.find_elements(
-            By.NAME, 'clusterIPSelect')
-        for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):
-            clusterIPSelectEle.click()
-            sleep(1)
-            clusterIPSelectDropdownEles = self.driver.find_elements(
-                By.CLASS_NAME, 'clusterIPSelect')
-            curOptions = clusterIPSelectDropdownEles[index].find_elements(
-                By.CLASS_NAME, 'ant-select-item-option')
-
-            for curOption in curOptions:
-                contentEle = curOption.find_element(
-                    By.CLASS_NAME, 'ant-select-item-option-content')
-                curText = util.getElementText(self, contentEle)
-                if curText.find(hostIP) != -1:
-                    curOption.click()
-                    sleep(1)
-                    break
-
-            sleep(1)
-
-        js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-        self.driver.execute_script(js)
-        sleep(3)
-        
-        # # 配置集群参数
-        # paramTempParamsWrapperEle = webWaitEle(
-        #     self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
-        # paramTypeTabs = paramTempParamsWrapperEle.find_elements(
-        #     By.CLASS_NAME, 'ant-tabs-tab')
-        # for index, tab in enumerate(paramTypeTabs):
-        #     tabContents = self.driver.find_elements(
-        #         By.CLASS_NAME, 'ant-tabs-tabpane')
-        #     scrollTargetEle = self.driver.find_element(
-        #         By.CLASS_NAME, 'antd-pro-pages-cluster-index-paramConfigHeaderRight')
-        #     self.driver.execute_script(
-        #         "arguments[0].scrollIntoView();",  scrollTargetEle)
-        #     sleep(3)
-        #     tab.click()
-        #     tabContentBox = tabContents[index]
-        #     curDeleteBtns = tabContentBox.find_elements(
-        #         By.NAME, 'deleteParamBtn')
-        #     randomDeleteBtn = random.choice(curDeleteBtns)
-        #     self.driver.execute_script(
-        #         "arguments[0].scrollIntoView();", randomDeleteBtn)
-        #     sleep(1)
-        #     if randomDeleteBtn:
-        #         randomDeleteBtn.click()
-        #     else:
-        #         pass
-
-        sleep(1)
-        webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
-
-        tableHeaderEle = webWaitEle(
-            self, (By.CLASS_NAME, 'ant-table-thead'))
-        if tableHeaderEle:
-            js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-            self.driver.execute_script(js)
-            sleep(3)
-            webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
-            util.getRequsetInfo(
-                self, self.driver, apiDict['clusterAdd'], closeModal)
+        isExistCluster = isElementWaitExist(self, (By.CLASS_NAME, 'ant-table-row'))
+        if isExistCluster == True:
             sleep(5)
-            
-        webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-        sleep(2)
-        js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-        self.driver.execute_script(js)
-        sleep(2)
+            takeoverRows = self.driver.find_elements(
+                By.CLASS_NAME, 'ant-table-row')
+            lastTakeoverRow = takeoverRows[-1]
+            nthchild3Cell = lastTakeoverRow.find_element(
+                By.CSS_SELECTOR, 'td:nth-child(3)')
+            takeoverClusterName = util.getElementText(self, nthchild3Cell)
+            if takeoverClusterName != 'tem_metadb':
+                try:
+                    tableExpandEle = lastTakeoverRow.find_element(
+                        By.CSS_SELECTOR, 'td:nth-child(2)').find_element(By.CLASS_NAME, 'ant-table-row-expand-icon')
+                    if tableExpandEle.get_attribute('aria-expanded') == 'false':
+                        tableExpandEle.click()
+                        sleep(10)
+                        util.getRequsetInfo(
+                            self, self.driver, apiDict['takeoverRemoteDetail'], closeModal)
+                        sleep(1)
+                except:
+                    pass
 
-        # 单个集群 - 概览
-        # 找到测试的集群
-        def findTestCluster():
-          webWaitEle(self, (By.NAME, 'takeoverClusterBtn'))
-          activeClusters = self.driver.find_elements(
-              By.CLASS_NAME, 'clusterAlias')
-          if len(activeClusters) > 0:
-              for activeCluster in activeClusters:
-                  activeClusterName = util.getElementText(self, activeCluster)
-                  if createClusterName == activeClusterName:
-                      activeCluster.click()
-                      break
-                  elif 'xinyi_test' in activeClusterName or 'selenium_test' in activeClusterName:
-                      activeCluster.click()
-                      break
-          webWaitEle(self, (By.NAME, 'clusterOverviewConnectBtn'))
-          
-          sleep(1)
-          for api in clusterOverviewApiKeyArr:
-              util.getRequsetInfo(self, self.driver, apiDict[api], closeModal)
-        
-        findTestCluster();
-         
-        # 单个集群 - 参数管理
-        webWaitEle(self, (By.NAME, 'menu.cluster.single.param')).click()
-        sleep(5)
-        util.getRequsetInfo(
-            self, self.driver, apiDict['clusterParamList'], closeModal)
-        util.getRequsetInfo(
-            self, self.driver, apiDict['queryParamTemplateDetail'], closeModal)
-        util.getRequsetInfo(
-            self, self.driver, apiDict['queryParamTemplateParams'], closeModal)
-        
-        # # 创建参数模板
-        # webWaitEle(self, (By.NAME, 'createParamTemBtn')).click()
-        # sleep(1)
-        # webWaitEle(self, (By.NAME, 'paramTempBtn')).click()
-        # sleep(1)
-        # util.getRequsetInfo(
-        #     self, self.driver, apiDict['queryParamTemplateList'], closeModal)
+                try:
+                    tableCheckWrapperEle = lastTakeoverRow.find_element(
+                        By.CSS_SELECTOR, 'td:nth-child(1)').find_element(By.CLASS_NAME, 'ant-checkbox-wrapper')
+                    tableCheckWrapperEle.click()
+                except:
+                    pass
 
-        # webWaitEle(self, (By.CLASS_NAME, 'paramTempDrawer')).find_element(
-        #     By.CLASS_NAME, 'ant-drawer-close').click()
-        # sleep(1)
+                confirmTakeoverBtn = webWaitEle(
+                    self, (By.NAME, 'confirmTakeoverBtn'))
+                if confirmTakeoverBtn.get_attribute('disabled') == None:
+                    confirmTakeoverBtn.click()
+                    sleep(1)
+                    # 默认为 root , 无需再次填写
+                    # webWaitEle(self, (By.ID, 'UserID_' +
+                    #            takeoverClusterName)).send_keys(hostUserName)
+                  
+                    webWaitEle(self,  (By.ID, 'Password_' +
+                               takeoverClusterName)).send_keys(hostPwd)
+                    webWaitEle(self, (By.NAME, 'modelSelect_' +
+                               takeoverClusterName)).click()
+                    sleep(1)
+                    takeoverDropdownEle = webWaitEle(
+                        self, (By.CLASS_NAME,  'modelSelect_' +
+                               takeoverClusterName))
+                    # 'ant-select-item-option'
+                    takeoverDropdownOptions = takeoverDropdownEle.find_elements(
+                        By.CLASS_NAME, 'ant-select-item-option')
+                    if len(takeoverDropdownOptions) > 0:
+                        for takeoverDropdownOption in takeoverDropdownOptions:
+                            if takeoverDropdownOption.get_attribute('title') == '共享模式':
+                                takeoverDropdownOption.click()
+                                sleep(1)
 
-        # webWaitEle(self, (By.ID, 'Name')).send_keys(
-        #     'selenium_test_' + randomStr)
-        # webWaitEle(self, (By.ID, 'Note')).send_keys(
-        #     'selenium_Note_' + randomStr)
-
-        # paramTempParamsWrapperEle = webWaitEle(
-        #     self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
-        # paramTypeTabs = paramTempParamsWrapperEle.find_elements(
-        #     By.CLASS_NAME, 'ant-tabs-tab')
-        # for tab in paramTypeTabs:
-        #     tab.click()
-        #     curNodeKey = tab.get_attribute('data-node-key')
-        #     for i in range(random.randint(1, 3)):
-        #         webWaitEle(
-        #             self, (By.NAME, 'addParamBtn_' + curNodeKey)).click()
-        #     sleep(1)
-
-        #     paramTempParamSelects = self.driver.find_elements(
-        #         By.NAME, 'paramsSelect_' + curNodeKey)
-
-        #     if len(paramTempParamSelects) > 0:
-        #         for select in paramTempParamSelects:
-        #             select.click()
-        #             paramTempParamSelectOptions = webWaitEle(
-        #                 self, (By.CLASS_NAME, 'paramsSelect_' + curNodeKey)).find_elements(By.CLASS_NAME, 'ant-select-item-option')
-        #             if len(paramTempParamSelectOptions) > 0:
-        #                 randomParamTempParamSelectOption = random.choice(
-        #                     paramTempParamSelectOptions)
-        #                 self.driver.execute_script(
-        #                     "arguments[0].scrollIntoView();", randomParamTempParamSelectOption)
-        #                 sleep(1)
-        #                 if 'ant-select-item-option-disabled' not in randomParamTempParamSelectOption.get_attribute('class'):
-        #                     randomParamTempParamSelectOption.click()
-        #                     sleep(1)
-        #                 else:
-        #                     pass
-        #             else:
-        #                 pass
-
-        #     sleep(1)
+                    webWaitEle(self, (By.CLASS_NAME, 'takeoverInputPwdModal')).find_element(
+                        By.CLASS_NAME, 'ant-modal-footer').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
+                    sleep(10)
+                    util.getRequsetInfo(
+                        self, self.driver, apiDict['takeoverCluster'], closeModal)
+                    
+                    # webWaitEle(self, (By.NAME, 'takeoverClusterBtn'))
+                else:
+                    cancelTakeoverBtn = webWaitEle(
+                        self, (By.NAME, 'cancelTakeoverBtn'))
+                    cancelTakeoverBtn.click()
         
         sleep(1)
         webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+        sleep(1)
+        
+        takeoverEle = webWaitEle(
+            self, (By.XPATH, "//*[contains(text(), '纳管中')]"))
+        
+        parentEle = takeoverEle.find_element(By.XPATH, '../../../..')
+        targetNameCell = parentEle.find_elements(By.CLASS_NAME, 'ant-table-cell')[0].find_element(By.TAG_NAME, 'span')
+        takeoverClusterName = targetNameCell.get_attribute('innerHTML')
+        
+        sleep(300)  #纳管等待 5 分钟
+        self.driver.refresh()
         sleep(2)
-      
+        takeoverClusterEle = webWaitEle(
+            self, (By.XPATH, "//*[contains(text(), '%s')]" % takeoverClusterName))
+        targetClusterEle = takeoverClusterEle.find_element(By.XPATH, '..')
+        # targetClusterEle.click()
+        
+        # 修改参数组模板
+        # 待补充
+        
+        
+        
         # 重启集群 
         activeClusters = self.driver.find_elements(
             By.CLASS_NAME, 'clusterAlias')
         if len(activeClusters) > 0:
             for activeCluster in activeClusters:
                 activeClusterName = util.getElementText(self, activeCluster)
-                if 'xinyi_test' in activeClusterName or 'selenium_test' in activeClusterName:
-                    parentEle = activeCluster.find_element(By.XPATH, '..')
+                if takeoverClusterName in activeClusterName:
+                    parentEle = activeCluster.find_element(By.XPATH, '../..')
                     try:
-                      parentEle.find_element(By.XPATH, '..').find_element(By.NAME, 'restartBtn').click()
+                      parentEle.find_element(By.NAME, 'restartBtn').click()
                       sleep(1)
                       webWaitEle(self, (By.CLASS_NAME, 'clusterConfirmModal')).find_element(
                       By.CLASS_NAME, 'ant-modal-confirm-btns').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
@@ -604,7 +296,7 @@ class Test(object):
                       break
                     except:
                       continue
-  
+        
         sleep(300) #重启等待 5 分钟
         self.driver.refresh()
         
@@ -614,21 +306,14 @@ class Test(object):
         if len(activeClusters) > 0:
             for activeCluster in activeClusters:
                 activeClusterName = util.getElementText(self, activeCluster)
-                if 'xinyi_test' in activeClusterName or 'selenium_test' in activeClusterName:
+                if takeoverClusterName in activeClusterName:
                     activeCluster.click()
                     break
         else:
             # util.logger.debug('未找到对应的测试集群')
             sleep(5)
             self.driver.quit()
-        # 进入概览页面
-        webWaitEle(self, (By.NAME, 'clusterOverviewConnectBtn'))
-        sleep(1)
-        for api in clusterOverviewApiKeyArr:
-            util.getRequsetInfo(self, self.driver, apiDict[api], closeModal)
-        
-        activeClusters = self.driver.find_elements(By.CLASS_NAME, 'clusterAlias')
-        
+            
         # 单个集群 - 备份恢复
         webWaitEle(self, (By.NAME, 'menu.cluster.single.backup')).click()
         sleep(2)
@@ -707,7 +392,7 @@ class Test(object):
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-default').click()
         sleep(1)           
-                    
+        
         # 修改巡检策略
         # 滚动到页面顶部
         self.driver.find_element(By.TAG_NAME, 'body').send_keys(
@@ -826,7 +511,7 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['deleteInspection'], closeModal)
         
-        # 跳转到集群列表
+          # 跳转到集群列表
         sleep(1)
         webWaitEle(self, (By.NAME, 'menu.cluster')).click()
         
@@ -836,7 +521,7 @@ class Test(object):
         if len(activeClusters) > 0:
             for activeCluster in activeClusters:
                 activeClusterName = util.getElementText(self, activeCluster)
-                if 'xinyi_test' in activeClusterName or 'selenium_test' in activeClusterName:
+                if takeoverClusterName in activeClusterName:
                     activeCluster.click()
                     break
         else:
@@ -877,7 +562,7 @@ class Test(object):
             pass
 
         sleep(2)
-
+        
         try:
             monitorInspecReportDetailBtns = self.driver.find_elements(
                 By.NAME, 'monitorInspecReportDetailBtn')

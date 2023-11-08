@@ -367,8 +367,7 @@ class TestCluster(object):
         sleep(1)
 
         webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
-        
-      
+
 
         tableHeaderEle = webWaitEle(
             self, (By.CLASS_NAME, 'ant-table-thead'))
