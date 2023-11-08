@@ -162,6 +162,9 @@ class Test(object):
         def backToClusterList():
           sleep(2)
           webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+          for api in mainPageApiArr:
+            util.getRequsetInfo(
+                self, self.driver, apiDict[api], closeModal)
           sleep(2)
           js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
           self.driver.execute_script(js)
@@ -209,12 +212,7 @@ class Test(object):
         sleep(10)
         
         # 跳转到集群管理页面
-        webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-        sleep(2)
-        for api in mainPageApiArr:
-            util.getRequsetInfo(
-                self, self.driver, apiDict[api], closeModal)
-        sleep(1)
+        backToClusterList()
         
         # 创建集群
         testClusterName = 'selenium_test_' + randomStr
