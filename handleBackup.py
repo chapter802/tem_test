@@ -47,7 +47,7 @@ class Test(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):
@@ -121,14 +121,14 @@ class Test(object):
                 By.CLASS_NAME, 'ant-picker-content')
             pickerCells = pickerContent.find_elements(
                 By.CLASS_NAME, 'ant-picker-cell-inner')
-            
+
             if len(pickerCells) > 0:  # 日期选择
-              randomPickerCell = random.choice(pickerCells)
-              self.driver.execute_script(
-                  "arguments[0].scrollIntoView();", randomPickerCell)
-              randomPickerCell.click()
+                randomPickerCell = random.choice(pickerCells)
+                self.driver.execute_script(
+                    "arguments[0].scrollIntoView();", randomPickerCell)
+                randomPickerCell.click()
             else:
-              pass
+                pass
 
             timePanel = parentEle.find_element(
                 By.CLASS_NAME, 'ant-picker-time-panel')
@@ -160,16 +160,16 @@ class Test(object):
 
         # 返回集群列表
         def backToClusterList():
-          sleep(2)
-          webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-          for api in mainPageApiArr:
-            util.getRequsetInfo(
-                self, self.driver, apiDict[api], closeModal)
-          sleep(2)
-          js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-          self.driver.execute_script(js)
-          sleep(2)
-          
+            sleep(2)
+            webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+            for api in mainPageApiArr:
+                util.getRequsetInfo(
+                    self, self.driver, apiDict[api], closeModal)
+            sleep(2)
+            js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+            self.driver.execute_script(js)
+            sleep(2)
+
         # 备份填写高级选项
         def fillBackupAdvancedOptions(self):
             webWaitEle(self, (By.CLASS_NAME, 'ant-collapse-header')).click()
@@ -188,7 +188,7 @@ class Test(object):
             util.clearInput(logFileEle)
             logFileEle.send_keys(randomLogFile)
             sleep(1)
-        
+
         # self.driver.get('http://172.16.6.62:8080/login')
         self.driver.get('http://localhost:8050/login')
 
@@ -200,7 +200,7 @@ class Test(object):
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
-        
+
         # 备份恢复
         webWaitEle(self, (By.NAME, 'menu.backup')).click()
         sleep(1)
@@ -208,7 +208,7 @@ class Test(object):
             self, self.driver, apiDict['queryBackupTaskList'], closeModal)
         util.getRequsetInfo(
             self, self.driver, apiDict['queryBackupTopSummary'], closeModal)
-     
+
         # 手动备份
         webWaitEle(self, (By.NAME, 'manualBackupBtn')).click()
         webWaitEle(self, (By.NAME, 'backupModalClusterSelect')).click()
@@ -223,7 +223,7 @@ class Test(object):
         webWaitEle(self, (By.ID, 'AccessKeyID')).send_keys(backupAK)
         webWaitEle(self, (By.ID, 'SecretAccessKey')).send_keys(backupSK)
         fillBackupAdvancedOptions(self)
-        
+
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
@@ -231,10 +231,10 @@ class Test(object):
             self, self.driver, apiDict['backupCluster'], closeModal)
         # 等待十秒备份
         sleep(10)
-        
+
         # 跳转到集群管理页面
         backToClusterList()
-        
+
         # 创建集群
         testClusterName = 'selenium_test_' + randomStr
         webWaitEle(self, (By.NAME, 'addClusterBtn')).click()
@@ -284,17 +284,17 @@ class Test(object):
             sleep(1)
 
         sleep(1)
-         # 选定指定IP
+        # 选定指定IP
         clusterIPSelectEles = clusterSizeEle.find_elements(
             By.NAME, 'clusterIPSelect')
         isTargetIP = True
-        for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):  
+        for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):
             clusterIPSelectEle.click()
             sleep(1)
             clusterIPSelectDropdownEles = self.driver.find_elements(
                 By.CLASS_NAME, 'clusterIPSelect')
             curOptions = clusterIPSelectDropdownEles[index].find_elements(
-                By.CLASS_NAME, 'ant-select-item-option')            
+                By.CLASS_NAME, 'ant-select-item-option')
             for curOption in curOptions:
                 contentEle = curOption.find_element(
                     By.CLASS_NAME, 'ant-select-item-option-content')
@@ -304,45 +304,44 @@ class Test(object):
                     sleep(1)
                     break
                 else:
-                  clusterIPSelectEle.click()
-                  isTargetIP = False
-                  break
-                 
+                    clusterIPSelectEle.click()
+                    isTargetIP = False
+                    break
+
             sleep(1)
         if isTargetIP:
-          js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-          self.driver.execute_script(js)
-          sleep(3)
+            js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+            self.driver.execute_script(js)
+            sleep(3)
 
-          webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
-          
-          if isElementWaitExist(self, (By.CLASS_NAME, 'ant-table-thead')):
-              js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-              self.driver.execute_script(js)
-              sleep(3)
-              webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
-              sleep(30)
-              util.getRequsetInfo(
-                  self, self.driver, apiDict['clusterAdd'], closeModal)
-              sleep(5)
-              
-              # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-              # sleep(2)
-              # js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-              # self.driver.execute_script(js)
-              # sleep(2)
-          else: 
-             backToClusterList()
+            webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
+
+            if isElementWaitExist(self, (By.CLASS_NAME, 'ant-table-thead')):
+                js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+                self.driver.execute_script(js)
+                sleep(3)
+                webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
+                sleep(30)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['clusterAdd'], closeModal)
+                sleep(5)
+
+                # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+                # sleep(2)
+                # js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+                # self.driver.execute_script(js)
+                # sleep(2)
+            else:
+                backToClusterList()
         else:
-          backToClusterList()
-          pass
-              
-            
+            backToClusterList()
+            pass
+
         # 手动恢复集群
         # 跳转到备份恢复页面
         webWaitEle(self, (By.NAME, 'menu.backup')).click()
         sleep(1)
-        
+
         # 手动恢复
         webWaitEle(self, (By.NAME, 'manualRecoveryBtn')).click()
 
@@ -382,7 +381,7 @@ class Test(object):
         else:
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-default').click()
-            
+
          # 管理备份策略
         webWaitEle(self, (By.NAME, 'policyBtn')).click()
         sleep(1)
@@ -417,7 +416,7 @@ class Test(object):
         selectTimePicker(self, 'backupPolicyModalTimepicker')
         webWaitEle(self, (By.ID, 'Retention')).send_keys(
             random.randint(1, 365))
-        
+
         fillBackupAdvancedOptions(self)
 
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
@@ -452,7 +451,7 @@ class Test(object):
             selectTimePicker(self, 'backupPolicyModalTimepicker')
             webWaitEle(self, (By.ID, 'Retention')).send_keys(
                 random.randint(1, 365))
-            
+
             fillBackupAdvancedOptions(self)
 
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
@@ -484,30 +483,31 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict['deleteBackupPolicy'], closeModal)
 
-        # 删除创建的集群 
+        # 删除创建的集群
         # 跳转到集群管理页面
         webWaitEle(self, (By.NAME, 'menu.cluster')).click()
         sleep(2)
-        
+
         try:
-          testClusterEle = webWaitEle(
-            self, (By.XPATH, "//*[contains(text(), '%s')]" % testClusterName))
-          parentEle = testClusterEle.find_element(By.XPATH, '../../../..')
-          parentEle.find_element(By.CLASS_NAME, 'destroyBtn').click()
-          
-          confirmTagetVal = webWaitEle(
-                  self, (By.ID, 'Alias')).get_attribute('data-tval')
-          webWaitEle(self, (By.ID, 'Alias')).send_keys(confirmTagetVal)
-          webWaitEle(self, (By.CLASS_NAME, 'confirmDeleteClusterModal')).find_element(
-              By.CLASS_NAME, 'ant-btn-danger').click()
-          util.getRequsetInfo(
-              self, self.driver, apiDict['destroyCluster'], closeModal)
-          sleep(1)
+            testClusterEle = webWaitEle(
+                self, (By.XPATH, "//*[contains(text(), '%s')]" % testClusterName))
+            parentEle = testClusterEle.find_element(By.XPATH, '../../../..')
+            parentEle.find_element(By.CLASS_NAME, 'destroyBtn').click()
+
+            confirmTagetVal = webWaitEle(
+                self, (By.ID, 'Alias')).get_attribute('data-tval')
+            webWaitEle(self, (By.ID, 'Alias')).send_keys(confirmTagetVal)
+            webWaitEle(self, (By.CLASS_NAME, 'confirmDeleteClusterModal')).find_element(
+                By.CLASS_NAME, 'ant-btn-danger').click()
+            util.getRequsetInfo(
+                self, self.driver, apiDict['destroyCluster'], closeModal)
+            sleep(1)
         except:
-          pass
-        
+            pass
+
         # 退出登录
-        webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
+        webWaitEle(self, (By.CLASS_NAME,
+                   'antd-pro-components-global-header-index-account')).click()
         sleep(1)
         webWaitEle(self, (By.CLASS_NAME, 'anticon-logout')).click()
 
@@ -519,4 +519,3 @@ class Test(object):
 if __name__ == '__main__':
     case = Test()
     case.test()
-
