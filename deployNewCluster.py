@@ -384,8 +384,8 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict['updateHost'], closeModal)
         sleep(10)
-        
-        #连接数据库修改主机资源
+
+        # 连接数据库修改主机资源
         # # 连接到数据库
         # conn = mysql.connector.connect(
         #     host="root",
@@ -393,20 +393,20 @@ class Test(object):
         #     password="Pingcap!@#",
         #     database="metadb"
         # )
-        
+
         # cursor = conn.cursor()
         # update_query = "update hosts set cpu_cores = 64, memory = 190, free_cpu_cores = 64, free_memory = 190 where ip='172.20.12.23'"
         # cursor.execute(update_query)
-        
+
         # # 提交更改
         # conn.commit()
 
         # # 关闭游标和连接
         # cursor.close()
         # conn.close()
-        
+
         # sleep(5)
-        
+
         # 主机详情
         sleep(2)
         testHostEle.click()
@@ -532,7 +532,7 @@ class Test(object):
         #         randomDeleteBtn.click()
         #     else:
         #         pass
-        
+
         if isTargetIP:
             js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
             self.driver.execute_script(js)
@@ -560,11 +560,12 @@ class Test(object):
         else:
             backToClusterList()
             pass
-          
+
         # sleep(180) # 等待 3 分钟 等待集群创建成功
         backToClusterList()
         # 单个集群 - 概览
         # 找到测试的集群
+
         def findTestCluster():
             webWaitEle(self, (By.NAME, 'takeoverClusterBtn'))
             activeClusters = self.driver.find_elements(
@@ -724,12 +725,12 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['backupCluster'], closeModal)
         sleep(2)
-        
+
         try:
-           webWaitEle(self, (By.NAME, 'backupConfigBtn'))
+            webWaitEle(self, (By.NAME, 'backupConfigBtn'))
         except:
-           webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-            By.CLASS_NAME, 'ant-btn-default').click()
+            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+                By.CLASS_NAME, 'ant-btn-default').click()
         sleep(1)
 
         # 备份设置
@@ -764,7 +765,7 @@ class Test(object):
                 By.CLASS_NAME, 'ant-btn-default').click()
 
         webWaitEle(self, (By.NAME, 'targetClusterIDSelect')).click()
-        
+
         try:
             targetClusterIDOptions = webWaitEle(self, (By.CLASS_NAME, 'targetClusterIDSelect')).find_elements(
                 By.CLASS_NAME, 'ant-select-item-option')
@@ -1294,9 +1295,9 @@ class Test(object):
             By.NAME, 'alertChannelOpBox')
         if len(opBoxs) > 0:
             curOpBox = opBoxs[-1]
-            
+
             self.driver.execute_script(
-                    "arguments[0].scrollIntoView();", curOpBox)
+                "arguments[0].scrollIntoView();", curOpBox)
             sleep(1)
             WebDriverWait(self.driver, 20, 0.5).until(EC.visibility_of_element_located((
                 By.NAME, 'alertChannelStatusBtn')))
