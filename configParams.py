@@ -57,6 +57,15 @@ backupAK = 'minioadmin'
 
 backupSK = 'minioadmin'
 
+backupRateLimitArr = [0, 128, 512, 1024, 2048, 1024768]
+
+backupConcurrencyArr = [0, 4, 16, 128, 512]
+
+backupLogFileArr = ['', '/tmp/backup.log', '/ttest/backup.log']
+
+
+
+
 # 主机管理
 hostIP = '172.17.0.17'  # 62 测试环境
 # hostIP = '172.17.0.7'   # dev 环境
@@ -79,6 +88,8 @@ rangeStepArr = ['5', '10', '30', '60', '120', '720', '1440']
 
 # 1:DEBUG 2:INFO 3:WARN 5 CRITICAL 6 ERROR
 logLevelArr = ['1', '2', '3', '5', '6']
+
+scaleCompArr = ['TiDB', 'TiKV', 'PD', 'TiFlash']
 
 
 # 接口 url

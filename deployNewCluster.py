@@ -627,8 +627,6 @@ class Test(object):
         for api in clusterOverviewApiKeyArr:
             util.getRequsetInfo(self, self.driver, apiDict[api], closeModal)
         
-        activeClusters = self.driver.find_elements(By.CLASS_NAME, 'clusterAlias')
-        
         # 单个集群 - 备份恢复
         webWaitEle(self, (By.NAME, 'menu.cluster.single.backup')).click()
         sleep(2)
