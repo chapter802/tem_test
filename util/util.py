@@ -7,7 +7,6 @@ import random
 import string
 import json
 import gzip
-from configParams import apiDict
 
 
 def get_logger():

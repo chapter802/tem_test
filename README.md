@@ -44,7 +44,7 @@ https://googlechromelabs.github.io/chrome-for-testing/
 
 流程图:
 
-![处理集群告警](./assets/backup.svg)
+![执行备份恢复](./assets/backup.svg)
 
 
 #### 5.执行性能问题诊断
