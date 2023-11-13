@@ -180,6 +180,7 @@ def getRequsetInfo(self, driver, apiConfig, errCb=None):
                             self.logger.error(
                                 actionText + '失败: \n Request URL: {a} \n Request Method: {me} \n RequsetParams: {p} \n Status Code: {s} \n Code: {c} \n Message: {m}'.format(a=_apiUrl, me=_method, p=_params, s=_status, c=jsonContent['Code'], m=jsonContent['Message']))
                             self.driver.save_screenshot(actionText + '失败.png')
+                            sleep(1)
                             errCb and errCb(self)
                         else:
                             self.logger.debug(
