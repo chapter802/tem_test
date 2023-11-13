@@ -303,96 +303,96 @@ class Test(object):
         randomStr = util.get_random_string(6)
         createClusterName = 'selenium_test_' + randomStr
 
-        #  # 创建主机和主机规格
-        # webWaitEle(self, (By.NAME, 'createHostBtn')).click()
-        # updateHostModalEle = webWaitEle(self, (
-        #     By.CLASS_NAME, 'updateHostModal'))
-        # updateHostModalEle.find_element(By.ID, 'IP').send_keys(hostIP)
-        # updateHostModalEle.find_element(By.ID, 'UserName').send_keys('root')
-        # updateHostModalEle.find_element(By.ID, 'Password').send_keys('tem')
-        # updateHostModalEle.find_element(By.ID, 'SSHPort').send_keys('22')
+        # 创建主机和主机规格
+        webWaitEle(self, (By.NAME, 'createHostBtn')).click()
+        updateHostModalEle = webWaitEle(self, (
+            By.CLASS_NAME, 'updateHostModal'))
+        updateHostModalEle.find_element(By.ID, 'IP').send_keys(hostIP)
+        updateHostModalEle.find_element(By.ID, 'UserName').send_keys('root')
+        updateHostModalEle.find_element(By.ID, 'Password').send_keys('tem')
+        updateHostModalEle.find_element(By.ID, 'SSHPort').send_keys('22')
 
-        # webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
-        # util.getRequsetInfo(
-        #     self, self.driver, apiDict['discoverHost'], closeModal)
+        webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
+        util.getRequsetInfo(
+            self, self.driver, apiDict['discoverHost'], closeModal)
 
-        # hostModalSaveSpecBtn = webWaitEle(self, (
-        #     By.NAME, 'hostModalSaveSpecBtn'))
+        hostModalSaveSpecBtn = webWaitEle(self, (
+            By.NAME, 'hostModalSaveSpecBtn'))
 
-        # if hostModalSaveSpecBtn:
-        #     hostModalSaveSpecBtn.click()
-        #     hostSpecDrawerEle = webWaitEle(self, (
-        #         By.CLASS_NAME, 'ant-drawer-content-wrapper'))
-        #     if hostSpecDrawerEle:
-        #         webWaitEle(self, (By.ID, 'Name')).send_keys(
-        #             'selenium_test_' + randomStr)
-        #         webWaitEle(self, (By.NAME, 'hostDawerCpuArchSelect')).click()
-        #         cpuArchs = self.driver.find_elements(
-        #             By.CLASS_NAME, 'ant-select-item-option')
-        #         random.choice(cpuArchs).click()
-        #         # webWaitEle(self, (By.ID, 'CpuModel')).send_keys('Kunpeng-920')
-        #         # webWaitEle(self, (By.ID, 'CpuCoreNum')).send_keys('CentOS Linux 8')
-        #         webWaitEle(self, (By.ID, 'Notes')).send_keys(
-        #             'selenium_test_note_' + randomStr)
-        #         webWaitEle(self, (By.NAME, 'hostrDawerSaveSpecBtn')).click()
-        #         sleep(2)
-        #         util.getRequsetInfo(
-        #             self, self.driver, apiDict['createSpec'], closeModal)
+        if hostModalSaveSpecBtn:
+            hostModalSaveSpecBtn.click()
+            hostSpecDrawerEle = webWaitEle(self, (
+                By.CLASS_NAME, 'ant-drawer-content-wrapper'))
+            if hostSpecDrawerEle:
+                webWaitEle(self, (By.ID, 'Name')).send_keys(
+                    'selenium_test_' + randomStr)
+                webWaitEle(self, (By.NAME, 'hostDawerCpuArchSelect')).click()
+                cpuArchs = self.driver.find_elements(
+                    By.CLASS_NAME, 'ant-select-item-option')
+                random.choice(cpuArchs).click()
+                # webWaitEle(self, (By.ID, 'CpuModel')).send_keys('Kunpeng-920')
+                # webWaitEle(self, (By.ID, 'CpuCoreNum')).send_keys('CentOS Linux 8')
+                webWaitEle(self, (By.ID, 'Notes')).send_keys(
+                    'selenium_test_note_' + randomStr)
+                webWaitEle(self, (By.NAME, 'hostrDawerSaveSpecBtn')).click()
+                sleep(2)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['createSpec'], closeModal)
 
-        # saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
-        #                          ).find_element(By.CLASS_NAME, 'ant-btn-primary')
-        # if saveHostBtn.get_attribute('disabled'):
-        #     return
-        # else:
-        #     saveHostBtn.click()
-        #     sleep(2)
-        #     util.getRequsetInfo(
-        #         self, self.driver, apiDict['createHost'], closeModal)
-        # sleep(1)
+        saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
+                                 ).find_element(By.CLASS_NAME, 'ant-btn-primary')
+        if saveHostBtn.get_attribute('disabled'):
+            return
+        else:
+            saveHostBtn.click()
+            sleep(2)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['createHost'], closeModal)
+        sleep(1)
 
-        # # 编辑主机
-        # testHostEle = webWaitEle(
-        #     self, (By.XPATH, "//*[contains(text(), '172.17.0.17')]"))
-        # self.driver.execute_script(
-        #     "arguments[0].scrollIntoView();",  testHostEle)
-        # sleep(1)
-        # parentEle = testHostEle.find_element(By.XPATH, '..')
-        # grandParentEle = parentEle.find_element(By.XPATH, '..')
-        # grandParentEle.find_element(By.NAME, 'updateHostBtn').click()
-        # userNameEle = webWaitEle(self, (By.ID, 'UserName'))
-        # passwordEle = webWaitEle(self, (By.ID, 'Password'))
-        # sshPortEle = webWaitEle(self, (By.ID, 'SSHPort'))
-        # util.clearInput(userNameEle)
-        # util.clearInput(passwordEle)
-        # util.clearInput(sshPortEle)
-        # userNameEle.send_keys('root')
-        # passwordEle.send_keys('tem')
-        # sshPortEle.send_keys('22')
-        # webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
-        # sleep(5)
-        # util.getRequsetInfo(
-        #     self, self.driver, apiDict['discoverHost'], closeModal)
-        # saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
-        #                          ).find_element(By.CLASS_NAME, 'ant-btn-primary')
-        # if saveHostBtn.get_attribute('disabled'):
-        #     return
-        # else:
-        #     saveHostBtn.click()
-        #     sleep(2)
-        #     util.getRequsetInfo(
-        #         self, self.driver, apiDict['updateHost'], closeModal)
-        # sleep(1)
+        # 编辑主机
+        testHostEle = webWaitEle(
+            self, (By.XPATH, "//*[contains(text(), '172.17.0.17')]"))
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView();",  testHostEle)
+        sleep(1)
+        parentEle = testHostEle.find_element(By.XPATH, '..')
+        grandParentEle = parentEle.find_element(By.XPATH, '..')
+        grandParentEle.find_element(By.NAME, 'updateHostBtn').click()
+        userNameEle = webWaitEle(self, (By.ID, 'UserName'))
+        passwordEle = webWaitEle(self, (By.ID, 'Password'))
+        sshPortEle = webWaitEle(self, (By.ID, 'SSHPort'))
+        util.clearInput(userNameEle)
+        util.clearInput(passwordEle)
+        util.clearInput(sshPortEle)
+        userNameEle.send_keys('root')
+        passwordEle.send_keys('tem')
+        sshPortEle.send_keys('22')
+        webWaitEle(self, (By.NAME, 'hostModalFindBtn')).click()
+        sleep(5)
+        util.getRequsetInfo(
+            self, self.driver, apiDict['discoverHost'], closeModal)
+        saveHostBtn = webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')
+                                 ).find_element(By.CLASS_NAME, 'ant-btn-primary')
+        if saveHostBtn.get_attribute('disabled'):
+            return
+        else:
+            saveHostBtn.click()
+            sleep(2)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['updateHost'], closeModal)
+        sleep(1)
 
-        # # 主机详情
-        # sleep(2)
-        # testHostEle.click()
-        # util.getRequsetInfo(
-        #     self, self.driver, apiDict['queryHostMonitor'], closeModal)
-        # sleep(1)
-        # hostDetailCloseBtn = webWaitEle(self, (
-        #     By.CLASS_NAME, 'ant-modal-content')).find_element(By.CLASS_NAME, 'ant-modal-close')
-        # hostDetailCloseBtn.click()
-        # sleep(1)
+        # 主机详情
+        sleep(2)
+        testHostEle.click()
+        util.getRequsetInfo(
+            self, self.driver, apiDict['queryHostMonitor'], closeModal)
+        sleep(1)
+        hostDetailCloseBtn = webWaitEle(self, (
+            By.CLASS_NAME, 'ant-modal-content')).find_element(By.CLASS_NAME, 'ant-modal-close')
+        hostDetailCloseBtn.click()
+        sleep(1)
 
         # 集群管理
         webWaitEle(self, (By.NAME, 'menu.cluster')).click()
@@ -805,6 +805,7 @@ class Test(object):
         randomPolicyAliasBtn = random.choice(inspecPolicyAliasBtns)
         self.driver.execute_script(
             "arguments[0].scrollIntoView();", randomPolicyAliasBtn)
+        sleep(1)
         randomPolicyAliasBtn.click()
         sleep(1)
         util.getRequsetInfo(
@@ -883,6 +884,9 @@ class Test(object):
             for activeCluster in activeClusters:
                 activeClusterName = util.getElementText(self, activeCluster)
                 if 'xinyi_test' in activeClusterName or 'selenium_test' in activeClusterName:
+                    js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+                    self.driver.execute_script(js)
+                    sleep(2)
                     activeCluster.click()
                     break
         else:
