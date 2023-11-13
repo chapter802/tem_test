@@ -92,13 +92,13 @@ class Test(object):
             return WebDriverWait(self.driver, 20, 0.5).until(
                 EC.visibility_of_element_located(locator))
 
-        # def isElementWaitExist(self, locator):
-        #     try:
-        #         WebDriverWait(self.driver, 20, 0.5).until(
-        #             EC.visibility_of_element_located(locator))
-        #         return True
-        #     except:
-        #         return False
+        def isElementWaitExist(self, locator):
+            try:
+                WebDriverWait(self.driver, 20, 0.5).until(
+                    EC.visibility_of_element_located(locator))
+                return True
+            except:
+                return False
 
         # def selectDate(self, cb=None):
         #     randomDate = random.choice(shortCutDateIDs)
@@ -251,6 +251,18 @@ class Test(object):
         #         sleep(1)
         #     elif confirmType == 3:
         #         pass
+
+        # 返回集群列表
+        def backToClusterList():
+          sleep(2)
+          webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+          for api in mainPageApiArr:
+            util.getRequsetInfo(
+                self, self.driver, apiDict[api], closeModal)
+          sleep(2)
+          js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+          self.driver.execute_script(js)
+          sleep(2)
 
         # self.driver.get('http://172.16.6.62:8080/login')
         self.driver.get('http://localhost:8050/login')
@@ -427,14 +439,14 @@ class Test(object):
         # 选定指定IP
         clusterIPSelectEles = clusterSizeEle.find_elements(
             By.NAME, 'clusterIPSelect')
-        for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):
+        isTargetIP = True
+        for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):  
             clusterIPSelectEle.click()
             sleep(1)
             clusterIPSelectDropdownEles = self.driver.find_elements(
                 By.CLASS_NAME, 'clusterIPSelect')
             curOptions = clusterIPSelectDropdownEles[index].find_elements(
-                By.CLASS_NAME, 'ant-select-item-option')
-
+                By.CLASS_NAME, 'ant-select-item-option')            
             for curOption in curOptions:
                 contentEle = curOption.find_element(
                     By.CLASS_NAME, 'ant-select-item-option-content')
@@ -443,6 +455,10 @@ class Test(object):
                     curOption.click()
                     sleep(1)
                     break
+                else:
+                  clusterIPSelectEle.click()
+                  isTargetIP = False
+                  break
 
             sleep(1)
 
@@ -477,24 +493,33 @@ class Test(object):
         #         pass
 
         sleep(1)
-        webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
+        if isTargetIP:
+          js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+          self.driver.execute_script(js)
+          sleep(3)
 
-        tableHeaderEle = webWaitEle(
-            self, (By.CLASS_NAME, 'ant-table-thead'))
-        if tableHeaderEle:
-            js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-            self.driver.execute_script(js)
-            sleep(3)
-            webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
-            util.getRequsetInfo(
-                self, self.driver, apiDict['clusterAdd'], closeModal)
-            sleep(5)
-            
-        webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-        sleep(2)
-        js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-        self.driver.execute_script(js)
-        sleep(2)
+          webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
+          
+          if isElementWaitExist(self, (By.CLASS_NAME, 'ant-table-thead')):
+              js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+              self.driver.execute_script(js)
+              sleep(3)
+              webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
+              sleep(30)
+              util.getRequsetInfo(
+                  self, self.driver, apiDict['clusterAdd'], closeModal)
+              sleep(5)
+              
+              # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+              # sleep(2)
+              # js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+              # self.driver.execute_script(js)
+              # sleep(2)
+          else: 
+             backToClusterList()
+        else:
+          backToClusterList()
+          pass
 
         # 单个集群 - 概览
         # 找到测试的集群
