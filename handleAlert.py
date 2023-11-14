@@ -11,7 +11,7 @@ import random
 
 from util import util
 
-from configParams import apiDict, testAlertRuleTempName, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr
+from configParams import apiDict, testAlertRuleTempName, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, SMTPAddress, SMTPUsername, SMTPPassword, SMTPSender, SMTPSenderEmail, SMTPReceiverEmail
 
 randomStr = util.get_random_string(6)
 
@@ -441,31 +441,35 @@ class Test(object):
         relateARItems = relateAlertRuleDropdown.find_elements(
             By.CLASS_NAME, 'ant-select-item-option')
         
+        addRuleNum = 0
+        
         if len(relateARItems) > 0:
             js = "var q=document.getElementsByClassName('relateAlertRuleDropdown')[0].getElementsByClassName('rc-virtual-list-holder-inner')[0].scrollTop=10000"  # 滑动到底部
             self.driver.execute_script(js)
             for option in relateARItems:
-                if testAlertRuleName in option.get_attribute('title'):
+                if testAlertRuleName in option.get_attribute('title') or testAlertRuleTempName in option.get_attribute('title') and addRuleNum < 2:
                     self.driver.execute_script("arguments[0].scrollIntoView();", option)
                     sleep(1)
                     option.click()
-                    break
+                    addRuleNum += 1  
+                else:
+                    pass
 
         randomStr = util.get_random_string(6)
         webWaitEle(self, (
             By.ID, 'Name')).send_keys(testAlertRuleName)
         webWaitEle(self, (
-            By.ID, 'SMTPAddress')).send_keys('smtp.qiye.aliyun.com:587')
+            By.ID, 'SMTPAddress')).send_keys(SMTPAddress)
         webWaitEle(self, (
-            By.ID, 'SMTPUsername')).send_keys('tem-alert-noreply@pingcap.cn')
+            By.ID, 'SMTPUsername')).send_keys(SMTPUsername)
         webWaitEle(self, (
-            By.ID, 'SMTPPassword')).send_keys('#LIeKu^oXB@30fT#')
+            By.ID, 'SMTPPassword')).send_keys(SMTPPassword)
         webWaitEle(self, (
-            By.ID, 'Sender')).send_keys('#LIeKu^oXB@30fT#')
+            By.ID, 'Sender')).send_keys(SMTPSender)
         webWaitEle(self, (
-            By.ID, 'EmailFrom')).send_keys('tem-alert-noreply@pingcap.cn')
+            By.ID, 'EmailFrom')).send_keys(SMTPSenderEmail)
         webWaitEle(self, (
-            By.ID, 'EmailTo')).send_keys('shenhaibo@pingcap.com.cn')
+            By.ID, 'EmailTo')).send_keys(SMTPReceiverEmail)
         webWaitEle(self, (
             By.ID, 'EmailSubject')).send_keys('''[{{ .Status | toUpper }}] {{ .GroupLabels.alertname }} alerts!''')
         webWaitEle(self, (

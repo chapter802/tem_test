@@ -22,6 +22,26 @@ alertChannelTypes = ['email', 'https']
 
 alertChannelEnabled = ['是', '否']
 
+# 告警通道
+# SMTP服务器
+SMTPAddress = 'smtp.qiye.aliyun.com:587'
+
+# SMTP用户名
+SMTPUsername = 'tem-alert-noreply@pingcap.cn'
+
+# SMTP密码
+SMTPPassword = '#LIeKu^oXB@30fT#'
+
+# 发送者
+SMTPSender = '#LIeKu^oXB@30fT#'
+
+# 发送者邮箱
+SMTPSenderEmail = 'tem-alert-noreply@pingcap.cn'
+
+# 接收者邮箱
+SMTPReceiverEmail = 'xinyi.zhang@pingcap.com.cn'
+
+
 alertChannelTempStr = '''
 {{ range .Alerts }}
 =========start==========<br>
@@ -40,6 +60,7 @@ alertChannelTempStr = '''
 
 # 测试的告警规则名称
 testAlertRuleTempName = 'TiDB_monitor_keep_alive_copy'
+
 
 # 集群管理
 singleMenuNameArr = ['menu.cluster.single.overview', 'menu.cluster.single.monitor', 'menu.cluster.single.performance',
