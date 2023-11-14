@@ -295,7 +295,7 @@ class Test(object):
                 By.CLASS_NAME, 'clusterIPSelect')
             curOptions = clusterIPSelectDropdownEles[index].find_elements(
                 By.CLASS_NAME, 'ant-select-item-option')
-            for curOption in curOptions:
+            for opIndex, curOption in enumerate(curOptions):
                 contentEle = curOption.find_element(
                     By.CLASS_NAME, 'ant-select-item-option-content')
                 curText = util.getElementText(self, contentEle)
@@ -303,7 +303,7 @@ class Test(object):
                     curOption.click()
                     sleep(1)
                     break
-                else:
+                elif opIndex == len(curOptions) - 1:
                     clusterIPSelectEle.click()
                     isTargetIP = False
                     break
@@ -325,12 +325,6 @@ class Test(object):
                 util.getRequsetInfo(
                     self, self.driver, apiDict['clusterAdd'], closeModal)
                 sleep(5)
-
-                # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-                # sleep(2)
-                # js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-                # self.driver.execute_script(js)
-                # sleep(2)
             else:
                 backToClusterList()
         else:
@@ -425,6 +419,8 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['createBackupPolicy'], closeModal)
 
+        sleep(10)
+        
         # 编辑备份策略
         webWaitEle(self, (By.NAME, 'backupPolicyEditBtn'))
         editBtns = self.driver.find_elements(
@@ -463,7 +459,7 @@ class Test(object):
         else:
             pass
 
-        sleep(3)
+        sleep(10)
 
         # 删除备份策略
         webWaitEle(self, (By.NAME, 'backupPolicyDeleteBtn'))

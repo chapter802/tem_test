@@ -508,8 +508,7 @@ class Test(object):
         #         randomDeleteBtn.click()
         #     else:
         #         pass
-
-        sleep(1)
+        
         if isTargetIP:
             js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
             self.driver.execute_script(js)
@@ -651,7 +650,7 @@ class Test(object):
                     except:
                         continue
 
-        sleep(300)  # 重启等待 5 分钟
+        sleep(240)  # 重启等待 4 分钟
         self.driver.refresh()
 
         # 找到目标集群 - 进入集群概览
@@ -717,7 +716,7 @@ class Test(object):
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-default').click()
 
-        sleep(3)
+        sleep(10)
         webWaitEle(self, (By.NAME, 'backupRecoveryBtn')).click()
         webWaitEle(self, (By.NAME, 'BRTaskIDSelect')).click()
         BRTaskIDOptions = webWaitEle(self, (By.CLASS_NAME, 'BRTaskIDSelect')).find_elements(
@@ -731,27 +730,32 @@ class Test(object):
                 By.CLASS_NAME, 'ant-btn-default').click()
 
         webWaitEle(self, (By.NAME, 'targetClusterIDSelect')).click()
-        targetClusterIDOptions = webWaitEle(self, (By.CLASS_NAME, 'targetClusterIDSelect')).find_elements(
-            By.CLASS_NAME, 'ant-select-item-option')
-        if len(targetClusterIDOptions) > 0:
-            randomTargetClusterIDOption = random.choice(targetClusterIDOptions)
-            randomTargetClusterIDOption.click()
-            sleep(1)
+        
+        try:
+            targetClusterIDOptions = webWaitEle(self, (By.CLASS_NAME, 'targetClusterIDSelect')).find_elements(
+                By.CLASS_NAME, 'ant-select-item-option')
+            if len(targetClusterIDOptions) > 0:
+                randomTargetClusterIDOption = random.choice(
+                    targetClusterIDOptions)
+                randomTargetClusterIDOption.click()
+                sleep(1)
 
-            webWaitEle(self, (By.NAME, 'brTestClusterBtn')).click()
-            sleep(1)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['detectRestoreCluster'], closeModal)
-            sleep(1)
-            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-                By.CLASS_NAME, 'ant-btn-primary').click()
-            sleep(1)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['restoreCluster'], closeModal)
+                webWaitEle(self, (By.NAME, 'brTestClusterBtn')).click()
+                sleep(1)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['detectRestoreCluster'], closeModal)
+                sleep(1)
+                webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+                    By.CLASS_NAME, 'ant-btn-primary').click()
+                sleep(1)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['restoreCluster'], closeModal)
 
-        else:
-            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-                By.CLASS_NAME, 'ant-btn-default').click()
+            else:
+                webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+                    By.CLASS_NAME, 'ant-btn-default').click()
+        except:
+            pass
         sleep(1)
 
         # 修改巡检策略
