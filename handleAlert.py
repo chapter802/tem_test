@@ -16,27 +16,6 @@ from configParams import apiDict, testAlertRuleTempName, hostIP, alertLevels, al
 randomStr = util.get_random_string(6)
 
 
-# 集群管理测试用例中的接口
-clustersApiKeyArr = ['clusterList', 'clusterTops', 'clusterTopAlert', 'clusterPerfSummary', 'clusterAlertSummary', 'queryClusterMonitorInfo', 'queryHostOption', 'queryParamTemplateList',
-                     'queryParamTemplateParams', 'queryHostList', 'queryParamTemplateDetail', 'clusterAdd', 'takeoverRemoteClusterList', 'takeoverRemoteDetail', 'takeoverCluster',]
-# 集群管理 - 单个集群 测试用例中的接口
-clusterApiKeyArr = ['clusterDetail', 'clusterInstance', 'clusterAlertSummary', 'queryClusterMonitorInfo', 'queryInpecReportList', 'queryClusterInspecReportDetail', 'deleteClusterInspecReport', 'queryClusterTopSqlList', 'queryClusterSlowQueryList', 'queryClusterDiagnoseReportList', 'createClusterDiagnoseReport',
-                    'queryClusterDiagnoseReportStatus', 'queryClusterLogSearchTopology', 'queryClusterLogSearchTaskID', 'queryClusterLogSearchTaskList', 'queryClusterLogSearchList', 'queryBackupTaskList',  'queryBackupPolicy', 'updateBackupPolicy', 'detectRestoreCluster', 'clusterParamList', 'querySQLEditorMeta', 'querySQLEditorStatementHistory']
-
-# 集群管理列表页请求的接口
-mainPageApiArr = ['clusterList', 'clusterTops', 'clusterTopAlert',
-                  'clusterPerfSummary', 'clusterAlertSummary', 'queryClusterMonitorInfo']
-# 打开创建集群页面请求的接口
-addClusterApiArr = ['queryHostOption', 'queryParamTemplateList',
-                    'queryParamTemplateParams', 'queryHostList', 'queryParamTemplateDetail']
-# 集群概览页请求的接口
-clusterOverviewApiKeyArr = ['clusterDetail', 'clusterInstance',
-                            'clusterAlertSummary', 'queryClusterMonitorInfo']
-# 集群拓扑页请求的接口
-clusterTopologyApiKeyArr = ['clusterDetail',
-                            'clusterInstance', 'queryHostOption', 'queryHostList']
-
-
 class Test(object):
 
     def __init__(self):
@@ -46,14 +25,6 @@ class Test(object):
         self.driver.implicitly_wait(10)
 
     def test(self):
-        # def autoPage(self):
-        #     nextPageEl = self.driver.find_element(
-        #         By.CLASS_NAME, 'ant-table-pagination').find_element(By.CLASS_NAME, 'ant-pagination-next')
-        #     a = nextPageEl.get_attribute('aria-disabled')
-        #     if a == 'false':
-        #         nextPageEl.click()
-        #         sleep(2)
-
         def closeModal(self):
             try:
                 notiCLoseEle = self.driver.find_element(
@@ -91,68 +62,7 @@ class Test(object):
         def webWaitEle(self, locator):
             return WebDriverWait(self.driver, 20, 0.5).until(
                 EC.visibility_of_element_located(locator))
-
-        def isElementWaitExist(self, locator):
-            try:
-                WebDriverWait(self.driver, 20, 0.5).until(
-                    EC.visibility_of_element_located(locator))
-                return True
-            except:
-                return False
-
-        # def selectDate(self, cb=None):
-        #     randomDate = random.choice(shortCutDateIDs)
-        #     self.driver.find_element(By.NAME, 'rangePickerShortcut').click()
-        #     webWaitEle(self, (
-        #         By.NAME, shortCutName.format(id=randomDate))).click()
-        #     if cb:
-        #         cb(self)
-
-        def selectTimePicker(self, compName):
-            datePicker = self.driver.find_element(By.NAME, compName)
-            datePicker.click()
-            parentEle = webWaitEle(self, (By.CLASS_NAME, compName))
-            pickerContent = parentEle.find_element(
-                By.CLASS_NAME, 'ant-picker-content')
-            pickerCells = pickerContent.find_elements(
-                By.CLASS_NAME, 'ant-picker-cell-inner')
-            
-            if len(pickerCells) > 0:  # 日期选择
-              randomPickerCell = random.choice(pickerCells)
-              self.driver.execute_script(
-                  "arguments[0].scrollIntoView();", randomPickerCell)
-              randomPickerCell.click()
-            else:
-              pass
-
-            timePanel = parentEle.find_element(
-                By.CLASS_NAME, 'ant-picker-time-panel')
-            timeColums = timePanel.find_elements(
-                By.CLASS_NAME, 'ant-picker-time-panel-column')
-            hourCellBox = timeColums[0]
-            hourCells = hourCellBox.find_elements(
-                By.CLASS_NAME, 'ant-picker-time-panel-cell')
-            randomHour = random.choice(hourCells)
-            self.driver.execute_script(
-                "arguments[0].scrollIntoView();", randomHour)
-            randomHour.click()
-            sleep(1)
-
-            minuteCellBox = timeColums[1]
-            minuteCells = minuteCellBox.find_elements(
-                By.CLASS_NAME, 'ant-picker-time-panel-cell')
-            randomMinute = random.choice(minuteCells)
-            self.driver.execute_script(
-                "arguments[0].scrollIntoView();", randomMinute)
-            randomMinute.click()
-            sleep(1)
-
-            datePickerFooter = parentEle.find_element(
-                By.CLASS_NAME, 'ant-picker-footer')
-            datePickerFooter.find_element(
-                By.CLASS_NAME, 'ant-btn-primary').click()
-            sleep(1)
-
+    
         # self.driver.get('http://172.16.6.62:8080/login')
         self.driver.get('http://localhost:8050/login')
 
@@ -172,27 +82,27 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal)
           
-        # # 查询告警规则
-        # for x in alertLevels:
-        #     webWaitEle(self, (
-        #         By.NAME, 'alertRulesLevelSelect')).click()
-        #     webWaitEle(self, (By.NAME, x)).click()
-        #     webWaitEle(self, (
-        #         By.NAME, 'alertRulesSearchBtn')).click()
-        #     sleep(2)
-        #     util.getRequsetInfo(
-        #         self, self.driver, apiDict['queryAlertRuleList'], closeModal)
+        # 查询告警规则
+        for x in alertLevels:
+            webWaitEle(self, (
+                By.NAME, 'alertRulesLevelSelect')).click()
+            webWaitEle(self, (By.NAME, x)).click()
+            webWaitEle(self, (
+                By.NAME, 'alertRulesSearchBtn')).click()
+            sleep(2)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['queryAlertRuleList'], closeModal)
 
-        #     for y in alertTypes:
-        #         webWaitEle(self, (
-        #             By.NAME, 'alertRulesTypeSelect')).click()
+            for y in alertTypes:
+                webWaitEle(self, (
+                    By.NAME, 'alertRulesTypeSelect')).click()
 
-        #         webWaitEle(self, (By.NAME, y)).click()
-        #         webWaitEle(self, (
-        #             By.NAME, 'alertRulesSearchBtn')).click()
-        #         sleep(2)
-        #         util.getRequsetInfo(
-        #             self, self.driver, apiDict['queryAlertRuleList'], closeModal)
+                webWaitEle(self, (By.NAME, y)).click()
+                webWaitEle(self, (
+                    By.NAME, 'alertRulesSearchBtn')).click()
+                sleep(2)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['queryAlertRuleList'], closeModal)
         
         sleep(2)
         
@@ -208,8 +118,6 @@ class Test(object):
         #找到 TiDB_monitor_keep_alive_copy 规则
         testRuleEle = webWaitEle(
                 self, (By.XPATH, "//*[contains(text(), '%s')]" % testAlertRuleTempName))
-        # testRuleEle = webWaitEle(
-        #         self, (By.XPATH, "//*[contains(text(), 'TiDB_monitor_keep_alive_copy')]"))
         parentEle = testRuleEle.find_element(By.XPATH, '../../../..')
         parentEle.find_element(By.NAME, 'alertRulesUpdateBtn').click()
         
