@@ -37,6 +37,10 @@ alertChannelTempStr = '''
 =========end==========<br>
 {{ end }}
 '''
+
+# 测试的告警规则名称
+testAlertRuleTempName = 'TiDB_monitor_keep_alive_copy'
+
 # 集群管理
 singleMenuNameArr = ['menu.cluster.single.overview', 'menu.cluster.single.monitor', 'menu.cluster.single.performance',
                      'menu.cluster.single.backup', 'menu.cluster.single.param', 'menu.cluster.single.topology', 'menu.cluster.single.sqleditor']

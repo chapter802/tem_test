@@ -11,7 +11,7 @@ import random
 
 from util import util
 
-from configParams import apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr
+from configParams import apiDict, testAlertRuleTempName, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr
 
 randomStr = util.get_random_string(6)
 
@@ -42,7 +42,7 @@ class Test(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):
@@ -172,28 +172,63 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal)
           
-        # 查询告警规则
-        for x in alertLevels:
-            webWaitEle(self, (
-                By.NAME, 'alertRulesLevelSelect')).click()
-            webWaitEle(self, (By.NAME, x)).click()
-            webWaitEle(self, (
-                By.NAME, 'alertRulesSearchBtn')).click()
-            sleep(2)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['queryAlertRuleList'], closeModal)
+        # # 查询告警规则
+        # for x in alertLevels:
+        #     webWaitEle(self, (
+        #         By.NAME, 'alertRulesLevelSelect')).click()
+        #     webWaitEle(self, (By.NAME, x)).click()
+        #     webWaitEle(self, (
+        #         By.NAME, 'alertRulesSearchBtn')).click()
+        #     sleep(2)
+        #     util.getRequsetInfo(
+        #         self, self.driver, apiDict['queryAlertRuleList'], closeModal)
 
-            for y in alertTypes:
-                webWaitEle(self, (
-                    By.NAME, 'alertRulesTypeSelect')).click()
+        #     for y in alertTypes:
+        #         webWaitEle(self, (
+        #             By.NAME, 'alertRulesTypeSelect')).click()
 
-                webWaitEle(self, (By.NAME, y)).click()
-                webWaitEle(self, (
-                    By.NAME, 'alertRulesSearchBtn')).click()
-                sleep(2)
-                util.getRequsetInfo(
-                    self, self.driver, apiDict['queryAlertRuleList'], closeModal)
-                
+        #         webWaitEle(self, (By.NAME, y)).click()
+        #         webWaitEle(self, (
+        #             By.NAME, 'alertRulesSearchBtn')).click()
+        #         sleep(2)
+        #         util.getRequsetInfo(
+        #             self, self.driver, apiDict['queryAlertRuleList'], closeModal)
+        
+        sleep(2)
+        
+        # 选中 TiDB_monitor_keep_alive_copy 规则修改频率
+        webWaitEle(self, (By.ID, 'Name')).send_keys(testAlertRuleTempName)
+        webWaitEle(self, (
+            By.NAME, 'alertRulesSearchBtn')).click()
+        sleep(2)
+        util.getRequsetInfo(
+            self, self.driver, apiDict['queryAlertRuleList'], closeModal)
+        sleep(2)
+        
+        #找到 TiDB_monitor_keep_alive_copy 规则
+        testRuleEle = webWaitEle(
+                self, (By.XPATH, "//*[contains(text(), '%s')]" % testAlertRuleTempName))
+        # testRuleEle = webWaitEle(
+        #         self, (By.XPATH, "//*[contains(text(), 'TiDB_monitor_keep_alive_copy')]"))
+        parentEle = testRuleEle.find_element(By.XPATH, '../../../..')
+        parentEle.find_element(By.NAME, 'alertRulesUpdateBtn').click()
+        
+        # 修改告警频率
+        tempRulesFrequencyUnitEle = webWaitEle(self, (
+            By.NAME, 'alertRulesFrequencyNum'))
+        util.clearInput(tempRulesFrequencyUnitEle)
+        tempRulesFrequencyUnitEle.send_keys(1)
+        webWaitEle(self, (
+            By.NAME, 'alertRulesFrequencyUnit')).click()
+        webWaitEle(self, (
+            By.NAME, alertFrequencyUnits[0])).click()
+        sleep(1)
+        webWaitEle(self, (
+            By.CLASS_NAME, 'ant-modal-footer')).find_element(By.CLASS_NAME, 'ant-btn-primary').click()
+        util.getRequsetInfo(
+            self, self.driver, apiDict['createAlertRule'], closeModal)
+        sleep(2)
+        
         # 新增告警规则
         webWaitEle(self, (
             By.NAME, 'alertRulesAddBtn')).click()
