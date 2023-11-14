@@ -11,7 +11,7 @@ import random
 
 from util import util
 
-from configParams import apiDict, testAlertRuleTempName, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, SMTPAddress, SMTPUsername, SMTPPassword, SMTPSender, SMTPSenderEmail, SMTPReceiverEmail
+from configParams import testServer, apiDict, testAlertRuleTempName, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, SMTPAddress, SMTPUsername, SMTPPassword, SMTPSender, SMTPSenderEmail, SMTPReceiverEmail
 
 randomStr = util.get_random_string(6)
 
@@ -63,8 +63,7 @@ class Test(object):
             return WebDriverWait(self.driver, 20, 0.5).until(
                 EC.visibility_of_element_located(locator))
     
-        # self.driver.get('http://172.16.6.62:8080/login')
-        self.driver.get('http://localhost:8050/login')
+        self.driver.get(testServer)
 
         mainWindowHanle = self.driver.current_window_handle
 

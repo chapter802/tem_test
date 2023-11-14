@@ -10,7 +10,7 @@ import random
 
 from util import util
 
-from configParams import shortCutDateIDs, shortCutName, apiDict, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr, backupDestination, backupAK, backupSK
+from configParams import testServer, shortCutDateIDs, shortCutName, apiDict, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr, backupDestination, backupAK, backupSK
 
 
 randomStr = util.get_random_string(6)
@@ -226,8 +226,7 @@ class TestCluster(object):
             else:
                 pass
 
-        # self.driver.get('http://172.16.6.62:8080/login')
-        self.driver.get('http://localhost:8050/login')
+        self.driver.get(testServer)
 
         mainWindowHanle = self.driver.current_window_handle
 

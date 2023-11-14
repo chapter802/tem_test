@@ -11,7 +11,7 @@ import random
 
 from util import util
 
-from configParams import apiDict, backupDestination, backupAK, backupSK, hostIP, backupRateLimitArr, backupConcurrencyArr, backupLogFileArr
+from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, backupRateLimitArr, backupConcurrencyArr, backupLogFileArr
 
 randomStr = util.get_random_string(6)
 
@@ -189,10 +189,7 @@ class Test(object):
             logFileEle.send_keys(randomLogFile)
             sleep(1)
 
-        # self.driver.get('http://172.16.6.62:8080/login')
-        self.driver.get('http://localhost:8050/login')
-
-        mainWindowHanle = self.driver.current_window_handle
+        self.driver.get(testServer)
 
         webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test1')
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')

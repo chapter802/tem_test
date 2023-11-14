@@ -11,7 +11,7 @@ import random
 
 from util import util
 
-from configParams import apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr
+from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr
 
 randomStr = util.get_random_string(6)
 
@@ -153,8 +153,7 @@ class Test(object):
                 By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
 
-        # self.driver.get('http://172.16.6.62:8080/login')
-        self.driver.get('http://localhost:8050/login')
+        self.driver.get(testServer)
 
         mainWindowHanle = self.driver.current_window_handle
 

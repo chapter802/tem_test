@@ -1,6 +1,9 @@
 from selenium.webdriver.common.keys import Keys
 import platform
 
+testServer = 'http://localhost:8050/login'  # 本地测试环境
+# testServer = 'http://172.16.6.62:8080/login'  # 测试环境
+
 controlKey = Keys.COMMAND if platform.system() == 'Darwin' else Keys.CONTROL
 
 shortCutDateIDs = ['1', '2', '3', '4', '5',

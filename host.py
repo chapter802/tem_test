@@ -9,7 +9,7 @@ import random
 
 from util import util
 
-from configParams import shortCutDateIDs, shortCutName, apiDict
+from configParams import testServer, shortCutDateIDs, shortCutName, apiDict
 
 
 randomStr = util.get_random_string(6)
@@ -75,8 +75,7 @@ class TestHost(object):
             if cb:
                 cb(self)
 
-        # self.driver.get('http://172.16.6.62:8080/login')
-        self.driver.get('http://localhost:8050/login')
+        self.driver.get(testServer)
 
         webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test1')
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
