@@ -11,17 +11,9 @@ import random
 
 from util import util
 
-from configParams import testServer, apiDict, scaleCompArr, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr
+from configParams import testServer, apiDict, scaleCompArr, scaleHostIP
 
 randomStr = util.get_random_string(6)
-
-
-# 集群管理测试用例中的接口
-clustersApiKeyArr = ['clusterList', 'clusterTops', 'clusterTopAlert', 'clusterPerfSummary', 'clusterAlertSummary', 'queryClusterMonitorInfo', 'queryHostOption', 'queryParamTemplateList',
-                     'queryParamTemplateParams', 'queryHostList', 'queryParamTemplateDetail', 'clusterAdd', 'takeoverRemoteClusterList', 'takeoverRemoteDetail', 'takeoverCluster',]
-# 集群管理 - 单个集群 测试用例中的接口
-clusterApiKeyArr = ['clusterDetail', 'clusterInstance', 'clusterAlertSummary', 'queryClusterMonitorInfo', 'queryInpecReportList', 'queryClusterInspecReportDetail', 'deleteClusterInspecReport', 'queryClusterTopSqlList', 'queryClusterSlowQueryList', 'queryClusterDiagnoseReportList', 'createClusterDiagnoseReport',
-                    'queryClusterDiagnoseReportStatus', 'queryClusterLogSearchTopology', 'queryClusterLogSearchTaskID', 'queryClusterLogSearchTaskList', 'queryClusterLogSearchList', 'queryBackupTaskList',  'queryBackupPolicy', 'updateBackupPolicy', 'detectRestoreCluster', 'clusterParamList', 'querySQLEditorMeta', 'querySQLEditorStatementHistory']
 
 # 集群管理列表页请求的接口
 mainPageApiArr = ['clusterList', 'clusterTops', 'clusterTopAlert',
@@ -35,29 +27,15 @@ clusterOverviewApiKeyArr = ['clusterDetail', 'clusterInstance',
 # 集群拓扑页请求的接口
 clusterTopologyApiKeyArr = ['clusterDetail',
                             'clusterInstance', 'queryHostOption', 'queryHostList']
-
-# 测试用例中的接口
-apiKeyArr = ['queryBackupTaskList', 'queryBackupTopSummary',
-             'deleteBackupTask', 'backupCluster', 'restoreCluster', 'stopBackupTask', 'detectRestoreCluster', 'queryRestoreBackupList',
-             'queryBackupPoliciesList', 'deleteBackupPolicy', 'createBackupPolicy', 'updateBackupPolicy', 'queryBackupPolicyDetail']
-
-
 class Test(object):
 
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):
-        # def autoPage(self):
-        #     nextPageEl = self.driver.find_element(
-        #         By.CLASS_NAME, 'ant-table-pagination').find_element(By.CLASS_NAME, 'ant-pagination-next')
-        #     a = nextPageEl.get_attribute('aria-disabled')
-        #     if a == 'false':
-        #         nextPageEl.click()
-        #         sleep(2)
 
         def closeModal(self):
             try:
@@ -345,10 +323,10 @@ class Test(object):
         sleep(1)
         
         if isElementExist(self, By.CLASS_NAME, 'noHostResourceTipModal'):
-          
           noResourceModalEle = webWaitEle(self, (By.CLASS_NAME, 'noHostResourceTipModal'))
           noResourceModalEle.find_element(By.CLASS_NAME, 'ant-btn-primary').click()
         else:
+          isTargetIP = True
           for comp in scaleCompArr:
             sleep(2)
             webWaitEle(self, (By.NAME, 'componentSelect')).click()
@@ -362,52 +340,83 @@ class Test(object):
               if comp == compTitle:
                 compSelectOption.click()
                 sleep(1)
+                scaleIPSelectEle = webWaitEle(self, (By.NAME, 'topoHostSelect')).click()
+                
+                clusterIPSelectDropdownEle = self.driver.find_element(
+                    By.CLASS_NAME, 'topoHostSelect')
+                curOptions = clusterIPSelectDropdownEle.find_elements(
+                    By.CLASS_NAME, 'ant-select-item-option')
+                for opIndex, curOption in enumerate(curOptions):
+                  contentEle = curOption.find_element(
+                      By.CLASS_NAME, 'ant-select-item-option-content')
+                  curText = util.getElementText(self, contentEle)
+                  if curText.find(scaleHostIP) != -1:
+                      curOption.click()
+                      sleep(1)
+                      break
+                  elif opIndex == len(curOptions) - 1:
+                      scaleIPSelectEle.click()
+                      isTargetIP = False
+                      break
+                  else:
+                      pass
                 webWaitEle(self, (By.NAME, 'topoAddCompBtn')).click()
                 sleep(1)
                 break
               else:
                 pass
+                
+            if isTargetIP:
+              sleep(1)
+              webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
+              sleep(5)
+              util.getRequsetInfo(
+                  self, self.driver, apiDict['scaleCluster'], closeModal)
+              sleep(240) # 等待集群扩容完成 4 分钟
+            else:
+                pass
+              
+        # 缩容集群
+        def findScaleInClusterEle(self, compName, opBtnName):
+          classStr = '%sChildTable' % compName
+          compTableEle = webWaitEle(self, (By.CLASS_NAME, classStr))
+          try: 
+            compEle = compTableEle.find_element(By.XPATH, ".//*[contains(text(),'%s')]" % scaleHostIP)
+            compParentEle = compEle.find_element(By.XPATH, "../..").find_element(By.NAME, opBtnName)
+            return compParentEle
+          except:
+            return None
+          
+        # 展开需要删除的组件
+        topoExpandComsArr = ['TiKV', 'TiDB', 'PD', 'TiFlash']
         
-        sleep(1)
-        webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
-        sleep(1)
-        util.getRequsetInfo(
-            self, self.driver, apiDict['scaleCluster'], closeModal)
-        sleep(10)
-      
+        for topoExpandCom in topoExpandComsArr:
+          try: 
+            compExpandEle = webWaitEle(self, (By.NAME, '%s_plus' % topoExpandCom))
+            compExpandEle.click()
+            sleep(2)
+          except:
+            pass
         
-        
-        
-       
-        
-        
-          # else:
-          #       pass
-           
-        
-        # randomComponentSelectOption = random.choice(componentSelectOptions)
-        # randomComponentSelectOption.click()
-        # sleep(1)
-        # webWaitEle(self, (By.NAME, 'topoAddCompBtn')).click()
-        # sleep(1)
-
-        # # 停止节点
-        # operateClusterTopo(self, 'stopTopoNodeBtn',
-        #                    'stopTopoNodePop', 'stopCluster')
-        # # 启动节点
-        # operateClusterTopo(self, 'startTopoNodeBtn',
-        #                    'startTopoNodePop', 'startCluster')
-        # # 重启节点
-        # operateClusterTopo(self, 'restartTopoNodeBtn',
-        #                    'restartTopoNodePop', 'restartCluster')
-      
-
-        # webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
-        # sleep(3)
-        # util.getRequsetInfo(
-        #     self, self.driver, apiDict['scaleCluster'], closeModal)
-        # if isElementExist(self, By.NAME, 'topoCancelBtn'):
-        #     webWaitEle(self, (By.NAME, 'cancelBtn')).click()
+          
+        # 找到目标组件 删除操作
+        topoDeleteComsArr = ['tikv', 'tidb', 'pd', 'tiflash']
+        for topoDeleteCom in topoDeleteComsArr:
+          try: 
+            compEle = findScaleInClusterEle(self, topoDeleteCom, 'deleteTopoNodeBtn')
+            if compEle != None:
+              compEle.click()
+              sleep(2)
+              webWaitEle(self, (By.CLASS_NAME, 'deleteTopoNodeModal')).find_element(
+                          By.CLASS_NAME, 'ant-btn-primary').click()
+              sleep(5)
+              util.getRequsetInfo(
+                          self, self.driver, apiDict['scaleCluster'], closeModal)
+              sleep(240)
+            else:
+              pass
+          except:
+            pass    
         
         # 退出登录
         webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
