@@ -94,7 +94,7 @@ backupLogFileArr = ['', '/tmp/backup.log', '/ttest/backup.log']
 
 
 # 主机管理
-hostIP = '172.17.0.12'  # 62 测试环境
+hostIP = '172.17.0.17'  # 62 测试环境
 # hostIP = '172.17.0.7'   # dev 环境
 
 

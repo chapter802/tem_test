@@ -11,7 +11,7 @@ import random
 
 from util import util
 
-from configParams import testServer, apiDict, scaleCompArr, scaleHostIP
+from configParams import testServer, apiDict, scaleCompArr, scaleHostIP, hostIP
 
 randomStr = util.get_random_string(6)
 
@@ -168,9 +168,11 @@ class Test(object):
         # 跳转到集群管理页面
         backToClusterList()
         
-        # # 创建集群
-        testClusterName = 'selenium_test_' + randomStr
+       # 创建集群
+        # testClusterName = 'selenium_test_' + randomStr
+        testClusterName = 'xinyi_test_1116_01'
         # webWaitEle(self, (By.NAME, 'addClusterBtn')).click()
+        # sleep(1)
         # clusterAliasEle = webWaitEle(self, (By.ID, 'Alias'))
         # if clusterAliasEle:
         #     sleep(2)
@@ -217,32 +219,36 @@ class Test(object):
         #     sleep(1)
 
         # sleep(1)
-        #  # 选定指定IP
+        
+        # # 选定指定IP
         # clusterIPSelectEles = clusterSizeEle.find_elements(
         #     By.NAME, 'clusterIPSelect')
         # isTargetIP = True
-        # for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):  
+        # for index, clusterIPSelectEle in enumerate(clusterIPSelectEles):
         #     clusterIPSelectEle.click()
         #     sleep(1)
         #     clusterIPSelectDropdownEles = self.driver.find_elements(
         #         By.CLASS_NAME, 'clusterIPSelect')
         #     curOptions = clusterIPSelectDropdownEles[index].find_elements(
-        #         By.CLASS_NAME, 'ant-select-item-option')            
-        #     for curOption in curOptions:
+        #         By.CLASS_NAME, 'ant-select-item-option')
+        #     for opIndex, curOption in enumerate(curOptions):
         #         contentEle = curOption.find_element(
         #             By.CLASS_NAME, 'ant-select-item-option-content')
         #         curText = util.getElementText(self, contentEle)
         #         if curText.find(hostIP) != -1:
-        #             print('clusterIPSelectEle---->',curOption)
         #             curOption.click()
         #             sleep(1)
         #             break
-        #         else:
-        #           clusterIPSelectEle.click()
-        #           isTargetIP = False
-        #           break
-                 
+        #         elif opIndex == len(curOptions) - 1:
+        #             clusterIPSelectEle.click()
+        #             isTargetIP = False
+        #             break
+
         #     sleep(1)
+
+        # js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+        # self.driver.execute_script(js)
+        # sleep(3)
         # if isTargetIP:
         #   js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
         #   self.driver.execute_script(js)
@@ -258,7 +264,7 @@ class Test(object):
         #       sleep(30)
         #       util.getRequsetInfo(
         #           self, self.driver, apiDict['clusterAdd'], closeModal)
-        #       sleep(5)
+        #       sleep(180)
               
         #       # webWaitEle(self, (By.NAME, 'menu.cluster')).click()
         #       # sleep(2)
@@ -350,7 +356,9 @@ class Test(object):
                   contentEle = curOption.find_element(
                       By.CLASS_NAME, 'ant-select-item-option-content')
                   curText = util.getElementText(self, contentEle)
-                  if curText.find(scaleHostIP) != -1:
+                  if curText == scaleHostIP:
+                      self.driver.execute_script( "arguments[0].scrollIntoView();",  curOption)
+                      sleep(1)
                       curOption.click()
                       sleep(1)
                       break
@@ -360,21 +368,20 @@ class Test(object):
                       break
                   else:
                       pass
-                webWaitEle(self, (By.NAME, 'topoAddCompBtn')).click()
-                sleep(1)
-                break
-              else:
-                pass
+                    
+            webWaitEle(self, (By.NAME, 'topoAddCompBtn')).click()
+            sleep(1)
+          
                 
-            if isTargetIP:
-              sleep(1)
-              webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
-              sleep(5)
-              util.getRequsetInfo(
-                  self, self.driver, apiDict['scaleCluster'], closeModal)
-              sleep(240) # 等待集群扩容完成 4 分钟
-            else:
-                pass
+          if isTargetIP:
+            sleep(1)
+            webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
+            sleep(5)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['scaleCluster'], closeModal)
+            sleep(180) # 等待集群扩容完成 3 分钟
+          else:
+              pass
               
         # 缩容集群
         def findScaleInClusterEle(self, compName, opBtnName):
@@ -412,7 +419,7 @@ class Test(object):
               sleep(5)
               util.getRequsetInfo(
                           self, self.driver, apiDict['scaleCluster'], closeModal)
-              sleep(240)
+              sleep(180)
             else:
               pass
           except:
