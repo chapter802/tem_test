@@ -10,32 +10,16 @@ from time import sleep
 import random
 
 from util import util
-
 from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr,  backupRateLimitArr, backupConcurrencyArr, backupLogFileArr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, takeoverClusterPwd, rangeStepArr, logLevelArr
 
-
-
-
-# 集群管理测试用例中的接口
-clustersApiKeyArr = ['clusterList', 'clusterTops', 'clusterTopAlert', 'clusterPerfSummary', 'clusterAlertSummary', 'queryClusterMonitorInfo', 'queryHostOption', 'queryParamTemplateList',
-                     'queryParamTemplateParams', 'queryHostList', 'queryParamTemplateDetail', 'clusterAdd', 'takeoverRemoteClusterList', 'takeoverRemoteDetail', 'takeoverCluster',]
-# 集群管理 - 单个集群 测试用例中的接口
-clusterApiKeyArr = ['clusterDetail', 'clusterInstance', 'clusterAlertSummary', 'queryClusterMonitorInfo', 'queryInpecReportList', 'queryClusterInspecReportDetail', 'deleteClusterInspecReport', 'queryClusterTopSqlList', 'queryClusterSlowQueryList', 'queryClusterDiagnoseReportList', 'createClusterDiagnoseReport',
-                    'queryClusterDiagnoseReportStatus', 'queryClusterLogSearchTopology', 'queryClusterLogSearchTaskID', 'queryClusterLogSearchTaskList', 'queryClusterLogSearchList', 'queryBackupTaskList',  'queryBackupPolicy', 'updateBackupPolicy', 'detectRestoreCluster', 'clusterParamList', 'querySQLEditorMeta', 'querySQLEditorStatementHistory']
 
 # 集群管理列表页请求的接口
 mainPageApiArr = ['clusterList', 'clusterTops', 'clusterTopAlert',
                   'clusterPerfSummary', 'clusterAlertSummary', 'queryClusterMonitorInfo']
-# 打开创建集群页面请求的接口
-addClusterApiArr = ['queryHostOption', 'queryParamTemplateList',
-                    'queryParamTemplateParams', 'queryHostList', 'queryParamTemplateDetail']
+
 # 集群概览页请求的接口
 clusterOverviewApiKeyArr = ['clusterDetail', 'clusterInstance',
                             'clusterAlertSummary', 'queryClusterMonitorInfo']
-# 集群拓扑页请求的接口
-clusterTopologyApiKeyArr = ['clusterDetail',
-                            'clusterInstance', 'queryHostOption', 'queryHostList']
-
 
 class Test(object):
 
@@ -46,13 +30,6 @@ class Test(object):
         self.driver.implicitly_wait(10)
 
     def test(self):
-        # def autoPage(self):
-        #     nextPageEl = self.driver.find_element(
-        #         By.CLASS_NAME, 'ant-table-pagination').find_element(By.CLASS_NAME, 'ant-pagination-next')
-        #     a = nextPageEl.get_attribute('aria-disabled')
-        #     if a == 'false':
-        #         nextPageEl.click()
-        #         sleep(2)
 
         def closeModal(self):
             try:
@@ -99,14 +76,6 @@ class Test(object):
                 return True
             except:
                 return False
-
-        # def selectDate(self, cb=None):
-        #     randomDate = random.choice(shortCutDateIDs)
-        #     self.driver.find_element(By.NAME, 'rangePickerShortcut').click()
-        #     webWaitEle(self, (
-        #         By.NAME, shortCutName.format(id=randomDate))).click()
-        #     if cb:
-        #         cb(self)
 
         def selectTimePicker(self, compName):
             datePicker = self.driver.find_element(By.NAME, compName)
