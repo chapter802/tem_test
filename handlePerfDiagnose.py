@@ -8,7 +8,7 @@ from seleniumwire import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 import random
-# import mysql.connector
+import mysql.connector
 
 from util import util
 
@@ -39,7 +39,6 @@ clusterTopologyApiKeyArr = ['clusterDetail',
 
 
 class Test(object):
-
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
@@ -47,13 +46,6 @@ class Test(object):
         self.driver.implicitly_wait(10)
 
     def test(self):
-        # def autoPage(self):
-        #     nextPageEl = self.driver.find_element(
-        #         By.CLASS_NAME, 'ant-table-pagination').find_element(By.CLASS_NAME, 'ant-pagination-next')
-        #     a = nextPageEl.get_attribute('aria-disabled')
-        #     if a == 'false':
-        #         nextPageEl.click()
-        #         sleep(2)
 
         def closeModal(self):
             try:
@@ -294,7 +286,31 @@ class Test(object):
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['login'], closeModal)
+        
+        
+        # 连接数据库修填充数据
+        # 连接到数据库
+        # conn = mysql.connector.connect(
+        #     host="172.17.0.17",
+        #     user="root",
+        #     password="tem",
+        #     database="metadb"
+        # )
+        
+        # cursor = conn.cursor()
+        # print("连接成功")
+        # update_query = "update hosts set cpu_cores = 64, memory = 190, free_cpu_cores = 64, free_memory = 190 where ip='172.20.12.23'"
+        # cursor.execute(update_query)
+        # print("修改成功")
+        
+        # # 提交更改
+        # conn.commit()
 
+        # # 关闭游标和连接
+        # cursor.close()
+        # conn.close()
+        # print("关闭连接")
+        
         webWaitEle(self, (By.NAME, 'menu.host')).click()
         sleep(1)
         util.getRequsetInfo(
@@ -385,12 +401,12 @@ class Test(object):
                 self, self.driver, apiDict['updateHost'], closeModal)
         sleep(10)
         
-        #连接数据库修改主机资源
+        # # 连接数据库修改主机资源
         # # 连接到数据库
         # conn = mysql.connector.connect(
         #     host="root",
-        #     user="172.20.12.21",
-        #     password="Pingcap!@#",
+        #     user="172.17.0.17",
+        #     password="tem",
         #     database="metadb"
         # )
         
@@ -507,32 +523,6 @@ class Test(object):
         self.driver.execute_script(js)
         sleep(3)
 
-        # # 配置集群参数
-        # paramTempParamsWrapperEle = webWaitEle(
-        #     self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
-        # paramTypeTabs = paramTempParamsWrapperEle.find_elements(
-        #     By.CLASS_NAME, 'ant-tabs-tab')
-        # for index, tab in enumerate(paramTypeTabs):
-        #     tabContents = self.driver.find_elements(
-        #         By.CLASS_NAME, 'ant-tabs-tabpane')
-        #     scrollTargetEle = self.driver.find_element(
-        #         By.CLASS_NAME, 'antd-pro-pages-cluster-index-paramConfigHeaderRight')
-        #     self.driver.execute_script(
-        #         "arguments[0].scrollIntoView();",  scrollTargetEle)
-        #     sleep(3)
-        #     tab.click()
-        #     tabContentBox = tabContents[index]
-        #     curDeleteBtns = tabContentBox.find_elements(
-        #         By.NAME, 'deleteParamBtn')
-        #     randomDeleteBtn = random.choice(curDeleteBtns)
-        #     self.driver.execute_script(
-        #         "arguments[0].scrollIntoView();", randomDeleteBtn)
-        #     sleep(1)
-        #     if randomDeleteBtn:
-        #         randomDeleteBtn.click()
-        #     else:
-        #         pass
-        
         if isTargetIP:
             js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
             self.driver.execute_script(js)

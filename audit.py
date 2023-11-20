@@ -128,7 +128,7 @@ class TestAudit(object):
         self.driver.find_element(By.TAG_NAME, 'body').click()
         sleep(1)
 
-        # 创建用户
+        # 审计配置
         auditSwitchEle = webWaitEle(self, (By.NAME, 'auditSwitch'))
 
         def changeAuditStatus(self, cb=None):
