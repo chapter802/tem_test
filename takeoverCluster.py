@@ -11,9 +11,9 @@ import random
 
 from util import util
 
-from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, takeoverClusterPwd, rangeStepArr, logLevelArr
+from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr,  backupRateLimitArr, backupConcurrencyArr, backupLogFileArr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, takeoverClusterPwd, rangeStepArr, logLevelArr
 
-randomStr = util.get_random_string(6)
+
 
 
 # 集群管理测试用例中的接口
@@ -42,7 +42,7 @@ class Test(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.logger = util.get_logger()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test(self):
@@ -152,7 +152,40 @@ class Test(object):
             datePickerFooter.find_element(
                 By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
+            
+        # 返回集群列表
+        def backToClusterList():
+            sleep(2)
+            webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+            for api in mainPageApiArr:
+                util.getRequsetInfo(
+                    self, self.driver, apiDict[api], closeModal)
+            sleep(2)
+            js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
+            self.driver.execute_script(js)
+            sleep(2)
+            
+        # 备份填写高级选项
+        def fillBackupAdvancedOptions(self):
+            webWaitEle(self, (By.CLASS_NAME, 'ant-collapse-header')).click()
+            sleep(1)
+            randomRateLimit = random.choice(backupRateLimitArr)
+            rateLimitEle = webWaitEle(self, (By.ID, 'RateLimit'))
+            util.clearInput(rateLimitEle)
+            rateLimitEle.send_keys(randomRateLimit)
+            randomConcurrency = random.choice(backupConcurrencyArr)
+            concurrencEle = webWaitEle(self, (By.ID, 'Concurrency'))
+            util.clearInput(concurrencEle)
+            concurrencEle.send_keys(
+                randomConcurrency)
+            randomLogFile = random.choice(backupLogFileArr)
+            logFileEle = webWaitEle(self, (By.ID, 'LogFile'))
+            util.clearInput(logFileEle)
+            logFileEle.send_keys(randomLogFile)
+            sleep(1)
 
+        randomStr = util.get_random_string(6)
+        
         self.driver.get(testServer)
 
         mainWindowHanle = self.driver.current_window_handle
@@ -165,12 +198,7 @@ class Test(object):
             self, self.driver, apiDict['login'], closeModal)
         
         #集群列表
-        webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-        sleep(2)
-        for api in mainPageApiArr:
-            util.getRequsetInfo(
-                self, self.driver, apiDict[api], closeModal)
-        sleep(1)
+        backToClusterList()
         
          # 纳管集群
         webWaitEle(self, (By.NAME, 'takeoverClusterBtn')).click()
@@ -254,23 +282,26 @@ class Test(object):
                     cancelTakeoverBtn.click()
         
         sleep(1)
-        webWaitEle(self, (By.NAME, 'menu.cluster')).click()
-        sleep(1)
         
-        takeoverEle = webWaitEle(
-            self, (By.XPATH, "//*[contains(text(), '纳管中')]"))
+        backToClusterList()
         
-        parentEle = takeoverEle.find_element(By.XPATH, '../../../..')
-        targetNameCell = parentEle.find_elements(By.CLASS_NAME, 'ant-table-cell')[0].find_element(By.TAG_NAME, 'span')
-        takeoverClusterName = targetNameCell.get_attribute('innerHTML')
+        try:
+          takeoverEle = webWaitEle(
+              self, (By.XPATH, "//*[contains(text(), '纳管中')]"))
+          
+          parentEle = takeoverEle.find_element(By.XPATH, '../../../..')
+          targetNameCell = parentEle.find_elements(By.CLASS_NAME, 'ant-table-cell')[0].find_element(By.TAG_NAME, 'span')
+          takeoverClusterName = targetNameCell.get_attribute('innerHTML')
         
-        sleep(180)  #纳管等待 3 分钟
-        self.driver.refresh()
-        sleep(2)
-        takeoverClusterEle = webWaitEle(
-            self, (By.XPATH, "//*[contains(text(), '%s')]" % takeoverClusterName))
-        targetClusterEle = takeoverClusterEle.find_element(By.XPATH, '..')
-        # targetClusterEle.click()
+          sleep(180)  #纳管等待 3 分钟
+          self.driver.refresh()
+          sleep(2)
+          takeoverClusterEle = webWaitEle(
+              self, (By.XPATH, "//*[contains(text(), '%s')]" % takeoverClusterName))
+          targetClusterEle = takeoverClusterEle.find_element(By.XPATH, '..')
+          # targetClusterEle.click()
+        except:
+          pass
         
         # 修改参数组模板
         # 待补充
@@ -296,7 +327,7 @@ class Test(object):
                     except:
                       continue
         
-        sleep(300) #重启等待 5 分钟
+        sleep(180) #重启等待 3 分钟
         self.driver.refresh()
         
         # 找到目标集群 - 进入集群概览
@@ -331,11 +362,21 @@ class Test(object):
             randomStr))
         webWaitEle(self, (By.ID, 'AccessKeyID')).send_keys(backupAK)
         webWaitEle(self, (By.ID, 'SecretAccessKey')).send_keys(backupSK)
+        fillBackupAdvancedOptions(self)
+        
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['backupCluster'], closeModal) 
+        sleep(2)
+        
+        try:
+           webWaitEle(self, (By.NAME, 'backupConfigBtn'))
+        except:
+           webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+            By.CLASS_NAME, 'ant-btn-default').click()
+        sleep(1)
         
         # 备份设置
         webWaitEle(self, (By.NAME, 'backupConfigBtn')).click()
@@ -355,7 +396,7 @@ class Test(object):
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-default').click()
 
-        sleep(3)
+        sleep(10)
         webWaitEle(self, (By.NAME, 'backupRecoveryBtn')).click()
         webWaitEle(self, (By.NAME, 'BRTaskIDSelect')).click()
         BRTaskIDOptions = webWaitEle(self, (By.CLASS_NAME, 'BRTaskIDSelect')).find_elements(
@@ -369,28 +410,32 @@ class Test(object):
                 By.CLASS_NAME, 'ant-btn-default').click()
 
         webWaitEle(self, (By.NAME, 'targetClusterIDSelect')).click()
-        targetClusterIDOptions = webWaitEle(self, (By.CLASS_NAME, 'targetClusterIDSelect')).find_elements(
-            By.CLASS_NAME, 'ant-select-item-option')
-        if len(targetClusterIDOptions) > 0:
-            randomTargetClusterIDOption = random.choice(targetClusterIDOptions)
-            randomTargetClusterIDOption.click()
-            sleep(1)
+        try:
+            targetClusterIDOptions = webWaitEle(self, (By.CLASS_NAME, 'targetClusterIDSelect')).find_elements(
+                By.CLASS_NAME, 'ant-select-item-option')
+            if len(targetClusterIDOptions) > 0:
+                randomTargetClusterIDOption = random.choice(
+                    targetClusterIDOptions)
+                randomTargetClusterIDOption.click()
+                sleep(1)
 
-            webWaitEle(self, (By.NAME, 'brTestClusterBtn')).click()
-            sleep(1)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['detectRestoreCluster'], closeModal)
-            sleep(1)
-            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-                By.CLASS_NAME, 'ant-btn-primary').click()
-            sleep(1)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['restoreCluster'], closeModal)
+                webWaitEle(self, (By.NAME, 'brTestClusterBtn')).click()
+                sleep(1)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['detectRestoreCluster'], closeModal)
+                sleep(1)
+                webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+                    By.CLASS_NAME, 'ant-btn-primary').click()
+                sleep(1)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['restoreCluster'], closeModal)
 
-        else:
-            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-                By.CLASS_NAME, 'ant-btn-default').click()
-        sleep(1)           
+            else:
+                webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+                    By.CLASS_NAME, 'ant-btn-default').click()
+        except:
+            pass
+        sleep(1)      
         
         # 修改巡检策略
         # 滚动到页面顶部
@@ -512,7 +557,8 @@ class Test(object):
         
           # 跳转到集群列表
         sleep(1)
-        webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+        
+        backToClusterList()
         
         # 找到对应的测试集群
         activeClusters = self.driver.find_elements(
