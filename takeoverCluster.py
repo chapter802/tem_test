@@ -11,7 +11,7 @@ import random
 
 from util import util
 
-from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, rangeStepArr, logLevelArr
+from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, takeoverClusterPwd, rangeStepArr, logLevelArr
 
 randomStr = util.get_random_string(6)
 
@@ -177,7 +177,7 @@ class Test(object):
         webWaitEle(self, (By.ID, 'Host')).send_keys(takeoverClusterHost)
         webWaitEle(self, (By.ID, 'Port')).send_keys(takeoverClusterPort)
         webWaitEle(self, (By.ID, 'User')).send_keys(hostUserName)
-        webWaitEle(self, (By.ID, 'Password')).send_keys(hostPwd)
+        webWaitEle(self, (By.ID, 'Password')).send_keys(takeoverClusterPwd)
         webWaitEle(self, (By.ID, 'TiUPHome')).send_keys(tiupPath)
         webWaitEle(self, (By.NAME, 'getTakeOverClusterListBtn')).click()
         sleep(10)
@@ -264,7 +264,7 @@ class Test(object):
         targetNameCell = parentEle.find_elements(By.CLASS_NAME, 'ant-table-cell')[0].find_element(By.TAG_NAME, 'span')
         takeoverClusterName = targetNameCell.get_attribute('innerHTML')
         
-        sleep(300)  #纳管等待 5 分钟
+        sleep(180)  #纳管等待 3 分钟
         self.driver.refresh()
         sleep(2)
         takeoverClusterEle = webWaitEle(

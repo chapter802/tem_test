@@ -110,9 +110,13 @@ paramTemplateParamType = ['TiDB', 'TiKV', 'PD']
 
 # 集群管理
 # 纳管集群
-takeoverClusterHost = '127.0.0.1'  # 纳管集群 - 中控节点地址信息
+takeoverClusterHost = '172.20.12.22'  # 纳管集群 - 中控节点地址信息
 takeoverClusterPort = '22'  # 纳管集群 - 中控节点端口信息
 tiupPath = '/root/.tiup'  # 纳管集群 - tiup 部署路径
+# takeoverClusterHost = '172.20.12.22'  # 纳管集群 - 中控节点地址信息
+# takeoverClusterPwd = 'Pingcap!@#456'  # 纳管集群 - 中控节点密码信息
+takeoverClusterHost = '127.0.0.1'  # 纳管集群 - 中控节点地址信息
+takeoverClusterPwd = 'tem'  # 纳管集群 - 中控节点密码信息
 
 # 单个集群
 rangeStepArr = ['5', '10', '30', '60', '120', '720', '1440']
