@@ -10,7 +10,7 @@ from time import sleep
 import random
 
 from util import util
-from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr,  backupRateLimitArr, backupConcurrencyArr, backupLogFileArr, shortCutDateIDs, shortCutName, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, takeoverClusterPwd, rangeStepArr, logLevelArr
+from configParams import testServer, apiDict, backupDestination, backupAK, backupSK, hostIP, alertLevels, alertTypes, opArr, alertFrequencyUnits, alertChannelTypes, alertChannelEnabled, alertChannelTempStr,  backupRateLimitArr, backupConcurrencyArr, backupLogFileArr, takeoverClusterHost, takeoverClusterPort, hostUserName, hostPwd, tiupPath, takeoverClusterPwd
 
 
 # 集群管理列表页请求的接口

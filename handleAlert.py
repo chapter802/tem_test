@@ -65,9 +65,7 @@ class Test(object):
     
         self.driver.get(testServer)
 
-        mainWindowHanle = self.driver.current_window_handle
-
-        webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test1')
+        webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test')
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
         sleep(1)
@@ -105,7 +103,21 @@ class Test(object):
         
         sleep(2)
         
-        # 选中 TiDB_monitor_keep_alive_copy 规则修改频率
+        # 选中 TiDB_monitor_keep_alive_copy 规则修改频率 
+        webWaitEle(self, (
+                    By.NAME, 'alertRulesLevelSelect')).click()
+        sleep(1)
+        dropdownLevelEle = webWaitEle(self, (By.CLASS_NAME, 'alertRulesLevelSelect'))
+        dropdownLevelEle.find_elements(By.CLASS_NAME, 'ant-select-item-option')[0].click()
+        sleep(1)
+        
+        webWaitEle(self, (
+                    By.NAME, 'alertRulesTypeSelect')).click()
+        sleep(1)
+        dropdownTypeEle = webWaitEle(self, (By.CLASS_NAME, 'alertRulesTypeSelect'))
+        dropdownTypeEle.find_elements(By.CLASS_NAME, 'ant-select-item-option')[0].click()
+        sleep(1)
+        
         webWaitEle(self, (By.ID, 'Name')).send_keys(testAlertRuleTempName)
         webWaitEle(self, (
             By.NAME, 'alertRulesSearchBtn')).click()
