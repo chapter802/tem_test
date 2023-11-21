@@ -411,7 +411,7 @@ class Test(object):
         webWaitEle(self, (By.ID, 'SSHPort')).send_keys('22')
         webWaitEle(self, (By.ID, 'HostList')).send_keys(batchHostIP)
         webWaitEle(self, (By.NAME, 'batchAddHostTestBtn')).click()
-        sleep(1)
+        sleep(3)
         util.getRequsetInfo(
             self, self.driver, apiDict['discoverHost'], closeModal)
 
@@ -421,12 +421,12 @@ class Test(object):
             return
         else:
             batchSaveHostBtn.click()
-            sleep(1)
+            sleep(2)
             util.getRequsetInfo(
                 self, self.driver, apiDict['createHost'], closeModal)
         sleep(1)
         
-         # 主机规格管理
+        # 主机规格管理
         webWaitEle(self, (By.NAME, 'hostSpecManageBtn')).click()
         sleep(1)
         util.getRequsetInfo(
