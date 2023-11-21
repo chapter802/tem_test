@@ -224,6 +224,12 @@ class Test(object):
                     By.CLASS_NAME, 'ant-drawer-close').click()
             else:
                 pass
+        
+        # 滑动到顶部     
+        def scrollToTop(self):
+            js = "var q=document.documentElement.scrollTop=0" 
+            self.driver.execute_script(js)
+            sleep(2)
 
         # 表格目标元素操作 confirmType 1: Confirm 2: popconfirm 3: direct
         def handleTableOperation(self, targetEle, opBtnName, confirmType=3):
@@ -394,6 +400,8 @@ class Test(object):
             By.CLASS_NAME, 'ant-modal-content')).find_element(By.CLASS_NAME, 'ant-modal-close')
         hostDetailCloseBtn.click()
         sleep(1)
+        
+        scrollToTop(self)
         
         # 批量添加主机
         webWaitEle(self, (By.NAME, 'batchAddHostBtn')).click()
