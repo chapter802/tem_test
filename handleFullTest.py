@@ -1572,6 +1572,7 @@ class Test(object):
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['createInspecPolicy'], closeModal)
+        sleep(5)
 
         #  巡检策略详情
         inspecPolicyAliasBtns = self.driver.find_elements(
