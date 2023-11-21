@@ -1446,7 +1446,7 @@ class Test(object):
               if comp == compTitle:
                 compSelectOption.click()
                 sleep(1)
-                scaleIPSelectEle = webWaitEle(self, (By.NAME, 'topoHostSelect')).click()
+                scaleIPSelectEle = webWaitEle(self, (By.NAME, 'topoHostSelect'))
                 
                 clusterIPSelectDropdownEle = self.driver.find_element(
                     By.CLASS_NAME, 'topoHostSelect')
