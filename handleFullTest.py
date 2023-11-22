@@ -990,7 +990,7 @@ class Test(object):
             By.NAME, 'alertRulesStatusBtn'))
         if statusBtn:
             statusBtn.click()
-            # sleep(2)
+            sleep(2)
             webWaitEle(self, (
                 By.CSS_SELECTOR, 'div.ant-popover-buttons > button:nth-child(2)')).click()
             util.getRequsetInfo(
