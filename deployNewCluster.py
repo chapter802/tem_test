@@ -288,7 +288,7 @@ class Test(object):
 
         mainWindowHanle = self.driver.current_window_handle
 
-        webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test1')
+        webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test')
         webWaitEle(self, (By.ID, 'password')).send_keys('123456')
         webWaitEle(self, (By.ID, 'login')).click()
         sleep(1)

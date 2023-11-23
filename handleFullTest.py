@@ -1578,11 +1578,18 @@ class Test(object):
         #  巡检策略详情
         inspecPolicyAliasBtns = self.driver.find_elements(
             By.NAME, 'inspecPolicyAliasBtn')
-        randomPolicyAliasBtn = random.choice(inspecPolicyAliasBtns)
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView();", randomPolicyAliasBtn)
-        sleep(1)
-        randomPolicyAliasBtn.click()
+        js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+        self.driver.execute_script(js)
+        sleep(3)
+        lastPolicyAliasBtn = inspecPolicyAliasBtns[-1]
+        
+        # randomPolicyAliasBtn = random.choice(inspecPolicyAliasBtns)
+        # self.driver.execute_script(
+        #     "arguments[0].scrollIntoView();", randomPolicyAliasBtn)
+        # sleep(1)
+        # randomPolicyAliasBtn.click()
+        
+        lastPolicyAliasBtn.click()
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['queryInspecPolicyDetail'], closeModal)
