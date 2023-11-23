@@ -260,9 +260,7 @@ class Test(object):
                 util.getRequsetInfo(
                     self, self.driver, apiDict[api], closeModal)
             sleep(2)
-            js = "var q=document.documentElement.scrollTop=0"  # 滑动到顶部
-            self.driver.execute_script(js)
-            sleep(2)
+            scrollToTop(self)
 
         # 备份填写高级选项
         def fillBackupAdvancedOptions(self):
@@ -653,6 +651,7 @@ class Test(object):
         # 等待十秒备份
         sleep(10)
         
+        scrollToTop(self)
         # 手动恢复
         webWaitEle(self, (By.NAME, 'manualRecoveryBtn')).click()
 
@@ -1531,8 +1530,7 @@ class Test(object):
 
         # 修改巡检策略
         # 滚动到页面顶部
-        self.driver.find_element(By.TAG_NAME, 'body').send_keys(
-            Keys.CONTROL + Keys.HOME)
+        scrollToTop(self)
 
         webWaitEle(self, (By.NAME, 'headSettingIcon')).click()
         sleep(1)
@@ -1659,8 +1657,7 @@ class Test(object):
         
         # 参数组模板
         # 滚动到页面顶部
-        self.driver.find_element(By.TAG_NAME, 'body').send_keys(
-            Keys.CONTROL + Keys.HOME)
+        scrollToTop(self)
 
         webWaitEle(self, (By.NAME, 'headSettingIcon')).click()
         sleep(1)
