@@ -706,6 +706,7 @@ class Test(object):
         webWaitEle(self, (By.ID, 'AccessKeyID')).send_keys(backupAK)
         webWaitEle(self, (By.ID, 'SecretAccessKey')).send_keys(backupSK)
         webWaitEle(self, (By.NAME, 'backupModalClusterIDsSelect')).click()
+        sleep(1)
         applyClusterEles = webWaitEle(self, (By.CLASS_NAME, 'backupModalClusterIDsSelect')).find_elements(
             By.CLASS_NAME, 'ant-select-item-option')
         if len(applyClusterEles) > 0:

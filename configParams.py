@@ -289,9 +289,6 @@ select * from stock;'''
 
 
 
-
-
-
 # 接口 url
 apiPrefix = '/ajax/api/v1/'  # 通用接口前缀
 

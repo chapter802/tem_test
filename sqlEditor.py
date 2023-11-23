@@ -189,7 +189,6 @@ class Test(object):
         for api in clusterOverviewApiKeyArr:
             util.getRequsetInfo(self, self.driver, apiDict[api], closeModal)
         
-        
         # 单个集群 - sql 编辑器
         webWaitEle(self, (By.NAME, 'menu.cluster.single.sqleditor')).click()
         sleep(10)
@@ -201,7 +200,7 @@ class Test(object):
         def getCodemirrorSendKeys(self, text):
             sqlEditorCodeMirrorEle = webWaitEle(self, (By.CLASS_NAME, 'sqlEditorCodeMirror'))
             webdriver.ActionChains(self.driver).move_to_element(sqlEditorCodeMirrorEle).click(sqlEditorCodeMirrorEle).perform()
-            targetInputEle = webWaitEle(self, (By.CLASS_NAME, 'cm-activeLine'))
+            targetInputEle = webWaitEle(self, (By.CLASS_NAME, 'cm-content'))
             targetInputEle.send_keys(controlKey, "a")
             targetInputEle.send_keys(Keys.BACK_SPACE)
             sleep(3)
@@ -228,30 +227,31 @@ class Test(object):
         getCodemirrorSendKeys(self, 'drop database if exists {};'.format(testDBName))
         
         # 创建测试数据库
-        getCodemirrorSendKeys(self, createDBText)
+        # getCodemirrorSendKeys(self, createDBText)
+        getCodemirrorSendKeys(self, excuteSQLText)
         
-        # 选中创建的测试数据库
-        webWaitEle(self, (By.NAME, 'sqlEditorDBSelect')).click()
-        sleep(1)
-        sqlEditorDBSelectDropdownEle = webWaitEle(self, (By.CLASS_NAME, 'sqlEditorDBSelect'))
-        sqlEditorDBSelectOptions = sqlEditorDBSelectDropdownEle.find_elements(By.CLASS_NAME, 'ant-select-item-option-content')
+        # # 选中创建的测试数据库
+        # webWaitEle(self, (By.NAME, 'sqlEditorDBSelect')).click()
+        # sleep(1)
+        # sqlEditorDBSelectDropdownEle = webWaitEle(self, (By.CLASS_NAME, 'sqlEditorDBSelect'))
+        # sqlEditorDBSelectOptions = sqlEditorDBSelectDropdownEle.find_elements(By.CLASS_NAME, 'ant-select-item-option-content')
         
-        if len(sqlEditorDBSelectOptions) > 0:
-           for sqlEditorDBSelectOption in sqlEditorDBSelectOptions:
-               sqlEditorDBSelectOptionText = util.getElementText(self, sqlEditorDBSelectOption)
-               if testDBName in sqlEditorDBSelectOptionText:
-                   sqlEditorDBSelectOption.click()
-                   sleep(1)
-                   util.getRequsetInfo(
-                       self, self.driver, apiDict['createSQLEditorSession'], closeModal)
-                   util.getRequsetInfo(
-                       self, self.driver, apiDict['querySQLEditorFileList'], closeModal)
-                   getCodemirrorSendKeys(self, excuteSQLText)
-                   break
-               else:
-                   pass
-        else:
-           pass
+        # if len(sqlEditorDBSelectOptions) > 0:
+        #    for sqlEditorDBSelectOption in sqlEditorDBSelectOptions:
+        #        sqlEditorDBSelectOptionText = util.getElementText(self, sqlEditorDBSelectOption)
+        #        if testDBName in sqlEditorDBSelectOptionText:
+        #            sqlEditorDBSelectOption.click()
+        #            sleep(1)
+        #            util.getRequsetInfo(
+        #                self, self.driver, apiDict['createSQLEditorSession'], closeModal)
+        #            util.getRequsetInfo(
+        #                self, self.driver, apiDict['querySQLEditorFileList'], closeModal)
+        #            getCodemirrorSendKeys(self, excuteSQLText)
+        #            break
+        #        else:
+        #            pass
+        # else:
+        #    pass
          
         
 
