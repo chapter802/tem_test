@@ -981,8 +981,7 @@ class Test(object):
                 self, self.driver, apiDict['updateAlertRule'], closeModal)
             sleep(2)
         # 启用停用告警规则
-        self.driver.find_element(By.TAG_NAME, 'body').send_keys(
-            Keys.CONTROL + Keys.HOME)
+        scrollToTop(self)
         sleep(2)
         WebDriverWait(self.driver, 20, 0.5).until(EC.visibility_of_element_located((
             By.NAME, 'alertRulesStatusBtn')))
