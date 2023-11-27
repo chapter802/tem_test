@@ -12,7 +12,7 @@ import random
 
 from util import util
 
-from configParams import testServer, apiDict, createDBText, excuteSQLText, testDBName, controlKey
+from configParams import testServer, apiDict, createDBText, excuteSQLText, testDBName, controlKey, excuteSQLArr
 
 randomStr = util.get_random_string(6)
 
@@ -196,83 +196,113 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict[api], closeModal)
         
-        # 获取codeMirror元素 -> 清空 -> 填充执行语句 -> 全选 -> 执行语句 -> 刷新数据库列表
-        def getCodemirrorSendKeys(self, text):
-            sqlEditorCodeMirrorEle = webWaitEle(self, (By.CLASS_NAME, 'sqlEditorCodeMirror'))
-            # webdriver.ActionChains(self.driver).move_to_element(sqlEditorCodeMirrorEle).click(sqlEditorCodeMirrorEle).perform()
-            targetInputEle = webWaitEle(self, (By.CLASS_NAME, 'cm-line'))
-  
-            # script = "arguments[0].text = '{}'".format(excuteSQLText) #excuteSQLText
-            # self.driver.execute_script(script, targetInputEle)
-            targetInputEle.send_keys(excuteSQLText)
-            # targetInputEle.send_keys(controlKey, "a")
-            # targetInputEle.send_keys(Keys.BACK_SPACE)
-            # sleep(3)
-            # targetInputEle.send_keys(text)
+        # 获取codeMirror元素 -> 全选 -> 清空 -> 填充执行语句 -> 全选 -> 美化格式 -> 全选 -> 执行语句 -> 刷新数据库列表
+        def getCodemirrorSendKeys(self, textArr):
+            targetInputEle = webWaitEle(self, (By.CLASS_NAME, 'cm-content'))
+            # 选中所有文本并清除
+            targetInputEle.send_keys(controlKey, "a")
+            sleep(1)
+            targetInputEle.send_keys(Keys.BACKSPACE)
+            sleep(1)
+            # 插入文本
+            for excuteSQLText in textArr:
+              # text = excuteSQLText
+              excuteJs = '''
+                var cmContent = document.getElementsByClassName('cm-content')[0];
+                var div = document.createElement('div');
+                div.setAttribute('class', 'cm-line');
+                div.innerHTML = '{}';
+                cmContent.appendChild(div);
+                '''.format(excuteSQLText)
+              self.driver.execute_script(excuteJs)   
+              
             sleep(1)
             #选中所有
-            # targetInputEle.send_keys(controlKey, "a")
+            targetInputEle.send_keys(controlKey, "a")
+            sleep(2)
+            # SQL 语句美化
+            beautySQLBtn = webWaitEle(self, (By.NAME, 'sqlEditorFormatBtn'))
+            beautySQLBtn.click()
+            sleep(2)
+            # 执行语句并刷新数据库列表
+            targetInputEle.send_keys(controlKey, "a")
+            sleep(2)
+            runSQLBtn = webWaitEle(self, (By.NAME, 'sqlEditorRunBtn'))
+            runSQLBtn.click()
+            sleep(5)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['executeSQLEditorStatement'], closeModal)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['updateSQLEditorFile'], closeModal)
+            webWaitEle(self, (By.NAME, 'sqlEditorRefreshBtn')).click()
+            sleep(5)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['querySQLEditorMeta'], closeModal)
             sleep(5)
             
-            # # 执行语句并刷新数据库列表
-            # webWaitEle(self, (By.NAME, 'sqlEditorRunBtn')).click()
-            # sleep(5)
-            # util.getRequsetInfo(
-            #     self, self.driver, apiDict['executeSQLEditorStatement'], closeModal)
-            # util.getRequsetInfo(
-            #     self, self.driver, apiDict['updateSQLEditorFile'], closeModal)
-            # webWaitEle(self, (By.NAME, 'sqlEditorRefreshBtn')).click()
-            # sleep(5)
-            # util.getRequsetInfo(
-            #     self, self.driver, apiDict['querySQLEditorMeta'], closeModal)
-            # sleep(5)
-        
-        # 删除测试数据库
-        # getCodemirrorSendKeys(self, 'drop database if exists {};'.format(testDBName))
+        #删除测试数据库
+        dropTextArr = ['drop database if exists {};'.format(testDBName)]
+        getCodemirrorSendKeys(self, dropTextArr)
         
         # 创建测试数据库
-        # getCodemirrorSendKeys(self, createDBText)
-        getCodemirrorSendKeys(self, excuteSQLText)
+        getCodemirrorSendKeys(self, [createDBText])
         
-        # # 选中创建的测试数据库
-        # webWaitEle(self, (By.NAME, 'sqlEditorDBSelect')).click()
-        # sleep(1)
-        # sqlEditorDBSelectDropdownEle = webWaitEle(self, (By.CLASS_NAME, 'sqlEditorDBSelect'))
-        # sqlEditorDBSelectOptions = sqlEditorDBSelectDropdownEle.find_elements(By.CLASS_NAME, 'ant-select-item-option-content')
+        # 选中创建的测试数据库
+        webWaitEle(self, (By.NAME, 'sqlEditorDBSelect')).click()
+        sleep(1)
+        sqlEditorDBSelectDropdownEle = webWaitEle(self, (By.CLASS_NAME, 'sqlEditorDBSelect'))
+        sqlEditorDBSelectOptions = sqlEditorDBSelectDropdownEle.find_elements(By.CLASS_NAME, 'ant-select-item-option-content')
         
-        # if len(sqlEditorDBSelectOptions) > 0:
-        #    for sqlEditorDBSelectOption in sqlEditorDBSelectOptions:
-        #        sqlEditorDBSelectOptionText = util.getElementText(self, sqlEditorDBSelectOption)
-        #        if testDBName in sqlEditorDBSelectOptionText:
-        #            sqlEditorDBSelectOption.click()
-        #            sleep(1)
-        #            util.getRequsetInfo(
-        #                self, self.driver, apiDict['createSQLEditorSession'], closeModal)
-        #            util.getRequsetInfo(
-        #                self, self.driver, apiDict['querySQLEditorFileList'], closeModal)
-        #            getCodemirrorSendKeys(self, excuteSQLText)
-        #            break
-        #        else:
-        #            pass
-        # else:
-        #    pass
+        if len(sqlEditorDBSelectOptions) > 0:
+           for sqlEditorDBSelectOption in sqlEditorDBSelectOptions:
+               sqlEditorDBSelectOptionText = util.getElementText(self, sqlEditorDBSelectOption)
+               if testDBName in sqlEditorDBSelectOptionText:
+                   sqlEditorDBSelectOption.click()
+                   sleep(1)
+                   util.getRequsetInfo(
+                       self, self.driver, apiDict['createSQLEditorSession'], closeModal)
+                   util.getRequsetInfo(
+                       self, self.driver, apiDict['querySQLEditorFileList'], closeModal)
+                   getCodemirrorSendKeys(self, excuteSQLArr)
+                   break
+               else:
+                   pass
+        else:
+           pass
          
+        sleep(5)
         
-
+        # 点击执行历史
+        historyBoxEle = webWaitEle(self, (By.CLASS_NAME, 'antd-pro-pages-cluster-index-queryHistoryList'))
         
+        try:
+          historyItems = historyBoxEle.find_elements(By.CLASS_NAME, 'antd-pro-pages-cluster-index-queryHistoryItem')
+          if len(historyItems) > 0:
+            firstHistoryItem = historyItems[0]
+            firstHistoryItem.click()
+            sleep(2)
+            util.getRequsetInfo(
+                self, self.driver, apiDict['executeSQLEditorStatement'], closeModal)
+        except:
+          pass
         
-        
-            
-      
+        # 查看执行信息 和 执行计划
+        sleep(2)
+        radiogGroupBoxEle = webWaitEle(self, (By.CLASS_NAME, 'bottomSqlTableType'))
+        radioEles = radiogGroupBoxEle.find_elements(By.TAG_NAME, 'label')
+        for radioEle in radioEles:
+          radioEle.click()
+          sleep(2)
 
-        # # 退出登录
-        # webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
-        # sleep(1)
-        # webWaitEle(self, (By.CLASS_NAME, 'anticon-logout')).click()
 
-        # sleep(2)
+        # 退出登录
+        webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
+        sleep(1)
+        webWaitEle(self, (By.CLASS_NAME, 'anticon-logout')).click()
 
-        # self.driver.quit()
+        sleep(2)
+
+        self.driver.quit()
 
 
 if __name__ == '__main__':
