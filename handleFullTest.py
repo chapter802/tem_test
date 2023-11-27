@@ -745,6 +745,7 @@ class Test(object):
         if len(editBtns) > 0:
             lastEditBtn = editBtns[-1]
             lastEditBtn.click()
+            sleep(1)
             policyNameEle = webWaitEle(self, (By.ID, 'Name'))
             util.clearInput(policyNameEle)
             policyNameEle.send_keys('selenium_policy' + randomStr + '_edit')

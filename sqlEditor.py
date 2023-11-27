@@ -199,32 +199,36 @@ class Test(object):
         # 获取codeMirror元素 -> 清空 -> 填充执行语句 -> 全选 -> 执行语句 -> 刷新数据库列表
         def getCodemirrorSendKeys(self, text):
             sqlEditorCodeMirrorEle = webWaitEle(self, (By.CLASS_NAME, 'sqlEditorCodeMirror'))
-            webdriver.ActionChains(self.driver).move_to_element(sqlEditorCodeMirrorEle).click(sqlEditorCodeMirrorEle).perform()
-            targetInputEle = webWaitEle(self, (By.CLASS_NAME, 'cm-content'))
-            targetInputEle.send_keys(controlKey, "a")
-            targetInputEle.send_keys(Keys.BACK_SPACE)
-            sleep(3)
-            targetInputEle.send_keys(text)
+            # webdriver.ActionChains(self.driver).move_to_element(sqlEditorCodeMirrorEle).click(sqlEditorCodeMirrorEle).perform()
+            targetInputEle = webWaitEle(self, (By.CLASS_NAME, 'cm-line'))
+  
+            # script = "arguments[0].text = '{}'".format(excuteSQLText) #excuteSQLText
+            # self.driver.execute_script(script, targetInputEle)
+            targetInputEle.send_keys(excuteSQLText)
+            # targetInputEle.send_keys(controlKey, "a")
+            # targetInputEle.send_keys(Keys.BACK_SPACE)
+            # sleep(3)
+            # targetInputEle.send_keys(text)
             sleep(1)
             #选中所有
-            targetInputEle.send_keys(controlKey, "a")
+            # targetInputEle.send_keys(controlKey, "a")
             sleep(5)
             
-            # 执行语句并刷新数据库列表
-            webWaitEle(self, (By.NAME, 'sqlEditorRunBtn')).click()
-            sleep(5)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['executeSQLEditorStatement'], closeModal)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['updateSQLEditorFile'], closeModal)
-            webWaitEle(self, (By.NAME, 'sqlEditorRefreshBtn')).click()
-            sleep(5)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['querySQLEditorMeta'], closeModal)
-            sleep(5)
+            # # 执行语句并刷新数据库列表
+            # webWaitEle(self, (By.NAME, 'sqlEditorRunBtn')).click()
+            # sleep(5)
+            # util.getRequsetInfo(
+            #     self, self.driver, apiDict['executeSQLEditorStatement'], closeModal)
+            # util.getRequsetInfo(
+            #     self, self.driver, apiDict['updateSQLEditorFile'], closeModal)
+            # webWaitEle(self, (By.NAME, 'sqlEditorRefreshBtn')).click()
+            # sleep(5)
+            # util.getRequsetInfo(
+            #     self, self.driver, apiDict['querySQLEditorMeta'], closeModal)
+            # sleep(5)
         
         # 删除测试数据库
-        getCodemirrorSendKeys(self, 'drop database if exists {};'.format(testDBName))
+        # getCodemirrorSendKeys(self, 'drop database if exists {};'.format(testDBName))
         
         # 创建测试数据库
         # getCodemirrorSendKeys(self, createDBText)
@@ -261,14 +265,14 @@ class Test(object):
             
       
 
-        # 退出登录
-        webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
-        sleep(1)
-        webWaitEle(self, (By.CLASS_NAME, 'anticon-logout')).click()
+        # # 退出登录
+        # webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
+        # sleep(1)
+        # webWaitEle(self, (By.CLASS_NAME, 'anticon-logout')).click()
 
-        sleep(2)
+        # sleep(2)
 
-        self.driver.quit()
+        # self.driver.quit()
 
 
 if __name__ == '__main__':
