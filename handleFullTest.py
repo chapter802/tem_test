@@ -224,10 +224,10 @@ class Test(object):
                     By.CLASS_NAME, 'ant-drawer-close').click()
             else:
                 pass
-        
-        # 滑动到顶部     
+
+        # 滑动到顶部
         def scrollToTop(self):
-            js = "var q=document.documentElement.scrollTop=0" 
+            js = "var q=document.documentElement.scrollTop=0"
             self.driver.execute_script(js)
             sleep(2)
 
@@ -241,13 +241,13 @@ class Test(object):
             sleep(1)
 
             if confirmType == 1:
-              confirmModalEle = webWaitEle(self, (
-                By.CLASS_NAME, 'ant-modal-confirm-body'))
-              confirmModalEle.find_element(
-                By.CLASS_NAME, 'ant-modal-confirm-btns').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
+                confirmModalEle = webWaitEle(self, (
+                    By.CLASS_NAME, 'ant-modal-confirm-body'))
+                confirmModalEle.find_element(
+                    By.CLASS_NAME, 'ant-modal-confirm-btns').find_element(By.CLASS_NAME, 'ant-btn-primary').click()
             elif confirmType == 2:
                 webWaitEle(self, (
-                By.CSS_SELECTOR, 'div.ant-popover-buttons > button:nth-child(2)')).click()
+                    By.CSS_SELECTOR, 'div.ant-popover-buttons > button:nth-child(2)')).click()
                 sleep(1)
             elif confirmType == 3:
                 pass
@@ -280,7 +280,7 @@ class Test(object):
             util.clearInput(logFileEle)
             logFileEle.send_keys(randomLogFile)
             sleep(1)
-            
+
         def __selectDate(self):
             randomDate = random.choice(shortCutDateIDs)
             self.driver.find_element(By.NAME, 'rangePickerShortcut').click()
@@ -311,7 +311,8 @@ class Test(object):
         updateHostModalEle = webWaitEle(self, (
             By.CLASS_NAME, 'updateHostModal'))
         updateHostModalEle.find_element(By.ID, 'IP').send_keys(hostIP)
-        updateHostModalEle.find_element(By.ID, 'UserName').send_keys(hostUserName)
+        updateHostModalEle.find_element(
+            By.ID, 'UserName').send_keys(hostUserName)
         updateHostModalEle.find_element(By.ID, 'Password').send_keys(hostPwd)
         updateHostModalEle.find_element(By.ID, 'SSHPort').send_keys('22')
 
@@ -387,7 +388,7 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict['updateHost'], closeModal)
         sleep(10)
-        
+
         # 主机详情
         sleep(2)
         testHostEle.click()
@@ -398,9 +399,9 @@ class Test(object):
             By.CLASS_NAME, 'ant-modal-content')).find_element(By.CLASS_NAME, 'ant-modal-close')
         hostDetailCloseBtn.click()
         sleep(1)
-        
+
         scrollToTop(self)
-        
+
         # 批量添加主机
         webWaitEle(self, (By.NAME, 'batchAddHostBtn')).click()
         sleep(1)
@@ -423,7 +424,7 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict['createHost'], closeModal)
         sleep(1)
-        
+
         # 主机规格管理
         webWaitEle(self, (By.NAME, 'hostSpecManageBtn')).click()
         sleep(1)
@@ -469,14 +470,13 @@ class Test(object):
             else:
                 util.getRequsetInfo(
                     self, self.driver, apiDict['updateSpec'], closeModal)
-                
-                
+
         # 创建主机规格
         webWaitEle(self, (By.NAME, 'addHostSpecBtn')).click()
         webWaitEle(self, (By.ID, 'Name')).send_keys(
             'selenium_test_' + randomStr)
-        updateSpecInfo(self, True)       
-                
+        updateSpecInfo(self, True)
+
         # 编辑主机规格
         updateHostSpecBtns = self.driver.find_elements(
             By.NAME, 'updateHostSpecBtn')
@@ -588,7 +588,7 @@ class Test(object):
         js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
         self.driver.execute_script(js)
         sleep(3)
-        
+
         if isTargetIP:
             js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
             self.driver.execute_script(js)
@@ -616,10 +616,10 @@ class Test(object):
         else:
             backToClusterList()
             pass
-          
+
         # sleep(180) # 等待 3 分钟 等待集群创建成功
         backToClusterList()
-        
+
         # 备份恢复
         webWaitEle(self, (By.NAME, 'menu.backup')).click()
         sleep(1)
@@ -650,7 +650,7 @@ class Test(object):
             self, self.driver, apiDict['backupCluster'], closeModal)
         # 等待十秒备份
         sleep(10)
-        
+
         scrollToTop(self)
         # 手动恢复
         webWaitEle(self, (By.NAME, 'manualRecoveryBtn')).click()
@@ -737,7 +737,7 @@ class Test(object):
             self, self.driver, apiDict['createBackupPolicy'], closeModal)
 
         sleep(10)
-        
+
         # 编辑备份策略
         webWaitEle(self, (By.NAME, 'backupPolicyEditBtn'))
         editBtns = self.driver.find_elements(
@@ -796,23 +796,21 @@ class Test(object):
             sleep(1)
             util.getRequsetInfo(
                 self, self.driver, apiDict['deleteBackupPolicy'], closeModal)
-            
+
         else:
             pass
-      
+
         # 告警管理
         webWaitEle(self, (By.NAME, 'menu.alert')).click()
-      
+
         # 告警事件
-        
-        
-        #告警规则
+
+        # 告警规则
         webWaitEle(self, (By.NAME, 'menu.alert.rules')).click()
         sleep(1)
         util.getRequsetInfo(
-            self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal) 
-      
-                
+            self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal)
+
         # 查询告警规则
         for x in alertLevels:
             webWaitEle(self, (
@@ -834,9 +832,9 @@ class Test(object):
                 sleep(2)
                 util.getRequsetInfo(
                     self, self.driver, apiDict['queryAlertRuleList'], closeModal)
-        
+
         sleep(2)
-      
+
         # 新增告警规则
         webWaitEle(self, (
             By.NAME, 'alertRulesAddBtn')).click()
@@ -1018,7 +1016,7 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['deleteAlertRule'], closeModal)
         sleep(5)
-        
+
         # 告警通道
         webWaitEle(self, (
             By.NAME, 'menu.alert.channel')).click()
@@ -1144,18 +1142,18 @@ class Test(object):
                 sleep(1)
                 util.getRequsetInfo(
                     self, self.driver, apiDict['deleteAlertChannel'], closeModal)
-            
+
         else:
-          pass
-        
+            pass
+
         sleep(2)
-        
+
         # 告警事件
         webWaitEle(self, (By.NAME, 'menu.alert.event')).click()
-        sleep(12) # 告警事件请求时间较长
+        sleep(12)  # 告警事件请求时间较长
         util.getRequsetInfo(
             self, self.driver, apiDict['queryAlertEventList'], closeModal)
-        
+
         for x in alertLevels:
             webWaitEle(self, (
                 By.NAME, 'alertEventLevelSelect')).click()
@@ -1188,11 +1186,11 @@ class Test(object):
                     sleep(12)
                     util.getRequsetInfo(
                         self, self.driver, apiDict['queryAlertEventList'], closeModal)
-        
+
         sleep(2)
-        
+
         backToClusterList()
-       
+
         # 单个集群 - 概览
         # 找到测试的集群
         def findTestCluster():
@@ -1217,8 +1215,8 @@ class Test(object):
                                     apiDict[api], closeModal)
 
         findTestCluster()
-        
-         # 单个集群 - 监控指标
+
+        # 单个集群 - 监控指标
         webWaitEle(self, (By.NAME, 'menu.cluster.single.monitor')).click()
         sleep(1)
         util.getRequsetInfo(
@@ -1298,7 +1296,7 @@ class Test(object):
         # 诊断报告
         perfRadioBtns[2].click()
         sleep(2)
-        selectTimePicker(self, 'reportStartTime') 
+        selectTimePicker(self, 'reportStartTime')
         sleep(1)
         selectComp(self, 'rangeStep', 'rangeStep_', rangeStepArr, startDiaLog)
         # 日志检索
@@ -1335,12 +1333,12 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['backupCluster'], closeModal)
         sleep(2)
-        
+
         try:
-           webWaitEle(self, (By.NAME, 'backupConfigBtn'))
+            webWaitEle(self, (By.NAME, 'backupConfigBtn'))
         except:
-           webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
-            By.CLASS_NAME, 'ant-btn-default').click()
+            webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
+                By.CLASS_NAME, 'ant-btn-default').click()
         sleep(1)
 
         # 备份设置
@@ -1375,7 +1373,7 @@ class Test(object):
                 By.CLASS_NAME, 'ant-btn-default').click()
 
         webWaitEle(self, (By.NAME, 'targetClusterIDSelect')).click()
-        
+
         try:
             targetClusterIDOptions = webWaitEle(self, (By.CLASS_NAME, 'targetClusterIDSelect')).find_elements(
                 By.CLASS_NAME, 'ant-select-item-option')
@@ -1402,7 +1400,7 @@ class Test(object):
         except:
             pass
         sleep(1)
-        
+
         # 单个集群 - 参数管理
         webWaitEle(self, (By.NAME, 'menu.cluster.single.param')).click()
         sleep(5)
@@ -1414,7 +1412,7 @@ class Test(object):
             self, self.driver, apiDict['queryParamTemplateParams'], closeModal)
 
         sleep(1)
-        
+
         # 单个集群 - 集群拓扑
         webWaitEle(self, (By.NAME, 'menu.cluster.single.topology')).click()
         sleep(2)
@@ -1422,112 +1420,121 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict[api], closeModal)
 
-
-         # 扩容集群      
+         # 扩容集群
         scaleClusterBtn = webWaitEle(self, (By.NAME, 'scaleClusterBtn'))
         scaleClusterBtn.click()
         sleep(1)
-        
+
         if isElementExist(self, By.CLASS_NAME, 'noHostResourceTipModal'):
-          noResourceModalEle = webWaitEle(self, (By.CLASS_NAME, 'noHostResourceTipModal'))
-          noResourceModalEle.find_element(By.CLASS_NAME, 'ant-btn-primary').click()
+            noResourceModalEle = webWaitEle(
+                self, (By.CLASS_NAME, 'noHostResourceTipModal'))
+            noResourceModalEle.find_element(
+                By.CLASS_NAME, 'ant-btn-primary').click()
         else:
-          isTargetIP = True
-          for comp in scaleCompArr:
-            sleep(2)
-            webWaitEle(self, (By.NAME, 'componentSelect')).click()
-            sleep(2)
-            compSelectOptions = webWaitEle(self, (By.CLASS_NAME, 'componentSelect')).find_elements(
-                By.CLASS_NAME, 'ant-select-item-option')
-            
-            # 添加 tikv / tidb / pd / tiflash 节点
-            for compSelectOption in compSelectOptions:
-              compTitle = compSelectOption.get_attribute('title')
-              if comp == compTitle:
-                compSelectOption.click()
-                sleep(1)
-                scaleIPSelectEle = webWaitEle(self, (By.NAME, 'topoHostSelect'))
-                scaleIPSelectEle.click()
-                sleep(1)
-                clusterIPSelectDropdownEle = self.driver.find_element(
-                    By.CLASS_NAME, 'topoHostSelect')
-                curOptions = clusterIPSelectDropdownEle.find_elements(
+            isTargetIP = True
+            for comp in scaleCompArr:
+                sleep(2)
+                webWaitEle(self, (By.NAME, 'componentSelect')).click()
+                sleep(2)
+                compSelectOptions = webWaitEle(self, (By.CLASS_NAME, 'componentSelect')).find_elements(
                     By.CLASS_NAME, 'ant-select-item-option')
-                for opIndex, curOption in enumerate(curOptions):
-                  contentEle = curOption.find_element(
-                      By.CLASS_NAME, 'ant-select-item-option-content')
-                  curText = util.getElementText(self, contentEle)
-                  if curText == scaleHostIP:
-                      self.driver.execute_script( "arguments[0].scrollIntoView();",  curOption)
-                      sleep(1)
-                      curOption.click()
-                      sleep(1)
-                      break
-                  elif opIndex == len(curOptions) - 1:
-                      scaleIPSelectEle.click()
-                      isTargetIP = False
-                      break
-                  else:
-                      pass
-                    
-            webWaitEle(self, (By.NAME, 'topoAddCompBtn')).click()
-            sleep(1)
-          
-                
-          if isTargetIP:
-            sleep(1)
-            webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
-            sleep(5)
-            util.getRequsetInfo(
-                self, self.driver, apiDict['scaleCluster'], closeModal)
-            sleep(180) # 等待集群扩容完成 3 分钟
-          else:
-              pass
-              
+
+                # 添加 tikv / tidb / pd / tiflash 节点
+                for compSelectOption in compSelectOptions:
+                    compTitle = compSelectOption.get_attribute('title')
+                    if comp == compTitle:
+                        compSelectOption.click()
+                        sleep(1)
+                        scaleIPSelectEle = webWaitEle(
+                            self, (By.NAME, 'topoHostSelect'))
+                        scaleIPSelectEle.click()
+                        sleep(1)
+                        clusterIPSelectDropdownEle = self.driver.find_element(
+                            By.CLASS_NAME, 'topoHostSelect')
+                        curOptions = clusterIPSelectDropdownEle.find_elements(
+                            By.CLASS_NAME, 'ant-select-item-option')
+                        for opIndex, curOption in enumerate(curOptions):
+                            contentEle = curOption.find_element(
+                                By.CLASS_NAME, 'ant-select-item-option-content')
+                            curText = util.getElementText(self, contentEle)
+                            if curText == scaleHostIP:
+                                self.driver.execute_script(
+                                    "arguments[0].scrollIntoView();",  curOption)
+                                sleep(1)
+                                curOption.click()
+                                sleep(1)
+                                break
+                            elif opIndex == len(curOptions) - 1:
+                                scaleIPSelectEle.click()
+                                isTargetIP = False
+                                break
+                            else:
+                                pass
+
+                topoAddCompBtn = webWaitEle(self, (By.NAME, 'topoAddCompBtn'))
+                self.driver.execute_script(
+                    "arguments[0].scrollIntoView();", topoAddCompBtn)
+                sleep(1)
+                topoAddCompBtn.click()
+                sleep(1)
+
+            if isTargetIP:
+                sleep(1)
+                webWaitEle(self, (By.NAME, 'topoScaleConfirmBtn')).click()
+                sleep(5)
+                util.getRequsetInfo(
+                    self, self.driver, apiDict['scaleCluster'], closeModal)
+                sleep(180)  # 等待集群扩容完成 3 分钟
+            else:
+                closeModal(self)
+
         # 缩容集群
         def findScaleInClusterEle(self, compName, opBtnName):
-          classStr = '%sChildTable' % compName
-          compTableEle = webWaitEle(self, (By.CLASS_NAME, classStr))
-          try: 
-            compEle = compTableEle.find_element(By.XPATH, ".//*[contains(text(),'%s')]" % scaleHostIP)
-            compParentEle = compEle.find_element(By.XPATH, "../..").find_element(By.NAME, opBtnName)
-            return compParentEle
-          except:
-            return None
-          
+            classStr = '%sChildTable' % compName
+            compTableEle = webWaitEle(self, (By.CLASS_NAME, classStr))
+            try:
+                compEle = compTableEle.find_element(
+                    By.XPATH, ".//*[contains(text(),'%s')]" % scaleHostIP)
+                compParentEle = compEle.find_element(
+                    By.XPATH, "../..").find_element(By.NAME, opBtnName)
+                return compParentEle
+            except:
+                return None
+
         # 展开需要删除的组件
         topoExpandComsArr = ['TiKV', 'TiDB', 'PD', 'TiFlash']
-        
+
         for topoExpandCom in topoExpandComsArr:
-          try: 
-            compExpandEle = webWaitEle(self, (By.NAME, '%s_plus' % topoExpandCom))
-            compExpandEle.click()
-            sleep(2)
-          except:
-            pass
-          
+            try:
+                compExpandEle = webWaitEle(
+                    self, (By.NAME, '%s_plus' % topoExpandCom))
+                compExpandEle.click()
+                sleep(2)
+            except:
+                pass
+
         # 找到目标组件 删除操作
         topoDeleteComsArr = ['tikv', 'tidb', 'pd', 'tiflash']
         for topoDeleteCom in topoDeleteComsArr:
-          try: 
-            compEle = findScaleInClusterEle(self, topoDeleteCom, 'deleteTopoNodeBtn')
-            if compEle != None:
-              compEle.click()
-              sleep(2)
-              webWaitEle(self, (By.CLASS_NAME, 'deleteTopoNodeModal')).find_element(
-                          By.CLASS_NAME, 'ant-btn-primary').click()
-              sleep(5)
-              util.getRequsetInfo(
-                          self, self.driver, apiDict['scaleCluster'], closeModal)
-              sleep(180)
-            else:
-              pass
-          except:
-            pass
-          
+            try:
+                compEle = findScaleInClusterEle(
+                    self, topoDeleteCom, 'deleteTopoNodeBtn')
+                if compEle != None:
+                    compEle.click()
+                    sleep(2)
+                    webWaitEle(self, (By.CLASS_NAME, 'deleteTopoNodeModal')).find_element(
+                        By.CLASS_NAME, 'ant-btn-primary').click()
+                    sleep(5)
+                    util.getRequsetInfo(
+                        self, self.driver, apiDict['scaleCluster'], closeModal)
+                    sleep(180)
+                else:
+                    pass
+            except:
+                pass
+
         # SQL 编辑器
-        # 待补充  
-        
+        # 待补充
 
         # 修改巡检策略
         # 滚动到页面顶部
@@ -1581,13 +1588,13 @@ class Test(object):
         self.driver.execute_script(js)
         sleep(3)
         lastPolicyAliasBtn = inspecPolicyAliasBtns[-1]
-        
+
         # randomPolicyAliasBtn = random.choice(inspecPolicyAliasBtns)
         # self.driver.execute_script(
         #     "arguments[0].scrollIntoView();", randomPolicyAliasBtn)
         # sleep(1)
         # randomPolicyAliasBtn.click()
-        
+
         lastPolicyAliasBtn.click()
         sleep(1)
         util.getRequsetInfo(
@@ -1655,7 +1662,7 @@ class Test(object):
         util.getRequsetInfo(
             self, self.driver, apiDict['deleteInspection'], closeModal)
         sleep(2)
-        
+
         # 参数组模板
         # 滚动到页面顶部
         scrollToTop(self)
@@ -1673,7 +1680,7 @@ class Test(object):
             self, self.driver, apiDict['clusterList'], closeModal)
         self.driver.find_element(By.TAG_NAME, 'body').click()
         sleep(1)
-        
+
         # 创建参数组模板
         webWaitEle(self, (By.NAME, 'createParamTempBtn')).click()
         webWaitEle(self, (By.ID, 'Name')).send_keys(
@@ -1793,7 +1800,7 @@ class Test(object):
                 self, self.driver, apiDict['deleteParamTemplate'], closeModal)
 
         sleep(5)
-        
+
         # 系统审计
        # 审计配置
         auditSwitchEle = webWaitEle(self, (By.NAME, 'auditSwitch'))
@@ -1840,7 +1847,7 @@ class Test(object):
         changeAuditStatus(self, setSeleniumAudit)
 
         sleep(3)
-        
+
         # 审计日志
         webWaitEle(self, (By.NAME, 'menu.audit.log')).click()
         sleep(2)
@@ -1848,7 +1855,7 @@ class Test(object):
             self, self.driver, apiDict['queryAuditLogOption'], closeModal)
         util.getRequsetInfo(
             self, self.driver, apiDict['queryAuditLog'], closeModal)
-        
+
         for d in shortCutDateIDs:
             webWaitEle(self, (By.NAME, 'rangePickerShortcut')).click()
             sleep(2)
@@ -1882,7 +1889,7 @@ class Test(object):
                 By.CLASS_NAME, 'ant-modal-content')).find_element(By.CLASS_NAME, 'ant-modal-close')
             taskflowDetailCloseBtn.click()
             sleep(1)
-      
+
         # 退出登录
         webWaitEle(self, (By.CLASS_NAME,
                    'antd-pro-components-global-header-index-account')).click()
