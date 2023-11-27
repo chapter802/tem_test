@@ -294,7 +294,6 @@ class Test(object):
           radioEle.click()
           sleep(2)
 
-
         # 退出登录
         webWaitEle(self, (By.CLASS_NAME, 'antd-pro-components-global-header-index-account')).click()
         sleep(1)
