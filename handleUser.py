@@ -32,14 +32,6 @@ class TestParamsTemp(object):
         self.driver.implicitly_wait(10)
 
     def test(self):
-        def autoPage(self):
-            nextPageEl = self.driver.find_element(
-                By.CLASS_NAME, 'ant-table-pagination').find_element(By.CLASS_NAME, 'ant-pagination-next')
-            a = nextPageEl.get_attribute('aria-disabled')
-            if a == 'false':
-                nextPageEl.click()
-                sleep(3)
-
         def closeModal(self):
             try:
                 notiCLoseEle = self.driver.find_element(
@@ -69,47 +61,6 @@ class TestParamsTemp(object):
         def webWaitEle(self, locator):
             return WebDriverWait(self.driver, 20, 0.5).until(
                 EC.visibility_of_element_located(locator))
-
-        def selectDate(self, cb=None):
-            randomDate = random.choice(shortCutDateIDs)
-            self.driver.find_element(By.NAME, 'rangePickerShortcut').click()
-            webWaitEle(self, (
-                By.NAME, shortCutName.format(id=randomDate))).click()
-            if cb:
-                cb(self)
-
-        def selectTimePicker(self, compName):
-            datePicker = self.driver.find_element(By.NAME, compName)
-            datePicker.click()
-            parentEle = self.driver.find_element(By.CLASS_NAME, compName)
-
-            timePanel = parentEle.find_element(
-                By.CLASS_NAME, 'ant-picker-time-panel')
-            timeColums = timePanel.find_elements(
-                By.CLASS_NAME, 'ant-picker-time-panel-column')
-            hourCellBox = timeColums[0]
-            hourCells = hourCellBox.find_elements(
-                By.CLASS_NAME, 'ant-picker-time-panel-cell')
-            randomHour = random.choice(hourCells)
-            self.driver.execute_script(
-                "arguments[0].scrollIntoView();", randomHour)
-            randomHour.click()
-            sleep(1)
-
-            minuteCellBox = timeColums[1]
-            minuteCells = minuteCellBox.find_elements(
-                By.CLASS_NAME, 'ant-picker-time-panel-cell')
-            randomMinute = random.choice(minuteCells)
-            self.driver.execute_script(
-                "arguments[0].scrollIntoView();", randomMinute)
-            randomMinute.click()
-            sleep(1)
-
-            datePickerFooter = parentEle.find_element(
-                By.CLASS_NAME, 'ant-picker-footer')
-            datePickerFooter.find_element(
-                By.CLASS_NAME, 'ant-btn-primary').click()
-            sleep(1)
             
         # 滑动到顶部
         def scrollToTop(self):
@@ -209,7 +160,6 @@ class TestParamsTemp(object):
           sleep(1)
           targetTrEle = targetUserTextEle.find_element(
               By.XPATH, '../..')
-          print('--------->', targetTrEle.get_attribute('innerHTML'))  
           deleteUserBtn = targetTrEle.find_element(
               By.NAME, 'deleteUserBtn')
           deleteUserBtn.click()
@@ -298,7 +248,7 @@ class TestParamsTemp(object):
         logout(self)
         
         # 登录 user_test 用户 删除 user_test3 用户
-        deleteUser(self, 'user_test2')
+        deleteUser(self, 'user_test3')
         
         # 创建 user_test4 用户 alert manager 角色
         createUser(self, 'user_test4', 2)
@@ -307,12 +257,14 @@ class TestParamsTemp(object):
         login(self, testServer, 'user_test4', userPwd)
         
         try:
-          # 跳转到告警管理页面
+          # 跳转到告警管理 - 告警规则页面
           webWaitEle(self, (By.NAME, 'menu.alert')).click()
-          sleep(2)
-          util.getRequsetInfo(
-              self, self.driver, apiDict['alertList'], closeModal)
+          webWaitEle(self, (By.NAME, 'menu.alert.rules')).click()
           sleep(1)
+          util.getRequsetInfo(
+              self, self.driver, apiDict['queryAlertRuleIndicators'], closeModal)
+          sleep(1)
+          webWaitEle(self, (By.NAME, 'alertRulesAddBtn'))
           self.logger.info('user_test4 用户有告警管理权限')
         except:
           self.logger.error('user_test4 用户没有告警管理权限')
@@ -330,11 +282,12 @@ class TestParamsTemp(object):
         login(self, testServer, 'user_test5', userPwd)
         
         try:
-          # 跳转到告警管理页面
+          # 跳转到告警管理 - 告警事件页面
           webWaitEle(self, (By.NAME, 'menu.alert')).click()
-          sleep(2)
+          webWaitEle(self, (By.NAME, 'menu.alert.event')).click()
+          sleep(1)
           util.getRequsetInfo(
-              self, self.driver, apiDict['alertList'], closeModal)
+              self, self.driver, apiDict['queryAlertEventList'], closeModal)
           sleep(1)
           self.logger.info('user_test5 用户有告警管理只读权限')
         except:
@@ -342,7 +295,136 @@ class TestParamsTemp(object):
           
         # 退出登录
         logout(self)
+        
+        # 登录 user_test 用户 删除 user_test5 用户
+        deleteUser(self, 'user_test5')
+        
+        # 创建 user_test6 用户 backup manager 角色
+        createUser(self, 'user_test6', 4)
+        
+        # 登录 user_test6 用户 检查备份管理权限
+        login(self, testServer, 'user_test6', userPwd)
+        
+        try:
+          # 跳转到备份管理页面
+          webWaitEle(self, (By.NAME, 'menu.backup')).click()
+          sleep(1)
+          util.getRequsetInfo(
+            self, self.driver, apiDict['queryBackupTaskList'], closeModal)
+          util.getRequsetInfo(
+            self, self.driver, apiDict['queryBackupTopSummary'], closeModal)
+          sleep(1)
+          webWaitEle(self, (By.NAME, 'manualBackupBtn'))
+          self.logger.info('user_test6 用户有备份管理权限')
+        except:
+          self.logger.error('user_test6 用户没有备份管理权限')
           
+        # 退出登录
+        logout(self)
+        
+        # 登录 user_test 用户 删除 user_test6 用户  
+        deleteUser(self, 'user_test6')
+        
+        # 创建 user_test7 用户 backup reader 角色
+        createUser(self, 'user_test7', 5)
+        
+        # 登录 user_test7 用户 检查备份管理权限
+        login(self, testServer, 'user_test7', userPwd)
+        
+        try:
+          # 跳转到备份管理页面
+          webWaitEle(self, (By.NAME, 'menu.backup')).click()
+          sleep(1)
+          util.getRequsetInfo(
+            self, self.driver, apiDict['queryBackupTaskList'], closeModal)
+          util.getRequsetInfo(
+            self, self.driver, apiDict['queryBackupTopSummary'], closeModal)
+          sleep(1)
+          self.logger.info('user_test7 用户有备份管理只读权限')
+        except:
+          self.logger.error('user_test7 用户没有备份管理权限')
+          
+        # 退出登录
+        logout(self)
+        
+        # 登录 user_test 用户 删除 user_test7 用户
+        deleteUser(self, 'user_test7')
+        
+        # 创建 user_test8 用户 host manager 角色
+        createUser(self, 'user_test8', 8)
+        
+        # 登录 user_test8 用户 检查主机管理权限
+        login(self, testServer, 'user_test8', userPwd)
+        
+        try:
+          # 跳转到主机管理页面
+          webWaitEle(self, (By.NAME, 'menu.host')).click()
+          sleep(1)
+          util.getRequsetInfo(
+              self, self.driver, apiDict['queryHostList'], closeModal)
+          sleep(1)
+          webWaitEle(self, (By.NAME, 'createHostBtn'))
+          self.logger.info('user_test8 用户有主机管理权限')
+        except:
+          self.logger.error('user_test8 用户没有主机管理权限')
+          
+        # 退出登录
+        logout(self)
+        
+        # 登录 user_test 用户 删除 user_test8 用户
+        deleteUser(self, 'user_test8')
+        
+        # 创建 user_test9 用户 host reader 角色
+        createUser(self, 'user_test9', 9)
+        
+        # 登录 user_test9 用户 检查主机管理权限
+        login(self, testServer, 'user_test9', userPwd)
+        
+        try:
+          # 跳转到主机管理页面
+          webWaitEle(self, (By.NAME, 'menu.host')).click()
+          sleep(1)
+          util.getRequsetInfo(
+              self, self.driver, apiDict['queryHostList'], closeModal)
+          sleep(1)
+          self.logger.info('user_test9 用户有主机管理只读权限')
+        except:
+          self.logger.error('user_test9 用户没有主机管理权限')
+          
+        # 退出登录
+        logout(self)
+        
+        # 登录 user_test 用户 删除 user_test9 用户
+        deleteUser(self, 'user_test9')
+        
+        # 创建 user_test10 用户 audit manager 角色
+        createUser(self, 'user_test10', 11)
+        
+        # 登录 user_test10 用户 检查审计管理权限
+        login(self, testServer, 'user_test10', userPwd)
+        
+        try:
+          # 跳转到审计管理页面
+          webWaitEle(self, (By.NAME, 'menu.audit')).click()
+          sleep(1)
+          util.getRequsetInfo(
+              self, self.driver, apiDict['queryAuditList'], closeModal)
+          sleep(1)
+          self.logger.info('user_test10 用户有审计管理权限')
+        except:
+          self.logger.error('user_test10 用户没有审计管理权限')
+          
+        # 退出登录
+        logout(self)
+        
+        # 登录 user_test 用户 删除 user_test10 用户
+        deleteUser(self, 'user_test10')
+        
+        sleep(5)
+        
+        # 退出登录
+        logout(self)
+        
         sleep(5)
 
         self.driver.quit()
