@@ -105,6 +105,12 @@ class TestParamsTemp(object):
             datePickerFooter.find_element(
                 By.CLASS_NAME, 'ant-btn-primary').click()
             sleep(1)
+            
+        # 滑动到顶部
+        def scrollToTop(self):
+            js = "var q=document.documentElement.scrollTop=0"
+            self.driver.execute_script(js)
+            sleep(2)
 
         self.driver.get('http://172.16.6.62:8080/login')
         webWaitEle(self, (By.ID, 'userID')).send_keys('selenium_test')
@@ -115,8 +121,7 @@ class TestParamsTemp(object):
             self, self.driver, apiDict['login'], closeModal)
 
         # 滚动到页面顶部
-        self.driver.find_element(By.TAG_NAME, 'body').send_keys(
-            Keys.CONTROL + Keys.HOME)
+        scrollToTop(self)
 
         webWaitEle(self, (By.NAME, 'headSettingIcon')).click()
         sleep(1)

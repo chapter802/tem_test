@@ -653,6 +653,7 @@ class Test(object):
 
         scrollToTop(self)
         # 手动恢复
+        closeModal(self)
         webWaitEle(self, (By.NAME, 'manualRecoveryBtn')).click()
 
         def selectBackupRecoveryCluster(self):
