@@ -693,7 +693,7 @@ class Test(object):
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-default').click()
 
-         # 管理备份策略
+        # 管理备份策略
         webWaitEle(self, (By.NAME, 'policyBtn')).click()
         sleep(1)
         util.getRequsetInfo(
@@ -738,6 +738,7 @@ class Test(object):
             self, self.driver, apiDict['createBackupPolicy'], closeModal)
 
         sleep(10)
+        closeModal(self)
 
         # 编辑备份策略
         webWaitEle(self, (By.NAME, 'backupPolicyEditBtn'))
@@ -1703,41 +1704,41 @@ class Test(object):
                 if 'xinyi_test' in option.get_attribute('title') and 'ant-select-item-option-disabled' not in option.get_attribute('class'):
                     option.click()
                     break
-        paramTempParamsWrapperEle = webWaitEle(
-            self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
-        paramTypeTabs = paramTempParamsWrapperEle.find_elements(
-            By.CLASS_NAME, 'ant-tabs-tab')
-        for tab in paramTypeTabs:
-            tab.click()
-            curNodeKey = tab.get_attribute('data-node-key')
-            for i in range(random.randint(1, 3)):
-                webWaitEle(
-                    self, (By.NAME, 'addParamBtn_' + curNodeKey)).click()
-            sleep(1)
+        # paramTempParamsWrapperEle = webWaitEle(
+        #     self, (By.CLASS_NAME, 'ant-tabs-nav-wrap'))
+        # paramTypeTabs = paramTempParamsWrapperEle.find_elements(
+        #     By.CLASS_NAME, 'ant-tabs-tab')
+        # for tab in paramTypeTabs:
+            # tab.click()
+            # curNodeKey = tab.get_attribute('data-node-key')
+            # for i in range(random.randint(1, 3)):
+            #     webWaitEle(
+            #         self, (By.NAME, 'addParamBtn_' + curNodeKey)).click()
+            # sleep(1)
 
-            paramTempParamSelects = self.driver.find_elements(
-                By.NAME, 'paramsSelect_' + curNodeKey)
+            # paramTempParamSelects = self.driver.find_elements(
+            #     By.NAME, 'paramsSelect_' + curNodeKey)
 
-            if len(paramTempParamSelects) > 0:
-                for select in paramTempParamSelects:
-                    select.click()
-                    paramTempParamSelectOptions = webWaitEle(
-                        self, (By.CLASS_NAME, 'paramsSelect_' + curNodeKey)).find_elements(By.CLASS_NAME, 'ant-select-item-option')
-                    if len(paramTempParamSelectOptions) > 0:
-                        randomParamTempParamSelectOption = random.choice(
-                            paramTempParamSelectOptions)
-                        self.driver.execute_script(
-                            "arguments[0].scrollIntoView();", randomParamTempParamSelectOption)
-                        sleep(1)
-                        if 'ant-select-item-option-disabled' not in randomParamTempParamSelectOption.get_attribute('class'):
-                            randomParamTempParamSelectOption.click()
-                            sleep(1)
-                        else:
-                            pass
-                    else:
-                        pass
+            # if len(paramTempParamSelects) > 0:
+            #     for select in paramTempParamSelects:
+            #         select.click()
+            #         paramTempParamSelectOptions = webWaitEle(
+            #             self, (By.CLASS_NAME, 'paramsSelect_' + curNodeKey)).find_elements(By.CLASS_NAME, 'ant-select-item-option')
+            #         if len(paramTempParamSelectOptions) > 0:
+            #             randomParamTempParamSelectOption = random.choice(
+            #                 paramTempParamSelectOptions)
+            #             self.driver.execute_script(
+            #                 "arguments[0].scrollIntoView();", randomParamTempParamSelectOption)
+            #             sleep(1)
+            #             if 'ant-select-item-option-disabled' not in randomParamTempParamSelectOption.get_attribute('class'):
+            #                 randomParamTempParamSelectOption.click()
+            #                 sleep(1)
+            #             else:
+            #                 pass
+            #         else:
+            #             pass
 
-            sleep(1)
+            # sleep(1)
 
         webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
             By.CLASS_NAME, 'ant-btn-primary').click()
