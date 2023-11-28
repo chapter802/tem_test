@@ -1398,7 +1398,7 @@ class Test(object):
                     By.CLASS_NAME, 'ant-btn-default').click()
         except:
             pass
-        sleep(1)
+        sleep(5)
 
         # 单个集群 - 参数管理
         webWaitEle(self, (By.NAME, 'menu.cluster.single.param')).click()

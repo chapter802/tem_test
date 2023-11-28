@@ -19,6 +19,11 @@ randomStr = util.get_random_string(6)
 apiKeyArr = ['queryParamTemplateList', 'queryParamTemplateParams', 'createParamTemplate', 'updateParamTemplate',
              'queryParamTemplateDetail', 'deleteParamTemplate', 'applyParamTemplate', 'applyConfigCluster', 'applyClusterToParamTemplate']
 
+# 集群管理列表页请求的接口
+mainPageApiArr = ['clusterList', 'clusterTops', 'clusterTopAlert',
+                  'clusterPerfSummary', 'clusterAlertSummary', 'queryClusterMonitorInfo']
+
+
 class TestParamsTemp(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
@@ -128,6 +133,7 @@ class TestParamsTemp(object):
           scrollToTop(self)
 
           webWaitEle(self, (By.NAME, 'headSettingIcon')).click()
+          sleep(1)
           webWaitEle(
               self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, 'menu.usermanage').click()
           sleep(1)
@@ -140,6 +146,8 @@ class TestParamsTemp(object):
           
         # 创建用户
         def createUser(self, userName, authIndex):
+          # 滚动到页面顶部
+          scrollToTop(self)
           # authIndex 0 全部权限 1:管理员权限 2:ALERT_MANAGER 3:ALERT_READER 4:BACKUP_MANAGER 5:BACKUP_READER 6:CLUSTER_MANAGER 7:CLUSTER_READER 8:HOST_MANAGER 9:HOST_READER 10:USER_MANAGER 11:AUDIT_MANAGER
           webWaitEle(self, (By.NAME, 'addUserBtn')).click()
           userModalEle = webWaitEle(self, (By.CLASS_NAME, 'updateUserInfoModal'))
@@ -211,7 +219,9 @@ class TestParamsTemp(object):
           deleteUserConfirmModal.find_element(By.CLASS_NAME, 'ant-modal-confirm-btns').find_element(
               By.CLASS_NAME, 'ant-btn-primary').click()
           sleep(1)
-          
+          util.getRequsetInfo(
+            self, self.driver, apiDict['deleteUser'], closeModal)
+          sleep(2)
 
         # 登录
         login(self, testServer, 'selenium_test', userPwd)
@@ -243,15 +253,96 @@ class TestParamsTemp(object):
         # 删除 user_test_1 用户
         deleteUser(self, 'user_test_1')
         
-        # 创建 user_test2 用户
+        # 创建 user_test2 用户 cluster manager 角色
         createUser(self, 'user_test2', 6)
         
+        login(self, testServer, 'user_test2', userPwd)
         
+        try:
+          # 跳转到集群列表页面
+          webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+          sleep(2)
+          for api in mainPageApiArr:
+              util.getRequsetInfo(
+                  self, self.driver, apiDict[api], closeModal)
+          sleep(1)
+          self.logger.info('user_test2 用户有集群管理所有权限')
+        except:
+          self.logger.error('user_test2 用户没有集群管理权限')
+          
+        # 退出登录
+        logout(self)
+          
+        # 登录 user_test 用户 删除 user_test2 用户
+        deleteUser(self, 'user_test2')
         
+        # 创建 user_test3 用户 cluster reader 角色
+        createUser(self, 'user_test3', 7)
         
-                
+        # 登录 user_test3 用户 检查集群管理权限
+        login(self, testServer, 'user_test3', userPwd)
         
-       
+        try:
+          # 跳转到集群列表页面
+          webWaitEle(self, (By.NAME, 'menu.cluster')).click()
+          sleep(2)
+          for api in mainPageApiArr:
+              util.getRequsetInfo(
+                  self, self.driver, apiDict[api], closeModal)
+          sleep(1)
+          self.logger.info('user_test3 用户有集群管理只读权限')
+        except:
+          self.logger.error('user_test3 用户没有集群管理权限')
+          
+        # 退出登录
+        logout(self)
+        
+        # 登录 user_test 用户 删除 user_test3 用户
+        deleteUser(self, 'user_test2')
+        
+        # 创建 user_test4 用户 alert manager 角色
+        createUser(self, 'user_test4', 2)
+        
+        # 登录 user_test4 用户 检查告警管理权限
+        login(self, testServer, 'user_test4', userPwd)
+        
+        try:
+          # 跳转到告警管理页面
+          webWaitEle(self, (By.NAME, 'menu.alert')).click()
+          sleep(2)
+          util.getRequsetInfo(
+              self, self.driver, apiDict['alertList'], closeModal)
+          sleep(1)
+          self.logger.info('user_test4 用户有告警管理权限')
+        except:
+          self.logger.error('user_test4 用户没有告警管理权限')
+          
+        # 退出登录
+        logout(self)
+        
+        # 登录 user_test 用户 删除 user_test4 用户
+        deleteUser(self, 'user_test4')
+        
+        # 创建 user_test5 用户 alert reader 角色
+        createUser(self, 'user_test5', 3)
+        
+        # 登录 user_test5 用户 检查告警管理权限
+        login(self, testServer, 'user_test5', userPwd)
+        
+        try:
+          # 跳转到告警管理页面
+          webWaitEle(self, (By.NAME, 'menu.alert')).click()
+          sleep(2)
+          util.getRequsetInfo(
+              self, self.driver, apiDict['alertList'], closeModal)
+          sleep(1)
+          self.logger.info('user_test5 用户有告警管理只读权限')
+        except:
+          self.logger.error('user_test5 用户没有告警管理权限')
+          
+        # 退出登录
+        logout(self)
+          
         sleep(5)
 
         self.driver.quit()
