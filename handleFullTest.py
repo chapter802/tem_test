@@ -773,7 +773,6 @@ class Test(object):
             sleep(1)
             util.getRequsetInfo(
                 self, self.driver, apiDict['updateBackupPolicy'], closeModal)
-
         else:
             pass
 
@@ -796,7 +795,6 @@ class Test(object):
             sleep(1)
             util.getRequsetInfo(
                 self, self.driver, apiDict['deleteBackupPolicy'], closeModal)
-
         else:
             pass
 
@@ -1142,7 +1140,6 @@ class Test(object):
                 sleep(1)
                 util.getRequsetInfo(
                     self, self.driver, apiDict['deleteAlertChannel'], closeModal)
-
         else:
             pass
 
@@ -1420,7 +1417,7 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict[api], closeModal)
 
-         # 扩容集群
+        # 扩容集群
         scaleClusterBtn = webWaitEle(self, (By.NAME, 'scaleClusterBtn'))
         scaleClusterBtn.click()
         sleep(1)
@@ -1635,6 +1632,7 @@ class Test(object):
         sleep(1)
         util.getRequsetInfo(
             self, self.driver, apiDict['updateInspecPolicy'], closeModal)
+        sleep(2)
 
         # 应用集群
         applyClusterBtns = self.driver.find_elements(

@@ -91,8 +91,6 @@ backupConcurrencyArr = [0, 4, 16, 128, 512]
 
 backupLogFileArr = ['', '/tmp/backup.log', '/ttest/backup.log']
 
-
-
 # 主机管理
 hostIP = '172.17.0.17'  # 62 测试环境
 # hostIP = '172.17.0.7'   # dev 环境
@@ -118,6 +116,10 @@ tiupPath = '/root/.tiup'  # 纳管集群 - tiup 部署路径
 # takeoverClusterPwd = 'Pingcap!@#456'  # 纳管集群 - 中控节点密码信息
 takeoverClusterHost = '127.0.0.1'  # 纳管集群 - 中控节点地址信息
 takeoverClusterPwd = 'tem'  # 纳管集群 - 中控节点密码信息
+
+# 参数组模板
+# 参数组模板名称 用于复制创建新的参数组模板
+paramTempVerNameArr = ['v6.1.x_default', 'v6.5.x_default', 'v7.1.x_default']
 
 # 单个集群
 rangeStepArr = ['5', '10', '30', '60', '120', '720', '1440']
