@@ -10,6 +10,8 @@ shortCutDateIDs = ['1', '2', '3', '4', '5',
                    '6', '7', '8', '9', '10', '11', '12']
 shortCutName = 'rangePickerShortcut{id}'
 
+userPwd = '123456'
+
 # 告警管理
 alertEventStatus = ['告警中', '已解决', '已忽略']
 
