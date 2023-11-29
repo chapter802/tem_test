@@ -79,14 +79,14 @@ class TestParamsTemp(object):
                 self, self.driver, apiDict['login'], closeModal)
         
         # 进入用户管理页面
-        def goToUserPage(self):
+        def goToUserPage(self, menuName='menu.usermanage'):
           # 滚动到页面顶部
           scrollToTop(self)
 
           webWaitEle(self, (By.NAME, 'headSettingIcon')).click()
           sleep(1)
           webWaitEle(
-              self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, 'menu.usermanage').click()
+              self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, menuName).click()
           sleep(1)
           util.getRequsetInfo(
               self, self.driver, apiDict['userList'], closeModal)
@@ -405,7 +405,7 @@ class TestParamsTemp(object):
         
         try:
           # 跳转到审计管理页面
-          webWaitEle(self, (By.NAME, 'menu.audit')).click()
+          goToUserPage(self, 'menu.audit')
           sleep(1)
           util.getRequsetInfo(
               self, self.driver, apiDict['queryAuditList'], closeModal)

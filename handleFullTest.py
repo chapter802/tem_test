@@ -692,6 +692,8 @@ class Test(object):
         else:
             webWaitEle(self, (By.CLASS_NAME, 'ant-modal-footer')).find_element(
                 By.CLASS_NAME, 'ant-btn-default').click()
+        
+        closeModal(self)
 
         # 管理备份策略
         webWaitEle(self, (By.NAME, 'policyBtn')).click()
