@@ -1804,7 +1804,21 @@ class Test(object):
         sleep(5)
 
         # 系统审计
-       # 审计配置
+        scrollToTop(self)
+        
+        webWaitEle(self, (By.NAME, 'headSettingIcon')).click()
+        sleep(1)
+        webWaitEle(
+            self, (By.CLASS_NAME, 'headerSettingDropdown')).find_element(By.NAME, 'menu.audit').click()
+        sleep(1)
+        util.getRequsetInfo(
+            self, self.driver, apiDict['userList'], closeModal)
+        util.getRequsetInfo(
+            self, self.driver, apiDict['queryAuditList'], closeModal)
+        self.driver.find_element(By.TAG_NAME, 'body').click()
+        sleep(1)
+        
+        # 审计配置
         auditSwitchEle = webWaitEle(self, (By.NAME, 'auditSwitch'))
 
         def changeAuditStatus(self, cb=None):
