@@ -981,6 +981,8 @@ class Test(object):
             util.getRequsetInfo(
                 self, self.driver, apiDict['updateAlertRule'], closeModal)
             sleep(2)
+            
+        closeModal(self)
         # 启用停用告警规则
         scrollToTop(self)
         sleep(2)
