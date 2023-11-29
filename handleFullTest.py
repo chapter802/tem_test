@@ -128,6 +128,7 @@ class Test(object):
             randomHour = random.choice(hourCells)
             self.driver.execute_script(
                 "arguments[0].scrollIntoView();", randomHour)
+            sleep(1)
             randomHour.click()
             sleep(1)
 
