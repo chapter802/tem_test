@@ -125,12 +125,16 @@ class Test(object):
             hourCellBox = timeColums[0]
             hourCells = hourCellBox.find_elements(
                 By.CLASS_NAME, 'ant-picker-time-panel-cell')
-            randomHour = random.choice(hourCells)
-            self.driver.execute_script(
-                "arguments[0].scrollIntoView();", randomHour)
-            sleep(1)
-            randomHour.click()
-            sleep(1)
+            try: 
+              randomHour = random.choice(hourCells)
+              # self.driver.execute_script(
+              #     "arguments[0].scrollIntoView();", randomHour)
+              sleep(1)
+              randomHour.click()
+              sleep(1)
+            except:
+              hourCells[0].click()
+              sleep(1)
 
             minuteCellBox = timeColums[1]
             minuteCells = minuteCellBox.find_elements(
