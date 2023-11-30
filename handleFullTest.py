@@ -235,7 +235,13 @@ class Test(object):
             js = "var q=document.documentElement.scrollTop=0"
             self.driver.execute_script(js)
             sleep(2)
-
+            
+        # 滑动到底部
+        def scrollToBottom(self):
+            js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
+            self.driver.execute_script(js)
+            sleep(3)
+        
         # 表格目标元素操作 confirmType 1: Confirm 2: popconfirm 3: direct
         def handleTableOperation(self, targetEle, opBtnName, confirmType=3):
             parentEle = targetEle.find_element(By.XPATH, '..')
@@ -590,21 +596,15 @@ class Test(object):
 
             sleep(1)
 
-        js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-        self.driver.execute_script(js)
-        sleep(3)
+        scrollToBottom(self)
 
         if isTargetIP:
-            js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-            self.driver.execute_script(js)
-            sleep(3)
+            scrollToBottom(self)
 
             webWaitEle(self, (By.NAME, 'previewClusterBtn')).click()
 
             if isElementWaitExist(self, (By.CLASS_NAME, 'ant-table-thead')):
-                js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-                self.driver.execute_script(js)
-                sleep(3)
+                scrollToBottom(self)
                 webWaitEle(self, (By.NAME, 'createClusterBtn')).click()
                 sleep(30)
                 util.getRequsetInfo(
@@ -1592,9 +1592,7 @@ class Test(object):
         #  巡检策略详情
         inspecPolicyAliasBtns = self.driver.find_elements(
             By.NAME, 'inspecPolicyAliasBtn')
-        js = "var q=document.documentElement.scrollTop=10000"  # 滑动到底部
-        self.driver.execute_script(js)
-        sleep(3)
+        scrollToBottom(self)
         lastPolicyAliasBtn = inspecPolicyAliasBtns[-1]
 
         # randomPolicyAliasBtn = random.choice(inspecPolicyAliasBtns)
@@ -1613,9 +1611,7 @@ class Test(object):
         updateInspectionPolicyBtns = self.driver.find_elements(
             By.NAME, 'updateInspectionPolicyBtn')
         lastUpdateInspectionPolicyBtn = updateInspectionPolicyBtns[-1]
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView();", lastUpdateInspectionPolicyBtn)
-        sleep(1)
+        scrollToBottom(self)
         lastUpdateInspectionPolicyBtn.click()
         sleep(1)
         inpspecModalAlias = webWaitEle(self, (By.ID, 'Alias'))
